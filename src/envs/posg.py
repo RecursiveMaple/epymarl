@@ -100,7 +100,8 @@ class PosgGymWrapper(MultiAgentEnv):
             done = all(done)
         if isinstance(truncated, Iterable):
             truncated = all(truncated)
-        return self._obs, reward, done, truncated, self._info
+        # infos is given per agent and is not compatible with gym envs, return empty dict instead
+        return self._obs, reward, done, truncated, {}
 
     def get_obs(self):
         """Returns all agent observations in a list"""
@@ -145,7 +146,7 @@ class PosgGymWrapper(MultiAgentEnv):
         """Returns initial observations and info"""
         obs, info = self._env.reset(seed=seed, options=options)
         self._obs = self._pad_observation(self._posg_to_gym(obs))
-        return self._obs, info
+        return self._obs, {}
 
     def render(self):
         self._env.render()

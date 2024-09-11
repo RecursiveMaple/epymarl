@@ -26,6 +26,7 @@ six
 sk-video
 snakeviz
 tensorboard-logger
+tensorboard
 torch
 torchvision
 tornado

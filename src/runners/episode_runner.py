@@ -90,15 +90,15 @@ class EpisodeRunner:
                 self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode
             )
 
-            _, reward, terminated, truncated, env_info = self.env.step(actions[0])
-            terminated = terminated or truncated
+            _, reward, done, truncated, env_info = self.env.step(actions[0])
+            terminated = done or truncated
             if test_mode and self.args.render:
                 self.env.render()
             episode_return += reward
 
             post_transition_data = {
                 "actions": actions,
-                "terminated": [(terminated != env_info.get("episode_limit", False),)],
+                "terminated": [(done,)],
             }
             if self.args.common_reward:
                 post_transition_data["reward"] = [(reward,)]
