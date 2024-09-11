@@ -1,7 +1,6 @@
 absl-py
 attrs
 click
-gymnasium
 idna
 imageio
 matplotlib
