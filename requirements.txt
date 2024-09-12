@@ -1,7 +1,6 @@
 absl-py
 attrs
 click
-gymnasium
 idna
 imageio
 matplotlib
@@ -27,6 +26,7 @@ six
 sk-video
 snakeviz
 tensorboard-logger
+tensorboard
 torch
 torchvision
 tornado
@@ -34,3 +34,4 @@ urllib3
 websocket-client
 whichcraft
 wrapt
+posggym

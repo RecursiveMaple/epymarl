@@ -1,0 +1,20 @@
+env: "posggym"
+
+env_args:
+  key: "PredatorPrey-v0"
+  grid: "10x10"
+  num_prey: 4
+  time_limit: 100
+  pretrained_wrapper: null
+
+use_tensorboard: True
+save_model: True
+save_model_interval: 50000
+
+test_greedy: True
+test_nepisode: 100
+test_interval: 50000
+log_interval: 50000
+runner_log_interval: 10000
+learner_log_interval: 10000
+t_max: 2050000

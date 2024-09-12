@@ -3,6 +3,7 @@ import sys
 
 from .multiagentenv import MultiAgentEnv
 from .gymma import GymmaWrapper
+from .posg import PosgGymWrapper
 from .smaclite_wrapper import SMACliteWrapper
 
 
@@ -32,10 +33,14 @@ def gymma_fn(**kwargs) -> MultiAgentEnv:
     assert "common_reward" in kwargs and "reward_scalarisation" in kwargs
     return GymmaWrapper(**kwargs)
 
+def posggym_fn(**kwargs) -> MultiAgentEnv:
+    assert "common_reward" in kwargs and "reward_scalarisation" in kwargs
+    return PosgGymWrapper(**kwargs)
 
 REGISTRY = {}
 REGISTRY["smaclite"] = smaclite_fn
 REGISTRY["gymma"] = gymma_fn
+REGISTRY["posggym"] = posggym_fn
 
 
 # registering both smac and smacv2 causes a pysc2 error
