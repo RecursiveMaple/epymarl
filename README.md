@@ -13,6 +13,33 @@ EPyMARL is  an extension of [PyMARL](https://github.com/oxwhirl/pymarl), and inc
 
 See our blog post here: https://agents.inf.ed.ac.uk/blog/epymarl/
 
+## Update on supporting new environment
+
+### Install Notes
+
+```sh
+pip install requirements.txt
+pip install env_requirements.txt
+```
+
+### Run Posggym Experiments
+
+Write your env configs in src/config/envs/pg_configs/xxx.yaml
+
+```sh
+python src/main.py --config=mappo --env-config=pg_configs/predator_prey_s10_n4
+python src/main.py --config=mappo --env-config=pg_configs/lb_foraging_s10_n4_tuple
+python src/main.py --config=mappo --env-config=pg_configs/predator_prey_s10_n4
+```
+
+### Plotting Results
+
+```sh
+python plot_results.py --path results --save_dir [save_to]
+```
+
+See plot_results.py
+
 ## Update as of *July 2024*!
 
 ### Update to Gymnasium
@@ -62,8 +89,18 @@ python src/main.py --config=pac_ns --env-config=gymma with env_args.time_limit=1
 
 # Table of Contents
 - [Extended Python MARL framework - EPyMARL](#extended-python-marl-framework---epymarl)
+  - [Update on supporting new environment](#update-on-supporting-new-environment)
+    - [Install Notes](#install-notes)
+    - [Run Posggym Experiments](#run-posggym-experiments)
+    - [Plotting Results](#plotting-results)
+  - [Update as of *July 2024*!](#update-as-of-july-2024)
+    - [Update to Gymnasium](#update-to-gymnasium)
+    - [Support for training in environments with individual rewards for all agents](#support-for-training-in-environments-with-individual-rewards-for-all-agents)
+    - [Weights and Biases (W\&B) Logging](#weights-and-biases-wb-logging)
+    - [Plotting script](#plotting-script)
+  - [Update as of *15th July 2023*!](#update-as-of-15th-july-2023)
 - [Table of Contents](#table-of-contents)
-- [Installation & Run instructions](#installation--run-instructions)
+- [Installation \& Run instructions](#installation--run-instructions)
   - [Installing Dependencies](#installing-dependencies)
   - [Benchmark Paper Experiments](#benchmark-paper-experiments)
   - [Experiments in SMACv2 and SMAClite](#experiments-in-smacv2-and-smaclite)
@@ -76,7 +113,7 @@ python src/main.py --config=pac_ns --env-config=gymma with env_args.time_limit=1
   - [Saving models](#saving-models)
   - [Loading models](#loading-models)
 - [Plotting](#plotting)
-- [Citing PyMARL and EPyMARL](#citing-pymarl-and-epymarl)
+- [Citing EPyMARL and PyMARL](#citing-epymarl-and-pymarl)
 - [License](#license)
 
 # Installation & Run instructions

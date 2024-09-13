@@ -34,4 +34,3 @@ urllib3
 websocket-client
 whichcraft
 wrapt
-posggym
