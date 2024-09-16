@@ -13,6 +13,24 @@ EPyMARL is  an extension of [PyMARL](https://github.com/oxwhirl/pymarl), and inc
 
 See our blog post here: https://agents.inf.ed.ac.uk/blog/epymarl/
 
+## Update on supporting LLM kickstarting
+
+### Install Notes
+
+```sh
+pip install llm_requirements.txt
+```
+
+### Run algo_xxx with LLM
+
+Write your llm configs in src/config/llms/xxx.yaml, put api key in yaml config file or in command line:
+
+
+```sh
+# run mappo with llm, experiment name will be mappo_llm
+python src/main.py --config=mappo --env-config=pg_configs/coop_reaching_s10_n4_original --llm-config=glm_4_air with llm_args.key=abcdefg
+```
+
 ## Update on supporting new environment
 
 ### Install Notes
@@ -89,8 +107,11 @@ python src/main.py --config=pac_ns --env-config=gymma with env_args.time_limit=1
 
 # Table of Contents
 - [Extended Python MARL framework - EPyMARL](#extended-python-marl-framework---epymarl)
-  - [Update on supporting new environment](#update-on-supporting-new-environment)
+  - [Update on supporting LLM kickstarting](#update-on-supporting-llm-kickstarting)
     - [Install Notes](#install-notes)
+    - [Run algo\_xxx with LLM](#run-algo_xxx-with-llm)
+  - [Update on supporting new environment](#update-on-supporting-new-environment)
+    - [Install Notes](#install-notes-1)
     - [Run Posggym Experiments](#run-posggym-experiments)
     - [Plotting Results](#plotting-results)
   - [Update as of *July 2024*!](#update-as-of-july-2024)
