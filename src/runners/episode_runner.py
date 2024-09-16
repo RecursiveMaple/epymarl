@@ -5,6 +5,7 @@ import numpy as np
 from components.episode_buffer import EpisodeBatch
 from envs import REGISTRY as env_REGISTRY
 from envs import register_smac, register_smacv2
+from teachers import LLMTeacher
 
 
 class EpisodeRunner:
@@ -26,6 +27,9 @@ class EpisodeRunner:
             common_reward=self.args.common_reward,
             reward_scalarisation=self.args.reward_scalarisation,
         )
+        self.teacher = None
+        if self.args.llm is not None:
+            self.teacher = LLMTeacher(args, self.env)
         self.episode_limit = self.env.episode_limit
         self.t = 0
 
@@ -59,10 +63,14 @@ class EpisodeRunner:
 
     def close_env(self):
         self.env.close()
+        if self.teacher is not None:
+            self.teacher.close()
 
     def reset(self):
         self.batch = self.new_batch()
         self.env.reset()
+        if self.teacher is not None:
+            self.teacher.reset()
         self.t = 0
 
     def run(self, test_mode=False):
@@ -76,10 +84,12 @@ class EpisodeRunner:
         self.mac.init_hidden(batch_size=self.batch_size)
 
         while not terminated:
+            raw_avail_actions = self.env.get_avail_actions()
+            raw_obs = self.env.get_obs()
             pre_transition_data = {
                 "state": [self.env.get_state()],
-                "avail_actions": [self.env.get_avail_actions()],
-                "obs": [self.env.get_obs()],
+                "avail_actions": [raw_avail_actions],
+                "obs": [raw_obs],
             }
 
             self.batch.update(pre_transition_data, ts=self.t)
@@ -104,15 +114,22 @@ class EpisodeRunner:
                 post_transition_data["reward"] = [(reward,)]
             else:
                 post_transition_data["reward"] = [tuple(reward)]
+            if self.teacher is not None and not test_mode:
+                teacher_actions = self.teacher.select_actions(
+                    raw_obs, raw_avail_actions
+                )
+                post_transition_data["teacher_pi"] = [teacher_actions]
 
             self.batch.update(post_transition_data, ts=self.t)
 
             self.t += 1
 
+        raw_avail_actions = self.env.get_avail_actions()
+        raw_obs = self.env.get_obs()
         last_data = {
             "state": [self.env.get_state()],
-            "avail_actions": [self.env.get_avail_actions()],
-            "obs": [self.env.get_obs()],
+            "avail_actions": [raw_avail_actions],
+            "obs": [raw_obs],
         }
         if test_mode and self.args.render:
             print(f"Episode return: {episode_return}")
@@ -123,6 +140,10 @@ class EpisodeRunner:
             self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode
         )
         self.batch.update({"actions": actions}, ts=self.t)
+        # TODO: whether to include teacher actions in the last step
+        if self.teacher is not None and not test_mode:
+            teacher_actions = self.teacher.select_actions(raw_obs, raw_avail_actions)
+            self.batch.update({"teacher_pi": [teacher_actions]}, ts=self.t)
 
         cur_stats = self.test_stats if test_mode else self.train_stats
         cur_returns = self.test_returns if test_mode else self.train_returns

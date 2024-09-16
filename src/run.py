@@ -1,17 +1,17 @@
 import datetime
 import os
-from os.path import dirname, abspath
 import pprint
 import shutil
-import time
 import threading
+import time
+from os.path import abspath, dirname
 from types import SimpleNamespace as SN
 
 import torch as th
 
-from controllers import REGISTRY as mac_REGISTRY
 from components.episode_buffer import ReplayBuffer
 from components.transforms import OneHot
+from controllers import REGISTRY as mac_REGISTRY
 from learners import REGISTRY as le_REGISTRY
 from runners import REGISTRY as r_REGISTRY
 from utils.general_reward_support import test_alg_config_supports_reward
@@ -50,7 +50,9 @@ def run(_run, _config, _log):
     args.unique_token = unique_token
     if args.use_tensorboard:
         tb_logs_direc = os.path.join(
-            dirname(dirname(abspath(__file__))), "results", "tb_logs"
+            dirname(dirname(abspath(__file__))),
+            _config["local_results_path"],
+            "tb_logs",
         )
         tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)
         logger.setup_tb(tb_exp_direc)
@@ -122,6 +124,12 @@ def run_sequential(args, logger):
         scheme["reward"] = {"vshape": (1,)}
     else:
         scheme["reward"] = {"vshape": (args.n_agents,)}
+    # For LLM
+    if args.llm:
+        scheme["teacher_pi"] = {
+            "vshape": (env_info["n_actions"],),
+            "group": "agents",
+        }
     groups = {"agents": args.n_agents}
     preprocess = {"actions": ("actions_onehot", [OneHot(out_dim=args.n_actions)])}
 

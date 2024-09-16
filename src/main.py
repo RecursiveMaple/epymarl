@@ -4,31 +4,33 @@ try:
 except:
     # from python 3.10
     from collections.abc import Mapping
-from copy import deepcopy
+
 import os
-from os.path import dirname, abspath
 import sys
-import yaml
+from copy import deepcopy
+from os.path import abspath, dirname
 
 import numpy as np
-from sacred import Experiment, SETTINGS
+import torch as th
+import yaml
+from sacred import SETTINGS, Experiment
 from sacred.observers import FileStorageObserver
 from sacred.utils import apply_backspaces_and_linefeeds
-import torch as th
 
-from utils.logging import get_logger
 from run import run
+from utils.logging import get_logger, suppress_logging_module
 
 SETTINGS["CAPTURE_MODE"] = (
     "fd"  # set to "no" if you want to see stdout/stderr in console
 )
 logger = get_logger()
+suppress_logging_module("git")
 
 ex = Experiment("pymarl")
 ex.logger = logger
 ex.captured_out_filter = apply_backspaces_and_linefeeds
 
-results_path = os.path.join(dirname(dirname(abspath(__file__))), "results")
+# results_path = os.path.join(dirname(dirname(abspath(__file__))), "results")
 # results_path = "/home/ubuntu/data"
 
 
@@ -106,6 +108,12 @@ if __name__ == "__main__":
     # config_dict = {**config_dict, **env_config, **alg_config}
     config_dict = recursive_dict_update(config_dict, env_config)
     config_dict = recursive_dict_update(config_dict, alg_config)
+    # Load the llm config if it exists
+    for param in params:
+        if param.startswith("--llm-config"):
+            llm_config = _get_config(params, "--llm-config", "llms")
+            config_dict = recursive_dict_update(config_dict, llm_config)
+            config_dict["name"] = config_dict["name"] + "_llm"
 
     try:
         map_name = config_dict["env_args"]["map_name"]
@@ -120,9 +128,16 @@ if __name__ == "__main__":
             map_name = param.split("=")[1]
         elif param.startswith("env_args.key"):
             map_name = param.split("=")[1]
+        elif param.startswith("local_results_path"):
+            config_dict["local_results_path"] = param.split("=")[1]
 
     # Save to disk by default for sacred
-    logger.info("Saving to FileStorageObserver in results/sacred.")
+    results_path = os.path.join(
+        dirname(dirname(abspath(__file__))), config_dict["local_results_path"]
+    )
+    logger.info(
+        f"Saving to FileStorageObserver in {config_dict['local_results_path']}/sacred."
+    )
     file_obs_path = os.path.join(
         results_path, f"sacred/{config_dict['name']}/{map_name}"
     )

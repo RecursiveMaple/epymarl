@@ -1,11 +1,12 @@
 from functools import partial
-from multiprocessing import Pipe, Process
+from multiprocessing import Manager, Pipe, Process
 
 import numpy as np
 
 from components.episode_buffer import EpisodeBatch
 from envs import REGISTRY as env_REGISTRY
 from envs import register_smac, register_smacv2
+from teachers import LLMTeacher
 
 
 # Based (very) heavily on SubprocVecEnv from OpenAI Baselines
@@ -34,10 +35,21 @@ class ParallelRunner:
             env_args[i]["seed"] += i
             env_args[i]["common_reward"] = self.args.common_reward
             env_args[i]["reward_scalarisation"] = self.args.reward_scalarisation
+        self.shared_dict = Manager().dict()
         self.ps = [
             Process(
                 target=env_worker,
-                args=(worker_conn, CloudpickleWrapper(partial(env_fn, **env_arg))),
+                args=(
+                    worker_conn,
+                    CloudpickleWrapper(partial(env_fn, **env_arg)),
+                    (
+                        CloudpickleWrapper(
+                            partial(LLMTeacher, args, shared_cache=self.shared_dict)
+                        )
+                        if self.args.llm is not None
+                        else None
+                    ),
+                ),
             )
             for env_arg, worker_conn in zip(env_args, self.worker_conns)
         ]
@@ -122,9 +134,16 @@ class ParallelRunner:
         envs_not_terminated = [
             b_idx for b_idx, termed in enumerate(terminated) if not termed
         ]
-        final_env_infos = []  # may store extra stats like battle won. this is filled in ORDER OF TERMINATION
+        # may store extra stats like battle won. this is filled in ORDER OF TERMINATION
+        final_env_infos = []
 
         while True:
+            # Get the teacher's policy for the current state
+            if self.args.llm is not None and not test_mode:
+                for idx, parent_conn in enumerate(self.parent_conns):
+                    if idx in envs_not_terminated:
+                        parent_conn.send(("get_teacher_pi", None))
+
             # Pass the entire batch of experiences up till now to the agents
             # Receive the actions for each agent at this timestep in a batch for each un-terminated env
             actions = self.mac.select_actions(
@@ -141,6 +160,17 @@ class ParallelRunner:
             self.batch.update(
                 actions_chosen, bs=envs_not_terminated, ts=self.t, mark_filled=False
             )
+
+            # Get the teacher's policy for the current state
+            if self.args.llm is not None and not test_mode:
+                teacher_pi = {"teacher_pi": []}
+                for idx, parent_conn in enumerate(self.parent_conns):
+                    if idx in envs_not_terminated:
+                        data = parent_conn.recv()
+                        teacher_pi["teacher_pi"].append(data)
+                self.batch.update(
+                    teacher_pi, bs=envs_not_terminated, ts=self.t, mark_filled=False
+                )
 
             # Send actions to each env
             action_idx = 0
@@ -285,12 +315,22 @@ class ParallelRunner:
         stats.clear()
 
 
-def env_worker(remote, env_fn):
+def env_worker(remote, env_fn, teacher_fn=None):
     # Make environment
     env = env_fn.x()
+    env_info = env.get_env_info()
+    teacher = None
+    if teacher_fn is not None:
+        teacher = teacher_fn.x(env)
+        teacher.args.n_agents = env_info["n_agents"]
+    avail_actions = None
+    obs = None
     while True:
         cmd, data = remote.recv()
-        if cmd == "step":
+        if cmd == "get_teacher_pi":
+            teacher_actions = teacher.select_actions(obs, avail_actions)
+            remote.send(teacher_actions)
+        elif cmd == "step":
             actions = data
             # Take a step in the environment
             _, reward, terminated, truncated, env_info = env.step(actions)
@@ -313,19 +353,26 @@ def env_worker(remote, env_fn):
             )
         elif cmd == "reset":
             env.reset()
+            if teacher_fn is not None:
+                teacher.reset()
+            test_mode = data
+            avail_actions = env.get_avail_actions()
+            obs = env.get_obs()
             remote.send(
                 {
                     "state": env.get_state(),
-                    "avail_actions": env.get_avail_actions(),
-                    "obs": env.get_obs(),
+                    "avail_actions": avail_actions,
+                    "obs": obs,
                 }
             )
         elif cmd == "close":
             env.close()
+            if teacher_fn is not None:
+                teacher.close()
             remote.close()
             break
         elif cmd == "get_env_info":
-            remote.send(env.get_env_info())
+            remote.send(env_info)
         elif cmd == "get_stats":
             remote.send(env.get_stats())
         elif cmd == "render":

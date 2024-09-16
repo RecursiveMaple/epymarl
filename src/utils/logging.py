@@ -1,7 +1,7 @@
-from collections import defaultdict
-from hashlib import sha256
 import json
 import logging
+from collections import defaultdict
+from hashlib import sha256
 
 import numpy as np
 
@@ -36,9 +36,10 @@ class Logger:
         assert (
             team_name is not None and project_name is not None
         ), "W&B logging requires specification of both `wandb_team` and `wandb_project`."
-        assert (
-            mode in ["offline", "online"]
-        ), f"Invalid value for `wandb_mode`. Received {mode} but only 'online' and 'offline' are supported."
+        assert mode in [
+            "offline",
+            "online",
+        ], f"Invalid value for `wandb_mode`. Received {mode} but only 'online' and 'offline' are supported."
 
         self.use_wandb = True
 
@@ -148,3 +149,7 @@ def get_logger():
     logger.setLevel("DEBUG")
 
     return logger
+
+
+def suppress_logging_module(module_name: str):
+    logging.getLogger(module_name).setLevel(logging.ERROR)

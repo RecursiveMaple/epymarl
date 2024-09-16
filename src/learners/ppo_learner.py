@@ -7,6 +7,7 @@ from torch.optim import Adam
 from components.episode_buffer import EpisodeBatch
 from components.standarize_stream import RunningMeanStd
 from modules.critics import REGISTRY as critic_resigtry
+from utils.rl_utils import value_from_linear_decay
 
 
 class PPOLearner:
@@ -47,6 +48,14 @@ class PPOLearner:
         mask = batch["filled"][:, :-1].float()
         mask[:, 1:] = mask[:, 1:] * (1 - terminated[:, :-1])
         actions = actions[:, :-1]
+        if self.args.llm:
+            teacher_pi = batch["teacher_pi"][:, :-1]
+            kickstart_coef = value_from_linear_decay(
+                t_env,
+                self.args.ks_coef_start,
+                self.args.ks_coef_end,
+                self.args.ks_duration,
+            )
 
         if self.args.standardise_rewards:
             self.rew_ms.update(rewards)
@@ -110,9 +119,17 @@ class PPOLearner:
                 / mask.sum()
             )
 
+            if self.args.llm:
+                kickstart_loss = (
+                    -(pi * teacher_pi * mask.unsqueeze(-1)).sum() / mask.sum()
+                )
+                loss = pg_loss + kickstart_coef * kickstart_loss
+            else:
+                loss = pg_loss
+
             # Optimise agents
             self.agent_optimiser.zero_grad()
-            pg_loss.backward()
+            loss.backward()
             grad_norm = th.nn.utils.clip_grad_norm_(
                 self.agent_params, self.args.grad_norm_clip
             )
@@ -151,6 +168,9 @@ class PPOLearner:
                 t_env,
             )
             self.logger.log_stat("pg_loss", pg_loss.item(), t_env)
+            if self.args.llm:
+                self.logger.log_stat("kickstart_coef", kickstart_coef, t_env)
+                self.logger.log_stat("kickstart_loss", kickstart_loss.item(), t_env)
             self.logger.log_stat("agent_grad_norm", grad_norm.item(), t_env)
             self.logger.log_stat(
                 "pi_max",
