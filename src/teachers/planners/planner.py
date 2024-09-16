@@ -14,8 +14,9 @@ class LLMPlanner:
         self.llm = llm_REGISTRY[args.llm](**args.llm_args)
 
     def plan(self, common_text: str, description: str) -> dict[tuple[str], float]:
-        if common_text in self.cache and description in self.cache[common_text]:
-            return self.cache[common_text][description]
+        cached_data = self.cache.get(common_text, description)
+        if cached_data is not None:
+            return cached_data
 
         plans = {}
         nsample = self.args.llm_nsample
@@ -31,9 +32,7 @@ class LLMPlanner:
                 self.cache.save()
                 raise ValueError(f"Query for plan failed.")
 
-        if common_text not in self.cache:
-            self.cache[common_text] = {}
-        self.cache[common_text][description] = plans
+        self.cache.set(common_text, description, plans)
         return plans
 
     def extract_plan(self, result: str) -> tuple[str]:
@@ -80,32 +79,28 @@ class PlanCache:
         if os.path.exists(self.cache_path):
             self.load()
 
+    def get(self, common_text: str, description: str):
+        if common_text not in self.cache:
+            return None
+        return self.cache[common_text].get(description, None)
+
+    def set(self, common_text: str, description: str, plans: dict[tuple[str], float]):
+        if common_text not in self.cache:
+            self.cache[common_text] = {}
+        if self.shared:
+            mutable = self.cache[common_text]
+            mutable[description] = plans
+            self.cache[common_text] = mutable
+        else:
+            self.cache[common_text][description] = plans
+
     def save(self):
         with open(self.cache_path, "wb") as f:
-            if self.shared:
-                pickle.dump(dict(self.cache), f)
-            else:
-                pickle.dump(self.cache, f)
+            pickle.dump(dict(self.cache), f)
 
     def load(self):
         self.cache.clear()
         with open(self.cache_path, "rb") as f:
             cache = pickle.load(f)
-            if cache is not None:
-                self.cache.update(cache)
+            self.cache.update(cache)
         return self.cache
-
-    def __getitem__(self, key):
-        return self.cache[key]
-
-    def __setitem__(self, key, value):
-        self.cache[key] = value
-
-    def __delitem__(self, key):
-        del self.cache[key]
-
-    def __iter__(self):
-        return iter(self.cache.keys())
-
-    def __len__(self):
-        return len(self.cache)
