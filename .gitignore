@@ -1,5 +1,5 @@
 venv
-results
+results*
 test.ipynb
 setup.md
 

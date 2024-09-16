@@ -1,0 +1,2 @@
+class LBForagingCodec:
+    pass

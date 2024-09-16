@@ -5,8 +5,9 @@ from torch.optim import Adam
 
 from components.episode_buffer import EpisodeBatch
 from components.standarize_stream import RunningMeanStd
-from modules.mixers.vdn import VDNMixer
 from modules.mixers.qmix import QMixer
+from modules.mixers.vdn import VDNMixer
+from utils.rl_utils import value_from_linear_decay
 
 
 class QLearner:
@@ -56,6 +57,14 @@ class QLearner:
         mask = batch["filled"][:, :-1].float()
         mask[:, 1:] = mask[:, 1:] * (1 - terminated[:, :-1])
         avail_actions = batch["avail_actions"]
+        if self.args.llm:
+            teacher_pi = batch["teacher_pi"][:, :-1]
+            kickstart_coef = value_from_linear_decay(
+                t_env,
+                self.args.ks_coef_start,
+                self.args.ks_coef_end,
+                self.args.ks_duration,
+            )
 
         if self.args.standardise_rewards:
             self.rew_ms.update(rewards)
@@ -76,7 +85,8 @@ class QLearner:
             mac_out.append(agent_outs)
         mac_out = th.stack(mac_out, dim=1)  # Concat over time
         # Pick the Q-Values for the actions taken by each agent
-        chosen_action_qvals = th.gather(mac_out[:, :-1], dim=3, index=actions).squeeze(
+        pi = mac_out[:, :-1]
+        chosen_action_qvals = th.gather(pi, dim=3, index=actions).squeeze(
             3
         )  # Remove the last dim
 
@@ -135,7 +145,13 @@ class QLearner:
         masked_td_error = td_error * mask
 
         # Normal L2 loss, take mean over actual data
-        loss = (masked_td_error**2).sum() / mask.sum()
+        td_loss = (masked_td_error**2).sum() / mask.sum()
+
+        if self.args.llm:
+            kickstart_loss = -(pi * teacher_pi * mask.unsqueeze(-1)).sum() / mask.sum()
+            loss = td_loss + kickstart_coef * kickstart_loss
+        else:
+            loss = td_loss
 
         # Optimise
         self.optimiser.zero_grad()
@@ -156,7 +172,10 @@ class QLearner:
             self._update_targets_soft(self.args.target_update_interval_or_tau)
 
         if t_env - self.log_stats_t >= self.args.learner_log_interval:
-            self.logger.log_stat("loss", loss.item(), t_env)
+            self.logger.log_stat("td_loss", td_loss.item(), t_env)
+            if self.args.llm:
+                self.logger.log_stat("kickstart_coef", kickstart_coef, t_env)
+                self.logger.log_stat("kickstart_loss", kickstart_loss.item(), t_env)
             self.logger.log_stat("grad_norm", grad_norm.item(), t_env)
             mask_elems = mask.sum().item()
             self.logger.log_stat(
