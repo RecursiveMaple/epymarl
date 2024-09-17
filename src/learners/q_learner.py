@@ -148,7 +148,10 @@ class QLearner:
         td_loss = (masked_td_error**2).sum() / mask.sum()
 
         if self.args.llm:
-            kickstart_loss = -(pi * teacher_pi * mask.unsqueeze(-1)).sum() / mask.sum()
+            kickstart_loss = (
+                -(th.softmax(pi, dim=-1) * teacher_pi * mask.unsqueeze(-1)).sum()
+                / mask.sum()
+            )
             loss = td_loss + kickstart_coef * kickstart_loss
         else:
             loss = td_loss

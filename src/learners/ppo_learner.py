@@ -121,7 +121,8 @@ class PPOLearner:
 
             if self.args.llm:
                 kickstart_loss = (
-                    -(pi * teacher_pi * mask.unsqueeze(-1)).sum() / mask.sum()
+                    -(th.softmax(pi, dim=-1) * teacher_pi * mask.unsqueeze(-1)).sum()
+                    / mask.sum()
                 )
                 loss = pg_loss + kickstart_coef * kickstart_loss
             else:
