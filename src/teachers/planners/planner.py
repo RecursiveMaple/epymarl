@@ -29,7 +29,7 @@ class LLMPlanner:
                 plans[plan] = plans.get(plan, 0) + 1 / nsample
                 break
             else:
-                self.cache.save()
+                self.cache.sync()
                 raise ValueError(f"Query for plan failed.")
 
         self.cache.set(common_text, description, plans)
@@ -61,9 +61,12 @@ class LLMPlanner:
                     return False
         return True
 
+    def reset(self):
+        self.cache.sync()
+
     def close(self):
         self.llm.close()
-        self.cache.save()
+        self.cache.sync()
 
 
 class PlanCache:
@@ -76,8 +79,7 @@ class PlanCache:
             args.local_results_path,
             f"{args.llm_cache_path}.pkl",
         )
-        if os.path.exists(self.cache_path):
-            self.load()
+        self.sync()
 
     def get(self, common_text: str, description: str):
         if common_text not in self.cache:
@@ -94,13 +96,21 @@ class PlanCache:
         else:
             self.cache[common_text][description] = plans
 
-    def save(self):
-        with open(self.cache_path, "wb") as f:
-            pickle.dump(dict(self.cache), f)
+    def sync(self):
+        storage = self._load()
+        storage.update(self.cache)
+        self._save(storage)
+        self.cache.update(storage)
 
-    def load(self):
-        self.cache.clear()
-        with open(self.cache_path, "rb") as f:
-            cache = pickle.load(f)
-            self.cache.update(cache)
-        return self.cache
+    def _save(self, cache_dict):
+        with open(self.cache_path, "wb") as f:
+            pickle.dump(cache_dict, f)
+
+    def _load(self):
+        cache_dict = {}
+        if os.path.exists(self.cache_path):
+            with open(self.cache_path, "rb") as f:
+                cache = pickle.load(f)
+                if cache is not None:
+                    cache_dict.update(cache)
+        return cache_dict

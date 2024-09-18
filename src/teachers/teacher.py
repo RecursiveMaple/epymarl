@@ -31,6 +31,7 @@ class LLMTeacher:
 
     def reset(self):
         self.codec.reset()
+        self.planner.reset()
 
     def close(self):
         self.planner.close()
