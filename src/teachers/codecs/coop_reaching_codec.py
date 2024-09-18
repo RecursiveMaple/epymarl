@@ -29,14 +29,12 @@ class CoopReachingCodec:
         self.args = env_args
         self.grids_size = env_args["size"]
         self.obs_space = env._posg_to_gym(env._env.unwrapped.observation_spaces)
-        # self.obs_distance = env_args.get("obs_distance", 2 * self.grids_size)
-        self.obs_distance = 1
+        self.obs_distance = env_args.get("obs_distance", 2 * self.grids_size)
 
         self.common_text = INTRO
         self.plan_space = PLAN_SPACE
         self._fog_grids = None
         self._goal_grids = None
-        self._temp_obs = None
         self.reset()
 
     def reset(self):
