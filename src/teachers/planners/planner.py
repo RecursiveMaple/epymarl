@@ -58,7 +58,9 @@ class LLMPlanner:
         if self.plan_space is not None:
             for p in plan:
                 if p not in self.plan_space:
-                    return False
+                    p_without_last_word = p.rsplit(" ", 1)[0]
+                    if p_without_last_word not in self.plan_space:
+                        return False
         return True
 
     def reset(self):
