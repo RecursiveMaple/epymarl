@@ -1,0 +1,15 @@
+llm: "glm"
+
+llm_args:
+  model: "GLM-4-Flash"
+  key: "699d2724609b25475e617af3e918288d.fj9v0UWEgfcURTm9"
+  top_p: 0.7
+  temperature: 0.7
+
+llm_cache_path: "glm4flash_cache"
+llm_nsample: 10
+llm_nretry: 5
+
+ks_coef_start: 10.0
+ks_coef_end: 0.1
+ks_duration: 1000000

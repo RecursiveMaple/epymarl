@@ -85,8 +85,8 @@ class CoopReachingCodec:
         plans: map from agents plan(tuple) to probability(float)
         """
         actions = [[0] * 5] * 2
+        obs0, obs1 = obs
         for plan, prob in plans.items():
-            obs0, obs1 = obs
             plan0, plan1 = plan
             if plan0 == plan1 == "follow other agent":
                 plan0 = plan1 = ("stand still", "stand still")
