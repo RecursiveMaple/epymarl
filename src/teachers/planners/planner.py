@@ -30,6 +30,7 @@ class LLMPlanner:
                 break
             else:
                 self.cache.sync()
+                print(f"{description}\n{result}\n{plan}")
                 raise ValueError(f"Query for plan failed.")
 
         self.cache.set(common_text, description, plans)
@@ -39,7 +40,7 @@ class LLMPlanner:
         """get plans from result"""
         plan = []
         # try to match plan with brackets first
-        pattern = r"^\s*agent\d+:\s*\[(.*?)\]"
+        pattern = r"^\s*agent\d+:\s*\[(.*?)(?:,|$|\])"
         plan.extend(re.findall(pattern, result, re.MULTILINE | re.IGNORECASE))
 
         # if no plans were found with brackets, try without brackets
@@ -105,14 +106,19 @@ class PlanCache:
         self.cache.update(storage)
 
     def _save(self, cache_dict):
-        with open(self.cache_path, "wb") as f:
-            pickle.dump(cache_dict, f)
+        if cache_dict:
+            with open(self.cache_path, "wb") as f:
+                pickle.dump(cache_dict, f)
 
+    # TODO: Avoid try-except
     def _load(self):
         cache_dict = {}
         if os.path.exists(self.cache_path):
             with open(self.cache_path, "rb") as f:
-                cache = pickle.load(f)
+                try:
+                    cache = pickle.load(f)
+                except Exception:
+                    cache = None
                 if cache is not None:
                     cache_dict.update(cache)
         return cache_dict
