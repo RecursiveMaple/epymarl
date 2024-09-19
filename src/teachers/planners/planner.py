@@ -75,8 +75,8 @@ class PlanCache:
         self.shared = shared_cache is not None
         self.cache = shared_cache if self.shared else {}
         self.cache_path = os.path.join(
-            dirname(dirname(dirname(dirname(abspath(__file__))))),
-            args.local_results_path,
+            dirname(abspath(__file__)),
+            "cache",
             f"{args.llm_cache_path}.pkl",
         )
         self.sync()
