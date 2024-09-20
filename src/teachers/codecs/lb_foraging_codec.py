@@ -19,6 +19,7 @@ TEMPLATE1 = "Workers can see each other. Worker0 is able to dismantle {} mines: 
 PLAN_SPACE = [
     "explore",
     "goto mine",
+    "dismantle mine",
     "stay put",
 ]
 
@@ -138,6 +139,10 @@ class LBForagingCodec:
         mines0, mines1 = self._mines_dicts
         for plan, prob in plans.items():
             plan0, plan1 = plan
+            if plan0.startswith("dismantle"):
+                plan0 = "goto" + plan0[9:]
+            if plan1.startswith("dismantle"):
+                plan1 = "goto" + plan1[9:]
             action0 = None
             if plan0.startswith("goto"):
                 target = plan0.rsplit(" ", 1)[1]
