@@ -4,22 +4,21 @@ from gymnasium.spaces import unflatten
 from .actors import REGISTRY as actor_registry
 
 INTRO = """
-You are a commander controlling two workers at different skill level to dismantle mines in a vast sea as quickly as possible. Some complex mines require two people to work together. Workers need to reduce the distance to 0 mile before working on mines. Each worker can perform the following actions: explore, goto mine X, dismantle nearby mines, stay put. Please briefly inference what the workers should do in current state, then specify next action for each worker. As a commander, you should give your workers precise and instant orders, not a series of wordy plans. Refer to the example below and output your answer in the format of the yaml file.
+You are a commander controlling two workers at different skill level to dismantle mines in a vast sea as quickly as possible. Some complex mines require two people to work together. Each worker can perform the following actions: explore, goto mine X, stay put. Please briefly inference what the workers should do in current state, then specify next action for each worker. Refer to the example below and output your answer in the format of the yaml file.
 Example:
-My prompt: Workers can see each other. Worker0 is able to dismantle 1 mines: (s1), worker1 is able to do 2: (s0,s1), and 1 mines need cooperation: (c0). The distance of each mine relative to worker0: (s0=5,s1=3,c0=1)miles, relative to worker1: (s0=0,s1=4,c0=1)miles.
+My prompt: Workers can see each other. Worker0 is able to dismantle 1 mines: (s1), worker1 is able to do 2: (s0,s1), and 1 mines need cooperation: (c0). The distance of each mine relative to worker0: (s0:near,s1:medium,c0:near), relative to worker1: (s0:near,s1:far,c0:near).
 Your answer: (less than 50 words)
-inference: Since c0 is close to both workers, they should work on c0 together. But before that, worker1 is right beside s0 and is able to dismantle it, so he should do s0 first.
+inference: Since c0 is close to both workers, they should work on c0 together. But before that, worker1 is near s0 and is able to dismantle it, so he should do s0 first.
 actions:
   agent0: [goto mine c0]
-  agent1: [dismantle nearby mines]
+  agent1: [goto mine s0]
 (no output after this)
 """
-TEMPLATE0 = "Workers can not see each other. Worker0 sees {} simple mines(s) and {} complex mines(c) in view: ({}), with relative distance: ({})miles. Worker1 sees {} mines: ({}), with relative distance: ({})miles."
-TEMPLATE1 = "Workers can see each other. Worker0 is able to dismantle {} mines: ({}), worker1 is able to do {}: ({}), and {} mines need cooperation: ({}). The distance of each mine relative to worker0: ({})miles, relative to worker1: ({})miles."
+TEMPLATE0 = "Workers can not see each other. Worker0 sees {} simple mines(s) and {} complex mines(c) in view: ({}), with relative distance: ({}). Worker1 sees {} mines: ({}), with relative distance: ({})."
+TEMPLATE1 = "Workers can see each other. Worker0 is able to dismantle {} mines: ({}), worker1 is able to do {}: ({}), and {} mines need cooperation: ({}). The distance of each mine relative to worker0: ({}), relative to worker1: ({})."
 PLAN_SPACE = [
     "explore",
     "goto mine",
-    "dismantle nearby mines",
     "stay put",
 ]
 
@@ -64,7 +63,10 @@ class LBForagingCodec:
                     total_c += 1
                 format_params.append(",".join(mines_dict.keys()))
                 format_params.append(
-                    ",".join(f"{k}={v[1]}" for k, v in mines_dict.items())
+                    ",".join(
+                        f"{k}:{'far' if v[1]>3 else 'near' if v[1]<2 else 'medium'}"
+                        for k, v in mines_dict.items()
+                    )
                 )
                 self._mines_dicts.append(mines_dict)
             format_params[4] += format_params.pop(5)
@@ -111,10 +113,16 @@ class LBForagingCodec:
                 ]
             )
             format_params.append(
-                ",".join(f"{k}={v[0][1]}" for k, v in mines_dict.items())
+                ",".join(
+                    f"{k}:{'far' if v[0][1]>3 else 'near' if v[0][1]<2 else 'medium'}"
+                    for k, v in mines_dict.items()
+                )
             )
             format_params.append(
-                ",".join(f"{k}={v[1][1]}" for k, v in mines_dict.items())
+                ",".join(
+                    f"{k}:{'far' if v[1][1] > 3 else 'near' if v[1][1] < 2 else 'medium'}"
+                    for k, v in mines_dict.items()
+                )
             )
             self._mines_dicts.append({k: v[0][:2] for k, v in mines_dict.items()})
             self._mines_dicts.append({k: v[1][:2] for k, v in mines_dict.items()})
@@ -125,21 +133,25 @@ class LBForagingCodec:
         obs: same as in self.encode()
         description: the encoded description of the current observation
         plans: map from agents plan(tuple) to probability(float)
-        {('goto mine s0', 'dismantle nearby mines'): 0.75, ('explore', 'dismantle nearby mines'): 0.25}
         """
         actions = [[0] * 6] * 2
         mines0, mines1 = self._mines_dicts
         for plan, prob in plans.items():
             plan0, plan1 = plan
-            if plan0.startswith("dismantle"):
-                action0 = [0] * 5 + [1]
-            else:
+            action0 = None
+            if plan0.startswith("goto"):
+                target = plan0.rsplit(" ", 1)[1]
+                if target in mines0 and mines0[target][1] == 0:
+                    action0 = [0] * 5 + [1]
+            if action0 is None:
                 action0 = actor_registry[self.actor_mapping(plan0)](
                     *self.param_mapping(mines0, description, plan0)
                 ) + [0]
-            if plan1.startswith("dismantle"):
-                action1 = [0] * 5 + [1]
-            else:
+            if plan1.startswith("goto"):
+                target = plan1.rsplit(" ", 1)[1]
+                if target in mines1 and mines1[target][1] == 0:
+                    action1 = [0] * 5 + [1]
+            if action1 is None:
                 action1 = actor_registry[self.actor_mapping(plan1)](
                     *self.param_mapping(mines1, description, plan1)
                 ) + [0]
