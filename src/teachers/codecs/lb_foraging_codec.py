@@ -147,6 +147,7 @@ class LBForagingCodec:
                 action0 = actor_registry[self.actor_mapping(plan0)](
                     *self.param_mapping(mines0, description, plan0)
                 ) + [0]
+            action1 = None
             if plan1.startswith("goto"):
                 target = plan1.rsplit(" ", 1)[1]
                 if target in mines1 and mines1[target][1] == 0:
