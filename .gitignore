@@ -1,5 +1,7 @@
 venv
 results*
+!results
+results/models
 test.ipynb
 setup.md
 
