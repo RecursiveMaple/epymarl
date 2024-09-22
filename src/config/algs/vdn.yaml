@@ -7,9 +7,11 @@ epsilon_finish: 0.05
 epsilon_anneal_time: 50000
 evaluation_epsilon: 0.0
 
-runner: "episode"
+runner: "parallel"
 
-buffer_size: 5000
+buffer_size: 10
+batch_size_run: 10
+batch_size: 10
 
 # update the target network every {} episodes
 target_update_interval_or_tau: 200
