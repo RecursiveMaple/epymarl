@@ -72,7 +72,10 @@ class PredatorPreyCodec:
                 x0, y0 = mines0[i]
                 x1, y1 = mines1[i]
                 mines.append(
-                    ((x0, y0), abs(x0) + abs(y0) - 1), ((x1, y1), abs(x1) + abs(y1) - 1)
+                    (
+                        ((x0, y0), abs(x0) + abs(y0) - 1),
+                        ((x1, y1), abs(x1) + abs(y1) - 1),
+                    )
                 )
             ids = []
             for i, mine in enumerate(sorted(mines, key=lambda x: x[0][1])):
