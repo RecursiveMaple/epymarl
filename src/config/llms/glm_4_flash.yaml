@@ -7,8 +7,8 @@ llm_args:
   temperature: 0.7
 
 llm_cache_path: "glm4flash_cache"
-llm_nsample: 10
-llm_nretry: 5
+llm_nsample: 5
+llm_nretry: 3
 
 ks_coef_start: 10.0
 ks_coef_end: 0.1
