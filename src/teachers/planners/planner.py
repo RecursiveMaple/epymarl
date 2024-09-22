@@ -1,6 +1,7 @@
 import os
 import pickle
 import re
+import tempfile
 from os.path import abspath, dirname
 
 from .llms import REGISTRY as llm_REGISTRY
@@ -106,18 +107,15 @@ class PlanCache:
 
     def _save(self, cache_dict):
         if cache_dict:
-            with open(self.cache_path, "wb") as f:
+            temp_fd, temp_filename = tempfile.mkstemp(dir=dirname(self.cache_path))
+            with open(temp_fd, "wb") as f:
                 pickle.dump(cache_dict, f)
+            os.rename(temp_filename, self.cache_path)
 
-    # TODO: Avoid try-except
     def _load(self):
         cache_dict = {}
-        if os.path.exists(self.cache_path):
+        if os.path.exists(self.cache_path) and os.path.getsize(self.cache_path) > 0:
             with open(self.cache_path, "rb") as f:
-                try:
-                    cache = pickle.load(f)
-                except Exception:
-                    cache = None
-                if cache is not None:
-                    cache_dict.update(cache)
+                cache = pickle.load(f)
+                cache_dict.update(cache)
         return cache_dict
