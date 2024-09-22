@@ -1,0 +1,246 @@
+[INFO 01:49:12] pymarl Running command 'my_main'
+[INFO 01:49:12] pymarl Started run with ID "1"
+[DEBUG 01:49:12] pymarl Starting Heartbeat
+[DEBUG 01:49:12] my_main Started
+[INFO 01:49:12] my_main Experiment Parameters:
+[INFO 01:49:12] my_main 
+
+{   'action_selector': 'soft_policies',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'pi_logits',
+    'batch_size': 10,
+    'batch_size_run': 10,
+    'buffer_cpu_only': True,
+    'buffer_size': 10,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'critic_type': 'cv_critic',
+    'entropy_coef': 0.001,
+    'env': 'posggym',
+    'env_args': {   'key': 'LevelBasedForaging-v3',
+                    'max_food': 4,
+                    'observation_mode': 'tuple',
+                    'pretrained_wrapper': None,
+                    'seed': 205975351,
+                    'size': 10,
+                    'time_limit': 100},
+    'epochs': 4,
+    'eps_clip': 0.2,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 128,
+    'hypergroup': None,
+    'label': 'default_label',
+    'learner': 'ppo_learner',
+    'learner_log_interval': 10000,
+    'llm': None,
+    'llm_args': {   },
+    'llm_cache_path': None,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 50000,
+    'lr': 0.0003,
+    'mac': 'basic_mac',
+    'mask_before_softmax': True,
+    'name': 'mappo',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'q_nstep': 5,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'parallel',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 205975351,
+    'standardise_returns': False,
+    'standardise_rewards': True,
+    't_max': 1000000,
+    'target_update_interval_or_tau': 0.01,
+    'test_greedy': True,
+    'test_interval': 50000,
+    'test_nepisode': 100,
+    'use_cuda': True,
+    'use_rnn': True,
+    'use_tensorboard': True,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+[INFO 01:49:12] my_main *******************
+[INFO 01:49:12] my_main Tensorboard logging dir:
+[INFO 01:49:12] my_main /home/wangyida/Repos/epymarl/results/tb_logs/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515
+[INFO 01:49:12] my_main *******************
+[INFO 01:49:15] my_main Beginning training for 1000000 timesteps
+[INFO 01:49:17] my_main t_env: 500 / 1000000
+[INFO 01:49:17] my_main Estimated time left: 42 seconds. Time passed: 2 seconds
+[INFO 01:49:19] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/500
+[INFO 01:50:15] my_main Recent Stats | t_env:      50480 | Episode:     1010
+advantage_mean:            0.0928	agent_grad_norm:           0.2110	critic_grad_norm:          1.5311	critic_loss:               4.2637
+ep_length_mean:           50.0000	pg_loss:                  -0.1008	pi_max:                    0.4256	q_taken_mean:             -0.1803
+return_mean:               0.1344	return_std:                0.1524	target_mean:              -0.0876	td_error_abs:              0.9140
+test_ep_length_mean:      50.0000	test_return_mean:          0.1212	test_return_std:           0.1567	
+[INFO 01:50:16] my_main t_env: 50980 / 1000000
+[INFO 01:50:16] my_main Estimated time left: 18 minutes, 29 seconds. Time passed: 1 minutes, 1 seconds
+[INFO 01:50:18] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/50980
+[INFO 01:51:16] my_main Recent Stats | t_env:     100783 | Episode:     2030
+advantage_mean:            0.0005	agent_grad_norm:           0.4635	critic_grad_norm:          4.2777	critic_loss:               5.5381
+ep_length_mean:           49.5638	pg_loss:                  -0.0109	pi_max:                    0.5926	q_taken_mean:              0.3527
+return_mean:               0.2800	return_std:                0.2459	target_mean:               0.3532	td_error_abs:              1.2616
+test_ep_length_mean:      50.0000	test_return_mean:          0.1584	test_return_std:           0.1677	
+[INFO 01:51:16] my_main t_env: 101283 / 1000000
+[INFO 01:51:16] my_main Estimated time left: 18 minutes, 0 seconds. Time passed: 2 minutes, 1 seconds
+[INFO 01:51:19] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/101283
+[INFO 01:52:16] my_main Recent Stats | t_env:     151221 | Episode:     3070
+advantage_mean:           -0.0443	agent_grad_norm:           0.4290	critic_grad_norm:          6.3202	critic_loss:               2.9676
+ep_length_mean:           48.4657	pg_loss:                   0.0376	pi_max:                    0.6198	q_taken_mean:              0.3639
+return_mean:               0.3554	return_std:                0.2893	target_mean:               0.3195	td_error_abs:              0.9797
+test_ep_length_mean:      49.7867	test_return_mean:          0.2197	test_return_std:           0.2043	
+[INFO 01:52:17] my_main t_env: 151670 / 1000000
+[INFO 01:52:17] my_main Estimated time left: 16 minutes, 59 seconds. Time passed: 3 minutes, 2 seconds
+[INFO 01:52:19] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/151670
+[INFO 01:53:17] my_main Recent Stats | t_env:     201238 | Episode:     4120
+advantage_mean:            0.0321	agent_grad_norm:           0.5910	critic_grad_norm:          5.2975	critic_loss:               3.8547
+ep_length_mean:           47.8283	pg_loss:                  -0.0428	pi_max:                    0.6014	q_taken_mean:              0.3915
+return_mean:               0.4083	return_std:                0.3026	target_mean:               0.4236	td_error_abs:              1.2059
+test_ep_length_mean:      49.4900	test_return_mean:          0.2790	test_return_std:           0.2226	
+[INFO 01:53:18] my_main t_env: 201738 / 1000000
+[INFO 01:53:18] my_main Estimated time left: 16 minutes, 13 seconds. Time passed: 4 minutes, 3 seconds
+[INFO 01:53:20] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/201738
+[INFO 01:54:18] my_main Recent Stats | t_env:     251715 | Episode:     5170
+advantage_mean:           -0.0881	agent_grad_norm:           0.5171	critic_grad_norm:          8.1563	critic_loss:               3.4589
+ep_length_mean:           48.0554	pg_loss:                   0.0766	pi_max:                    0.6488	q_taken_mean:              0.0646
+return_mean:               0.4169	return_std:                0.3086	target_mean:              -0.0235	td_error_abs:              1.1659
+test_ep_length_mean:      49.2740	test_return_mean:          0.3077	test_return_std:           0.2421	
+[INFO 01:54:18] my_main t_env: 252215 / 1000000
+[INFO 01:54:18] my_main Estimated time left: 14 minutes, 56 seconds. Time passed: 5 minutes, 3 seconds
+[INFO 01:54:21] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/252215
+[INFO 01:55:22] my_main Recent Stats | t_env:     302186 | Episode:     6240
+advantage_mean:            0.1010	agent_grad_norm:           0.6924	critic_grad_norm:          8.4737	critic_loss:               4.8018
+ep_length_mean:           47.1907	pg_loss:                  -0.1097	pi_max:                    0.6823	q_taken_mean:              0.5042
+return_mean:               0.4543	return_std:                0.3292	target_mean:               0.6052	td_error_abs:              1.4510
+test_ep_length_mean:      48.7740	test_return_mean:          0.3872	test_return_std:           0.2772	
+[INFO 01:55:23] my_main t_env: 302686 / 1000000
+[INFO 01:55:23] my_main Estimated time left: 14 minutes, 50 seconds. Time passed: 6 minutes, 8 seconds
+[INFO 01:55:25] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/302686
+[INFO 01:56:26] my_main Recent Stats | t_env:     352199 | Episode:     7320
+advantage_mean:            0.1251	agent_grad_norm:           0.7730	critic_grad_norm:          7.8474	critic_loss:               5.5238
+ep_length_mean:           46.6122	pg_loss:                  -0.1455	pi_max:                    0.6834	q_taken_mean:              0.8398
+return_mean:               0.5078	return_std:                0.3351	target_mean:               0.9648	td_error_abs:              1.6532
+test_ep_length_mean:      48.2920	test_return_mean:          0.4329	test_return_std:           0.3077	
+[INFO 01:56:28] my_main t_env: 353113 / 1000000
+[INFO 01:56:28] my_main Estimated time left: 13 minutes, 51 seconds. Time passed: 7 minutes, 13 seconds
+[INFO 01:56:30] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/353113
+[INFO 01:57:33] my_main Recent Stats | t_env:     402610 | Episode:     8420
+advantage_mean:            0.0322	agent_grad_norm:           0.9291	critic_grad_norm:          8.8414	critic_loss:               5.0643
+ep_length_mean:           45.7695	pg_loss:                  -0.0475	pi_max:                    0.7682	q_taken_mean:              0.7763
+return_mean:               0.5358	return_std:                0.3430	target_mean:               0.8085	td_error_abs:              1.5169
+test_ep_length_mean:      47.5640	test_return_mean:          0.4723	test_return_std:           0.3252	
+[INFO 01:57:35] my_main t_env: 403590 / 1000000
+[INFO 01:57:35] my_main Estimated time left: 13 minutes, 10 seconds. Time passed: 8 minutes, 19 seconds
+[INFO 01:57:37] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/403590
+[INFO 01:58:40] my_main Recent Stats | t_env:     452843 | Episode:     9520
+advantage_mean:            0.0577	agent_grad_norm:           1.0443	critic_grad_norm:          7.4466	critic_loss:               4.8537
+ep_length_mean:           45.6199	pg_loss:                  -0.0706	pi_max:                    0.7818	q_taken_mean:              0.4420
+return_mean:               0.5237	return_std:                0.3317	target_mean:               0.4996	td_error_abs:              1.5026
+test_ep_length_mean:      46.9480	test_return_mean:          0.4933	test_return_std:           0.3306	
+[INFO 01:58:41] my_main t_env: 453743 / 1000000
+[INFO 01:58:41] my_main Estimated time left: 11 minutes, 59 seconds. Time passed: 9 minutes, 26 seconds
+[INFO 01:58:43] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/453743
+[INFO 01:59:47] my_main Recent Stats | t_env:     503083 | Episode:    10610
+advantage_mean:            0.0086	agent_grad_norm:           0.5862	critic_grad_norm:          7.1372	critic_loss:               4.5130
+ep_length_mean:           46.1682	pg_loss:                  -0.0211	pi_max:                    0.7946	q_taken_mean:              0.8121
+return_mean:               0.4957	return_std:                0.3450	target_mean:               0.8207	td_error_abs:              1.4382
+test_ep_length_mean:      46.2780	test_return_mean:          0.5305	test_return_std:           0.3337	
+[INFO 01:59:48] my_main t_env: 503917 / 1000000
+[INFO 01:59:48] my_main Estimated time left: 11 minutes, 7 seconds. Time passed: 10 minutes, 33 seconds
+[INFO 01:59:50] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/503917
+[INFO 02:00:54] my_main Recent Stats | t_env:     553289 | Episode:    11730
+advantage_mean:           -0.1377	agent_grad_norm:           1.1695	critic_grad_norm:         13.4014	critic_loss:               6.4729
+ep_length_mean:           44.8376	pg_loss:                   0.1226	pi_max:                    0.8238	q_taken_mean:              1.4624
+return_mean:               0.5701	return_std:                0.3317	target_mean:               1.3247	td_error_abs:              1.8254
+test_ep_length_mean:      45.6400	test_return_mean:          0.5374	test_return_std:           0.3391	
+[INFO 02:00:55] my_main t_env: 554261 / 1000000
+[INFO 02:00:55] my_main Estimated time left: 9 minutes, 56 seconds. Time passed: 11 minutes, 40 seconds
+[INFO 02:00:58] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/554261
+[INFO 02:02:04] my_main Recent Stats | t_env:     603292 | Episode:    12870
+advantage_mean:            0.0876	agent_grad_norm:           0.9916	critic_grad_norm:          7.5251	critic_loss:               5.3993
+ep_length_mean:           43.9568	pg_loss:                  -0.0965	pi_max:                    0.8311	q_taken_mean:              1.3009
+return_mean:               0.6300	return_std:                0.3291	target_mean:               1.3885	td_error_abs:              1.6827
+test_ep_length_mean:      45.0920	test_return_mean:          0.5740	test_return_std:           0.3418	
+[INFO 02:02:05] my_main t_env: 604553 / 1000000
+[INFO 02:02:05] my_main Estimated time left: 9 minutes, 10 seconds. Time passed: 12 minutes, 50 seconds
+[INFO 02:02:08] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/604553
+[INFO 02:03:12] my_main Recent Stats | t_env:     653327 | Episode:    14000
+advantage_mean:           -0.0604	agent_grad_norm:           0.8617	critic_grad_norm:          8.2784	critic_loss:               5.2361
+ep_length_mean:           44.2626	pg_loss:                   0.0505	pi_max:                    0.8361	q_taken_mean:              1.3318
+return_mean:               0.6061	return_std:                0.3260	target_mean:               1.2714	td_error_abs:              1.6162
+test_ep_length_mean:      44.4540	test_return_mean:          0.5978	test_return_std:           0.3397	
+[INFO 02:03:13] my_main t_env: 654690 / 1000000
+[INFO 02:03:13] my_main Estimated time left: 7 minutes, 48 seconds. Time passed: 13 minutes, 58 seconds
+[INFO 02:03:16] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/654690
+[INFO 02:04:17] my_main Recent Stats | t_env:     703516 | Episode:    15120
+advantage_mean:            0.0034	agent_grad_norm:           0.7715	critic_grad_norm:          7.6754	critic_loss:               5.1745
+ep_length_mean:           44.5939	pg_loss:                  -0.0127	pi_max:                    0.8821	q_taken_mean:              0.9178
+return_mean:               0.6110	return_std:                0.3279	target_mean:               0.9213	td_error_abs:              1.5610
+test_ep_length_mean:      44.0900	test_return_mean:          0.6031	test_return_std:           0.3508	
+[INFO 02:04:19] my_main t_env: 704783 / 1000000
+[INFO 02:04:19] my_main Estimated time left: 6 minutes, 27 seconds. Time passed: 15 minutes, 4 seconds
+[INFO 02:04:22] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/704783
+[INFO 02:05:26] my_main Recent Stats | t_env:     753923 | Episode:    16260
+advantage_mean:           -0.0957	agent_grad_norm:           0.9130	critic_grad_norm:         11.9116	critic_loss:               5.1091
+ep_length_mean:           44.5687	pg_loss:                   0.0804	pi_max:                    0.8663	q_taken_mean:              1.6049
+return_mean:               0.6079	return_std:                0.3286	target_mean:               1.5092	td_error_abs:              1.7022
+test_ep_length_mean:      43.8400	test_return_mean:          0.6067	test_return_std:           0.3522	
+[INFO 02:05:27] my_main t_env: 754813 / 1000000
+[INFO 02:05:27] my_main Estimated time left: 5 minutes, 34 seconds. Time passed: 16 minutes, 12 seconds
+[INFO 02:05:30] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/754813
+[INFO 02:06:34] my_main Recent Stats | t_env:     804200 | Episode:    17390
+advantage_mean:            0.0956	agent_grad_norm:           0.8108	critic_grad_norm:          6.9905	critic_loss:               4.7007
+ep_length_mean:           44.5521	pg_loss:                  -0.1045	pi_max:                    0.8816	q_taken_mean:              0.7886
+return_mean:               0.5792	return_std:                0.3381	target_mean:               0.8842	td_error_abs:              1.4971
+test_ep_length_mean:      44.0320	test_return_mean:          0.6078	test_return_std:           0.3492	
+[INFO 02:06:35] my_main t_env: 804974 / 1000000
+[INFO 02:06:35] my_main Estimated time left: 4 minutes, 21 seconds. Time passed: 17 minutes, 20 seconds
+[INFO 02:06:37] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/804974
+[INFO 02:07:43] my_main Recent Stats | t_env:     854549 | Episode:    18560
+advantage_mean:            0.0150	agent_grad_norm:           2.0161	critic_grad_norm:          7.7588	critic_loss:               4.2925
+ep_length_mean:           43.0305	pg_loss:                  -0.0118	pi_max:                    0.8652	q_taken_mean:              1.5047
+return_mean:               0.6243	return_std:                0.3513	target_mean:               1.5197	td_error_abs:              1.5741
+test_ep_length_mean:      44.4200	test_return_mean:          0.5925	test_return_std:           0.3456	
+[INFO 02:07:44] my_main t_env: 855010 / 1000000
+[INFO 02:07:44] my_main Estimated time left: 3 minutes, 19 seconds. Time passed: 18 minutes, 29 seconds
+[INFO 02:07:46] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/855010
+[INFO 02:08:51] my_main Recent Stats | t_env:     904735 | Episode:    19720
+advantage_mean:            0.0207	agent_grad_norm:           1.3340	critic_grad_norm:          7.9829	critic_loss:               4.5083
+ep_length_mean:           43.4526	pg_loss:                  -0.0345	pi_max:                    0.8707	q_taken_mean:              1.2604
+return_mean:               0.6358	return_std:                0.3395	target_mean:               1.2812	td_error_abs:              1.5624
+test_ep_length_mean:      44.5920	test_return_mean:          0.5934	test_return_std:           0.3400	
+[INFO 02:08:52] my_main t_env: 905128 / 1000000
+[INFO 02:08:52] my_main Estimated time left: 2 minutes, 8 seconds. Time passed: 19 minutes, 37 seconds
+[INFO 02:08:54] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/905128
+[INFO 02:09:54] my_main Recent Stats | t_env:     954856 | Episode:    20910
+advantage_mean:           -0.0363	agent_grad_norm:           1.3203	critic_grad_norm:         10.3258	critic_loss:               5.2860
+ep_length_mean:           42.0847	pg_loss:                   0.0252	pi_max:                    0.8798	q_taken_mean:              1.9060
+return_mean:               0.7033	return_std:                0.3324	target_mean:               1.8697	td_error_abs:              1.7914
+test_ep_length_mean:      44.3420	test_return_mean:          0.6168	test_return_std:           0.3284	
+[INFO 02:09:54] my_main t_env: 955294 / 1000000
+[INFO 02:09:54] my_main Estimated time left: 55 seconds. Time passed: 20 minutes, 39 seconds
+[INFO 02:09:57] my_main Saving models to results/models/mappo_seed205975351_LevelBasedForaging-v3_2024-09-20 01:49:12.247515/955294
+[INFO 02:10:52] my_main Finished Training
+Exiting Main
+Stopping all threads
+Thread Thread-1 is alive! Is daemon: False
+Thread joined
+Exiting script
+[DEBUG 02:10:53] my_main Finished after 0:21:41.
+[INFO 02:10:53] pymarl Completed after 0:21:41

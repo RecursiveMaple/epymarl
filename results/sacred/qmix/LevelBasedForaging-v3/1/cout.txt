@@ -1,0 +1,249 @@
+[INFO 22:14:27] pymarl Running command 'my_main'
+[INFO 22:14:27] pymarl Started run with ID "1"
+[DEBUG 22:14:27] pymarl Starting Heartbeat
+[DEBUG 22:14:27] my_main Started
+[INFO 22:14:27] my_main Experiment Parameters:
+[INFO 22:14:27] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 10,
+    'batch_size_run': 10,
+    'buffer_cpu_only': True,
+    'buffer_size': 10,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'double_q': True,
+    'env': 'posggym',
+    'env_args': {   'key': 'LevelBasedForaging-v3',
+                    'max_food': 4,
+                    'observation_mode': 'tuple',
+                    'pretrained_wrapper': None,
+                    'seed': 837258469,
+                    'size': 10,
+                    'time_limit': 100},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'evaluation_epsilon': 0.0,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 64,
+    'hypergroup': None,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'llm': None,
+    'llm_args': {   },
+    'llm_cache_path': None,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 50000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'name': 'qmix',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'parallel',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 837258469,
+    'standardise_returns': False,
+    'standardise_rewards': True,
+    't_max': 1000000,
+    'target_update_interval_or_tau': 200,
+    'test_greedy': True,
+    'test_interval': 50000,
+    'test_nepisode': 100,
+    'use_cuda': True,
+    'use_rnn': False,
+    'use_tensorboard': True,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+[INFO 22:14:27] my_main *******************
+[INFO 22:14:27] my_main Tensorboard logging dir:
+[INFO 22:14:27] my_main /home/wangyida/Repos/epymarl/results/tb_logs/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387
+[INFO 22:14:27] my_main *******************
+[INFO 22:14:30] my_main Beginning training for 1000000 timesteps
+[INFO 22:14:32] my_main t_env: 500 / 1000000
+[INFO 22:14:32] my_main Estimated time left: 53 seconds. Time passed: 2 seconds
+[INFO 22:14:36] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/500
+[INFO 22:15:17] my_main Recent Stats | t_env:      50497 | Episode:     1010
+ep_length_mean:           49.9971	epsilon:                   0.2306	grad_norm:                 0.7340	q_taken_mean:             -0.1048
+return_mean:               0.1289	return_std:                0.1507	target_mean:              -0.0774	td_error_abs:              0.2744
+td_loss:                   1.2631	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
+
+[INFO 22:15:17] my_main t_env: 50997 / 1000000
+[INFO 22:15:17] my_main Estimated time left: 14 minutes, 7 seconds. Time passed: 47 seconds
+[INFO 22:15:21] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/50997
+[INFO 22:16:01] my_main Recent Stats | t_env:     100497 | Episode:     2010
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 0.6953	q_taken_mean:             -0.0876
+return_mean:               0.0754	return_std:                0.1227	target_mean:              -0.1117	td_error_abs:              0.1622
+td_loss:                   0.3721	test_ep_length_mean:      50.0000	test_return_mean:          0.0106	test_return_std:           0.0294
+
+[INFO 22:16:01] my_main t_env: 100997 / 1000000
+[INFO 22:16:01] my_main Estimated time left: 13 minutes, 10 seconds. Time passed: 1 minutes, 31 seconds
+[INFO 22:16:05] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/100997
+[INFO 22:16:45] my_main Recent Stats | t_env:     150497 | Episode:     3010
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 1.5730	q_taken_mean:             -0.0864
+return_mean:               0.0880	return_std:                0.1383	target_mean:              -0.0971	td_error_abs:              0.2407
+td_loss:                   1.0583	test_ep_length_mean:      50.0000	test_return_mean:          0.0225	test_return_std:           0.0514
+
+[INFO 22:16:46] my_main t_env: 150997 / 1000000
+[INFO 22:16:46] my_main Estimated time left: 12 minutes, 29 seconds. Time passed: 2 minutes, 15 seconds
+[INFO 22:16:49] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/150997
+[INFO 22:17:30] my_main Recent Stats | t_env:     200966 | Episode:     4020
+ep_length_mean:           49.9705	epsilon:                   0.0500	grad_norm:                 2.4917	q_taken_mean:             -0.1103
+return_mean:               0.0996	return_std:                0.1509	target_mean:              -0.1092	td_error_abs:              0.2439
+td_loss:                   0.7171	test_ep_length_mean:      50.0000	test_return_mean:          0.0272	test_return_std:           0.0628
+
+[INFO 22:17:31] my_main t_env: 201466 / 1000000
+[INFO 22:17:31] my_main Estimated time left: 11 minutes, 57 seconds. Time passed: 3 minutes, 1 seconds
+[INFO 22:17:34] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/201466
+[INFO 22:18:15] my_main Recent Stats | t_env:     251368 | Episode:     5030
+ep_length_mean:           49.9200	epsilon:                   0.0500	grad_norm:                14.0058	q_taken_mean:             -0.0070
+return_mean:               0.1148	return_std:                0.1568	target_mean:               0.0380	td_error_abs:              0.3593
+td_loss:                   1.2570	test_ep_length_mean:      50.0000	test_return_mean:          0.0393	test_return_std:           0.0746
+
+[INFO 22:18:15] my_main t_env: 251868 / 1000000
+[INFO 22:18:15] my_main Estimated time left: 11 minutes, 1 seconds. Time passed: 3 minutes, 45 seconds
+[INFO 22:18:19] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/251868
+[INFO 22:19:00] my_main Recent Stats | t_env:     301757 | Episode:     6040
+ep_length_mean:           49.9200	epsilon:                   0.0500	grad_norm:                20.3817	q_taken_mean:             -0.0345
+return_mean:               0.1372	return_std:                0.1767	target_mean:              -0.0911	td_error_abs:              0.4396
+td_loss:                   0.8348	test_ep_length_mean:      50.0000	test_return_mean:          0.0641	test_return_std:           0.1106
+
+[INFO 22:19:00] my_main t_env: 302257 / 1000000
+[INFO 22:19:00] my_main Estimated time left: 10 minutes, 20 seconds. Time passed: 4 minutes, 30 seconds
+[INFO 22:19:04] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/302257
+[INFO 22:19:45] my_main Recent Stats | t_env:     352158 | Episode:     7050
+ep_length_mean:           49.8705	epsilon:                   0.0500	grad_norm:                15.3335	q_taken_mean:              0.0139
+return_mean:               0.1661	return_std:                0.1929	target_mean:              -0.0066	td_error_abs:              0.4317
+td_loss:                   1.0017	test_ep_length_mean:      50.0000	test_return_mean:          0.0845	test_return_std:           0.1300
+
+[INFO 22:19:45] my_main t_env: 352658 / 1000000
+[INFO 22:19:45] my_main Estimated time left: 9 minutes, 36 seconds. Time passed: 5 minutes, 15 seconds
+[INFO 22:19:49] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/352658
+[INFO 22:20:30] my_main Recent Stats | t_env:     402636 | Episode:     8070
+ep_length_mean:           49.6448	epsilon:                   0.0500	grad_norm:                12.4913	q_taken_mean:              0.0483
+return_mean:               0.1862	return_std:                0.2141	target_mean:               0.0416	td_error_abs:              0.4209
+td_loss:                   0.9239	test_ep_length_mean:      50.0000	test_return_mean:          0.0995	test_return_std:           0.1451
+
+[INFO 22:20:31] my_main t_env: 403136 / 1000000
+[INFO 22:20:31] my_main Estimated time left: 8 minutes, 58 seconds. Time passed: 6 minutes, 1 seconds
+[INFO 22:20:34] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/403136
+[INFO 22:21:15] my_main Recent Stats | t_env:     452782 | Episode:     9080
+ep_length_mean:           49.5724	epsilon:                   0.0500	grad_norm:                23.1270	q_taken_mean:              0.0721
+return_mean:               0.1906	return_std:                0.2182	target_mean:               0.0265	td_error_abs:              0.4937
+td_loss:                   0.9745	test_ep_length_mean:      49.9220	test_return_mean:          0.1181	test_return_std:           0.1600
+
+[INFO 22:21:16] my_main t_env: 453282 / 1000000
+[INFO 22:21:16] my_main Estimated time left: 8 minutes, 11 seconds. Time passed: 6 minutes, 46 seconds
+[INFO 22:21:19] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/453282
+[INFO 22:22:01] my_main Recent Stats | t_env:     503086 | Episode:    10090
+ep_length_mean:           49.7629	epsilon:                   0.0500	grad_norm:                10.4005	q_taken_mean:             -0.0398
+return_mean:               0.2039	return_std:                0.2302	target_mean:              -0.0843	td_error_abs:              0.4169
+td_loss:                   0.7769	test_ep_length_mean:      49.8460	test_return_mean:          0.1243	test_return_std:           0.1738
+
+[INFO 22:22:01] my_main t_env: 503586 / 1000000
+[INFO 22:22:01] my_main Estimated time left: 7 minutes, 28 seconds. Time passed: 7 minutes, 31 seconds
+[INFO 22:22:05] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/503586
+[INFO 22:22:46] my_main Recent Stats | t_env:     553441 | Episode:    11110
+ep_length_mean:           49.3810	epsilon:                   0.0500	grad_norm:                25.6802	q_taken_mean:              0.2035
+return_mean:               0.2242	return_std:                0.2438	target_mean:               0.1643	td_error_abs:              0.5643
+td_loss:                   1.5379	test_ep_length_mean:      49.8460	test_return_mean:          0.1355	test_return_std:           0.1797
+
+[INFO 22:22:46] my_main t_env: 553941 / 1000000
+[INFO 22:22:46] my_main Estimated time left: 6 minutes, 39 seconds. Time passed: 8 minutes, 16 seconds
+[INFO 22:22:50] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/553941
+[INFO 22:23:32] my_main Recent Stats | t_env:     603774 | Episode:    12130
+ep_length_mean:           49.2867	epsilon:                   0.0500	grad_norm:                26.5042	q_taken_mean:              0.1709
+return_mean:               0.2356	return_std:                0.2514	target_mean:               0.1302	td_error_abs:              0.5328
+td_loss:                   1.5015	test_ep_length_mean:      49.7640	test_return_mean:          0.1455	test_return_std:           0.1909
+
+[INFO 22:23:32] my_main t_env: 604274 / 1000000
+[INFO 22:23:32] my_main Estimated time left: 6 minutes, 0 seconds. Time passed: 9 minutes, 2 seconds
+[INFO 22:23:36] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/604274
+[INFO 22:24:17] my_main Recent Stats | t_env:     653796 | Episode:    13140
+ep_length_mean:           49.6105	epsilon:                   0.0500	grad_norm:                23.1767	q_taken_mean:              0.4164
+return_mean:               0.2327	return_std:                0.2377	target_mean:               0.3266	td_error_abs:              0.5022
+td_loss:                   1.0007	test_ep_length_mean:      49.6000	test_return_mean:          0.1585	test_return_std:           0.2019
+
+[INFO 22:24:18] my_main t_env: 654296 / 1000000
+[INFO 22:24:18] my_main Estimated time left: 5 minutes, 14 seconds. Time passed: 9 minutes, 47 seconds
+[INFO 22:24:21] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/654296
+[INFO 22:25:03] my_main Recent Stats | t_env:     704021 | Episode:    14160
+ep_length_mean:           49.2010	epsilon:                   0.0500	grad_norm:                12.1788	q_taken_mean:              0.3064
+return_mean:               0.2448	return_std:                0.2582	target_mean:               0.3000	td_error_abs:              0.4261
+td_loss:                   0.9893	test_ep_length_mean:      49.5960	test_return_mean:          0.1690	test_return_std:           0.2114
+
+[INFO 22:25:04] my_main t_env: 704521 / 1000000
+[INFO 22:25:04] my_main Estimated time left: 4 minutes, 31 seconds. Time passed: 10 minutes, 34 seconds
+[INFO 22:25:07] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/704521
+[INFO 22:25:48] my_main Recent Stats | t_env:     754118 | Episode:    15170
+ep_length_mean:           49.5476	epsilon:                   0.0500	grad_norm:                18.3959	q_taken_mean:              0.7190
+return_mean:               0.2189	return_std:                0.2373	target_mean:               0.7146	td_error_abs:              0.6168
+td_loss:                   1.4901	test_ep_length_mean:      49.5220	test_return_mean:          0.1867	test_return_std:           0.2233
+
+[INFO 22:25:48] my_main t_env: 754618 / 1000000
+[INFO 22:25:48] my_main Estimated time left: 3 minutes, 36 seconds. Time passed: 11 minutes, 18 seconds
+[INFO 22:25:51] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/754618
+[INFO 22:26:33] my_main Recent Stats | t_env:     804564 | Episode:    16190
+ep_length_mean:           49.4819	epsilon:                   0.0500	grad_norm:                24.2864	q_taken_mean:              0.4976
+return_mean:               0.2343	return_std:                0.2521	target_mean:               0.4837	td_error_abs:              0.5475
+td_loss:                   1.1526	test_ep_length_mean:      49.4380	test_return_mean:          0.1820	test_return_std:           0.2205
+
+[INFO 22:26:33] my_main t_env: 805064 / 1000000
+[INFO 22:26:33] my_main Estimated time left: 2 minutes, 54 seconds. Time passed: 12 minutes, 3 seconds
+[INFO 22:26:37] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/805064
+[INFO 22:27:18] my_main Recent Stats | t_env:     854730 | Episode:    17210
+ep_length_mean:           49.1667	epsilon:                   0.0500	grad_norm:                27.2684	q_taken_mean:              0.7738
+return_mean:               0.2629	return_std:                0.2640	target_mean:               0.7652	td_error_abs:              0.8647
+td_loss:                   3.2593	test_ep_length_mean:      49.5200	test_return_mean:          0.1877	test_return_std:           0.2206
+
+[INFO 22:27:18] my_main t_env: 855230 / 1000000
+[INFO 22:27:18] my_main Estimated time left: 2 minutes, 9 seconds. Time passed: 12 minutes, 48 seconds
+[INFO 22:27:22] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/855230
+[INFO 22:28:03] my_main Recent Stats | t_env:     905038 | Episode:    18220
+ep_length_mean:           49.8171	epsilon:                   0.0500	grad_norm:                22.0905	q_taken_mean:              0.9128
+return_mean:               0.2151	return_std:                0.2313	target_mean:               0.8507	td_error_abs:              0.6843
+td_loss:                   1.7101	test_ep_length_mean:      49.4040	test_return_mean:          0.1947	test_return_std:           0.2284
+
+[INFO 22:28:03] my_main t_env: 905538 / 1000000
+[INFO 22:28:03] my_main Estimated time left: 1 minutes, 24 seconds. Time passed: 13 minutes, 33 seconds
+[INFO 22:28:07] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/905538
+[INFO 22:28:47] my_main Recent Stats | t_env:     955255 | Episode:    19230
+ep_length_mean:           49.6886	epsilon:                   0.0500	grad_norm:                19.0400	q_taken_mean:              0.8348
+return_mean:               0.1934	return_std:                0.2236	target_mean:               0.7840	td_error_abs:              0.6615
+td_loss:                   1.7548	test_ep_length_mean:      49.4860	test_return_mean:          0.1955	test_return_std:           0.2273
+
+[INFO 22:28:48] my_main t_env: 955755 / 1000000
+[INFO 22:28:48] my_main Estimated time left: 39 seconds. Time passed: 14 minutes, 17 seconds
+[INFO 22:28:51] my_main Saving models to results/models/qmix_seed837258469_LevelBasedForaging-v3_2024-09-20 22:14:27.189387/955755
+[INFO 22:29:29] my_main Finished Training
+Exiting Main
+Stopping all threads
+Thread Thread-1 is alive! Is daemon: False
+Thread joined
+Exiting script
+[DEBUG 22:29:30] my_main Finished after 0:15:03.
+[INFO 22:29:30] pymarl Completed after 0:15:03
