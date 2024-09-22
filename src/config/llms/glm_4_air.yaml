@@ -6,7 +6,7 @@ llm_args:
   top_p: 0.7
   temperature: 0.7
 
-llm_cache_path: "lbf_cache"
+llm_cache_path: "pp_cache"
 llm_nsample: 5
 llm_nretry: 10
 

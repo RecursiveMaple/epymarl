@@ -1,0 +1,245 @@
+[INFO 01:41:57] pymarl Running command 'my_main'
+[INFO 01:41:57] pymarl Started run with ID "1"
+[DEBUG 01:41:57] pymarl Starting Heartbeat
+[DEBUG 01:41:57] my_main Started
+[INFO 01:41:57] my_main Experiment Parameters:
+[INFO 01:41:57] my_main 
+
+{   'action_selector': 'soft_policies',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'pi_logits',
+    'batch_size': 10,
+    'batch_size_run': 10,
+    'buffer_cpu_only': True,
+    'buffer_size': 10,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'critic_type': 'cv_critic',
+    'entropy_coef': 0.001,
+    'env': 'posggym',
+    'env_args': {   'grid': '10x10',
+                    'key': 'PredatorPrey-v0',
+                    'num_prey': 4,
+                    'pretrained_wrapper': None,
+                    'seed': 693181546,
+                    'time_limit': 100},
+    'epochs': 4,
+    'eps_clip': 0.2,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 128,
+    'hypergroup': None,
+    'label': 'default_label',
+    'learner': 'ppo_learner',
+    'learner_log_interval': 10000,
+    'llm': None,
+    'llm_args': {   },
+    'llm_cache_path': None,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 50000,
+    'lr': 0.0003,
+    'mac': 'basic_mac',
+    'mask_before_softmax': True,
+    'name': 'mappo',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'q_nstep': 5,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'parallel',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 693181546,
+    'standardise_returns': False,
+    'standardise_rewards': True,
+    't_max': 1000000,
+    'target_update_interval_or_tau': 0.01,
+    'test_greedy': True,
+    'test_interval': 50000,
+    'test_nepisode': 100,
+    'use_cuda': True,
+    'use_rnn': True,
+    'use_tensorboard': True,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+[INFO 01:41:57] my_main *******************
+[INFO 01:41:57] my_main Tensorboard logging dir:
+[INFO 01:41:57] my_main /home/wangyida/Repos/epymarl/results/tb_logs/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421
+[INFO 01:41:57] my_main *******************
+[INFO 01:42:00] my_main Beginning training for 1000000 timesteps
+[INFO 01:42:02] my_main t_env: 500 / 1000000
+[INFO 01:42:02] my_main Estimated time left: 44 seconds. Time passed: 2 seconds
+[INFO 01:42:05] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/500
+[INFO 01:42:57] my_main Recent Stats | t_env:      50000 | Episode:     1000
+advantage_mean:            0.3448	agent_grad_norm:           0.4945	critic_grad_norm:          5.5534	critic_loss:               8.3871
+ep_length_mean:           50.0000	pg_loss:                  -0.3578	pi_max:                    0.5440	q_taken_mean:              0.0440
+return_mean:               0.1310	return_std:                0.2103	target_mean:               0.3887	td_error_abs:              0.8399
+test_ep_length_mean:      50.0000	test_return_mean:          0.0250	test_return_std:           0.1299	
+[INFO 01:42:57] my_main t_env: 50500 / 1000000
+[INFO 01:42:57] my_main Estimated time left: 17 minutes, 20 seconds. Time passed: 57 seconds
+[INFO 01:42:59] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/50500
+[INFO 01:43:53] my_main Recent Stats | t_env:     100000 | Episode:     2000
+advantage_mean:           -0.0001	agent_grad_norm:           0.3395	critic_grad_norm:          6.0016	critic_loss:               3.8507
+ep_length_mean:           50.0000	pg_loss:                  -0.0043	pi_max:                    0.7305	q_taken_mean:              0.6128
+return_mean:               0.3435	return_std:                0.3741	target_mean:               0.6127	td_error_abs:              0.8363
+test_ep_length_mean:      50.0000	test_return_mean:          0.1775	test_return_std:           0.2494	
+[INFO 01:43:53] my_main t_env: 100500 / 1000000
+[INFO 01:43:53] my_main Estimated time left: 16 minutes, 45 seconds. Time passed: 1 minutes, 52 seconds
+[INFO 01:43:55] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/100500
+[INFO 01:44:49] my_main Recent Stats | t_env:     150000 | Episode:     3000
+advantage_mean:           -0.0060	agent_grad_norm:           0.2767	critic_grad_norm:          6.4238	critic_loss:               3.3165
+ep_length_mean:           50.0000	pg_loss:                   0.0009	pi_max:                    0.8578	q_taken_mean:              0.5901
+return_mean:               0.4615	return_std:                0.4290	target_mean:               0.5841	td_error_abs:              0.7948
+test_ep_length_mean:      50.0000	test_return_mean:          0.2783	test_return_std:           0.2994	
+[INFO 01:44:49] my_main t_env: 150500 / 1000000
+[INFO 01:44:49] my_main Estimated time left: 15 minutes, 58 seconds. Time passed: 2 minutes, 49 seconds
+[INFO 01:44:52] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/150500
+[INFO 01:45:46] my_main Recent Stats | t_env:     200000 | Episode:     4000
+advantage_mean:           -0.0218	agent_grad_norm:           0.3647	critic_grad_norm:          6.8328	critic_loss:               3.1698
+ep_length_mean:           50.0000	pg_loss:                   0.0174	pi_max:                    0.8764	q_taken_mean:              0.4935
+return_mean:               0.4905	return_std:                0.4510	target_mean:               0.4717	td_error_abs:              0.8136
+test_ep_length_mean:      50.0000	test_return_mean:          0.3287	test_return_std:           0.3417	
+[INFO 01:45:47] my_main t_env: 200500 / 1000000
+[INFO 01:45:47] my_main Estimated time left: 15 minutes, 17 seconds. Time passed: 3 minutes, 46 seconds
+[INFO 01:45:49] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/200500
+[INFO 01:46:42] my_main Recent Stats | t_env:     250000 | Episode:     5000
+advantage_mean:            0.2362	agent_grad_norm:           0.3781	critic_grad_norm:          6.1339	critic_loss:               2.4769
+ep_length_mean:           50.0000	pg_loss:                  -0.2417	pi_max:                    0.8880	q_taken_mean:             -0.5240
+return_mean:               0.5145	return_std:                0.4628	target_mean:              -0.2878	td_error_abs:              0.7682
+test_ep_length_mean:      50.0000	test_return_mean:          0.3720	test_return_std:           0.3673	
+[INFO 01:46:43] my_main t_env: 250500 / 1000000
+[INFO 01:46:43] my_main Estimated time left: 13 minutes, 57 seconds. Time passed: 4 minutes, 42 seconds
+[INFO 01:46:45] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/250500
+[INFO 01:47:39] my_main Recent Stats | t_env:     300420 | Episode:     6010
+advantage_mean:            0.1535	agent_grad_norm:           0.4500	critic_grad_norm:          7.6115	critic_loss:               4.5085
+ep_length_mean:           50.0000	pg_loss:                  -0.1595	pi_max:                    0.8827	q_taken_mean:              0.3806
+return_mean:               0.5425	return_std:                0.4726	target_mean:               0.5340	td_error_abs:              1.1946
+test_ep_length_mean:      50.0000	test_return_mean:          0.4600	test_return_std:           0.4241	
+[INFO 01:47:40] my_main t_env: 300904 / 1000000
+[INFO 01:47:40] my_main Estimated time left: 13 minutes, 13 seconds. Time passed: 5 minutes, 39 seconds
+[INFO 01:47:42] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/300904
+[INFO 01:48:35] my_main Recent Stats | t_env:     350617 | Episode:     7020
+advantage_mean:            0.0412	agent_grad_norm:           0.4918	critic_grad_norm:          7.4360	critic_loss:               5.2558
+ep_length_mean:           49.7229	pg_loss:                  -0.0467	pi_max:                    0.9368	q_taken_mean:              4.6084
+return_mean:               0.9000	return_std:                0.5306	target_mean:               4.6496	td_error_abs:              1.6420
+test_ep_length_mean:      49.9120	test_return_mean:          0.5760	test_return_std:           0.4602	
+[INFO 01:48:36] my_main t_env: 351116 / 1000000
+[INFO 01:48:36] my_main Estimated time left: 12 minutes, 2 seconds. Time passed: 6 minutes, 35 seconds
+[INFO 01:48:38] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/351116
+[INFO 01:49:32] my_main Recent Stats | t_env:     401109 | Episode:     8040
+advantage_mean:           -0.0987	agent_grad_norm:           0.2853	critic_grad_norm:          9.6669	critic_loss:               4.3936
+ep_length_mean:           49.4810	pg_loss:                   0.0913	pi_max:                    0.9476	q_taken_mean:              4.5494
+return_mean:               1.0514	return_std:                0.5099	target_mean:               4.4507	td_error_abs:              1.4544
+test_ep_length_mean:      49.6080	test_return_mean:          0.7080	test_return_std:           0.4890	
+[INFO 01:49:32] my_main t_env: 401599 / 1000000
+[INFO 01:49:32] my_main Estimated time left: 11 minutes, 9 seconds. Time passed: 7 minutes, 32 seconds
+[INFO 01:49:34] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/401599
+[INFO 01:50:29] my_main Recent Stats | t_env:     451583 | Episode:     9070
+advantage_mean:            0.1029	agent_grad_norm:           0.4251	critic_grad_norm:         11.6916	critic_loss:               4.5740
+ep_length_mean:           49.0552	pg_loss:                  -0.1073	pi_max:                    0.9564	q_taken_mean:              6.0827
+return_mean:               1.2529	return_std:                0.4470	target_mean:               6.1857	td_error_abs:              1.5645
+test_ep_length_mean:      49.4340	test_return_mean:          0.8510	test_return_std:           0.5001	
+[INFO 01:50:30] my_main t_env: 452083 / 1000000
+[INFO 01:50:30] my_main Estimated time left: 10 minutes, 28 seconds. Time passed: 8 minutes, 30 seconds
+[INFO 01:50:33] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/452083
+[INFO 01:51:29] my_main Recent Stats | t_env:     501887 | Episode:    10100
+advantage_mean:            0.2099	agent_grad_norm:           0.3222	critic_grad_norm:          8.8631	critic_loss:               3.8557
+ep_length_mean:           48.8476	pg_loss:                  -0.2133	pi_max:                    0.9692	q_taken_mean:              6.2929
+return_mean:               1.3419	return_std:                0.3935	target_mean:               6.5028	td_error_abs:              1.3932
+test_ep_length_mean:      49.1700	test_return_mean:          1.0080	test_return_std:           0.4826	
+[INFO 01:51:29] my_main t_env: 502378 / 1000000
+[INFO 01:51:29] my_main Estimated time left: 9 minutes, 46 seconds. Time passed: 9 minutes, 29 seconds
+[INFO 01:51:32] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/502378
+[INFO 01:52:26] my_main Recent Stats | t_env:     552259 | Episode:    11130
+advantage_mean:           -0.0450	agent_grad_norm:           0.3753	critic_grad_norm:          7.1202	critic_loss:               3.0431
+ep_length_mean:           48.9886	pg_loss:                   0.0414	pi_max:                    0.9649	q_taken_mean:              6.6918
+return_mean:               1.3114	return_std:                0.3964	target_mean:               6.6468	td_error_abs:              1.2495
+test_ep_length_mean:      48.8800	test_return_mean:          1.1750	test_return_std:           0.4786	
+[INFO 01:52:26] my_main t_env: 552759 / 1000000
+[INFO 01:52:26] my_main Estimated time left: 8 minutes, 23 seconds. Time passed: 10 minutes, 25 seconds
+[INFO 01:52:28] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/552759
+[INFO 01:53:24] my_main Recent Stats | t_env:     602680 | Episode:    12160
+advantage_mean:           -0.0049	agent_grad_norm:           0.4021	critic_grad_norm:          5.8906	critic_loss:               3.0558
+ep_length_mean:           48.8714	pg_loss:                   0.0003	pi_max:                    0.9629	q_taken_mean:              6.7654
+return_mean:               1.2910	return_std:                0.3920	target_mean:               6.7605	td_error_abs:              1.2850
+test_ep_length_mean:      48.7700	test_return_mean:          1.2560	test_return_std:           0.4519	
+[INFO 01:53:25] my_main t_env: 603150 / 1000000
+[INFO 01:53:25] my_main Estimated time left: 7 minutes, 43 seconds. Time passed: 11 minutes, 24 seconds
+[INFO 01:53:28] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/603150
+[INFO 01:54:27] my_main Recent Stats | t_env:     653109 | Episode:    13190
+advantage_mean:           -0.1700	agent_grad_norm:           0.4473	critic_grad_norm:         10.3094	critic_loss:               2.7357
+ep_length_mean:           48.9705	pg_loss:                   0.1676	pi_max:                    0.9703	q_taken_mean:              6.6034
+return_mean:               1.2662	return_std:                0.3903	target_mean:               6.4334	td_error_abs:              1.2190
+test_ep_length_mean:      48.7820	test_return_mean:          1.2980	test_return_std:           0.4160	
+[INFO 01:54:27] my_main t_env: 653602 / 1000000
+[INFO 01:54:27] my_main Estimated time left: 7 minutes, 8 seconds. Time passed: 12 minutes, 27 seconds
+[INFO 01:54:30] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/653602
+[INFO 01:55:33] my_main Recent Stats | t_env:     703382 | Episode:    14220
+advantage_mean:           -0.0834	agent_grad_norm:           0.2542	critic_grad_norm:          6.6116	critic_loss:               3.1290
+ep_length_mean:           48.8267	pg_loss:                   0.0793	pi_max:                    0.9775	q_taken_mean:              6.8036
+return_mean:               1.3295	return_std:                0.3770	target_mean:               6.7201	td_error_abs:              1.3154
+test_ep_length_mean:      48.7120	test_return_mean:          1.3110	test_return_std:           0.3867	
+[INFO 01:55:34] my_main t_env: 703845 / 1000000
+[INFO 01:55:34] my_main Estimated time left: 6 minutes, 31 seconds. Time passed: 13 minutes, 33 seconds
+[INFO 01:55:37] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/703845
+[INFO 01:56:42] my_main Recent Stats | t_env:     753785 | Episode:    15260
+advantage_mean:            0.0345	agent_grad_norm:           0.2817	critic_grad_norm:          5.8791	critic_loss:               2.8527
+ep_length_mean:           48.4600	pg_loss:                  -0.0373	pi_max:                    0.9748	q_taken_mean:              6.8201
+return_mean:               1.3629	return_std:                0.4093	target_mean:               6.8546	td_error_abs:              1.2375
+test_ep_length_mean:      48.7000	test_return_mean:          1.3170	test_return_std:           0.3865	
+[INFO 01:56:43] my_main t_env: 754237 / 1000000
+[INFO 01:56:43] my_main Estimated time left: 5 minutes, 35 seconds. Time passed: 14 minutes, 42 seconds
+[INFO 01:56:45] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/754237
+[INFO 01:57:48] my_main Recent Stats | t_env:     803819 | Episode:    16290
+advantage_mean:            0.0025	agent_grad_norm:           0.6598	critic_grad_norm:          6.9002	critic_loss:               2.9798
+ep_length_mean:           48.8038	pg_loss:                  -0.0073	pi_max:                    0.9487	q_taken_mean:              6.8597
+return_mean:               1.2262	return_std:                0.4693	target_mean:               6.8622	td_error_abs:              1.2818
+test_ep_length_mean:      48.6620	test_return_mean:          1.3210	test_return_std:           0.3978	
+[INFO 01:57:49] my_main t_env: 804293 / 1000000
+[INFO 01:57:49] my_main Estimated time left: 4 minutes, 20 seconds. Time passed: 15 minutes, 49 seconds
+[INFO 01:57:52] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/804293
+[INFO 01:58:58] my_main Recent Stats | t_env:     854056 | Episode:    17360
+advantage_mean:            0.0209	agent_grad_norm:           0.6605	critic_grad_norm:          4.9468	critic_loss:               3.2980
+ep_length_mean:           47.1736	pg_loss:                  -0.0250	pi_max:                    0.9252	q_taken_mean:              6.8915
+return_mean:               1.3355	return_std:                0.4970	target_mean:               6.9124	td_error_abs:              1.3248
+test_ep_length_mean:      48.3520	test_return_mean:          1.3160	test_return_std:           0.4096	
+[INFO 01:58:59] my_main t_env: 854526 / 1000000
+[INFO 01:58:59] my_main Estimated time left: 3 minutes, 22 seconds. Time passed: 16 minutes, 58 seconds
+[INFO 01:59:02] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/854526
+[INFO 02:00:08] my_main Recent Stats | t_env:     904485 | Episode:    18430
+advantage_mean:            0.0347	agent_grad_norm:           0.5022	critic_grad_norm:          5.3834	critic_loss:               3.1966
+ep_length_mean:           47.1007	pg_loss:                  -0.0416	pi_max:                    0.9287	q_taken_mean:              6.8219
+return_mean:               1.3584	return_std:                0.4749	target_mean:               6.8567	td_error_abs:              1.2717
+test_ep_length_mean:      48.0860	test_return_mean:          1.3310	test_return_std:           0.4289	
+[INFO 02:00:09] my_main t_env: 904946 / 1000000
+[INFO 02:00:09] my_main Estimated time left: 2 minutes, 12 seconds. Time passed: 18 minutes, 9 seconds
+[INFO 02:00:12] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/904946
+[INFO 02:01:18] my_main Recent Stats | t_env:     954708 | Episode:    19540
+advantage_mean:            0.0835	agent_grad_norm:           0.4913	critic_grad_norm:          6.6631	critic_loss:               3.5512
+ep_length_mean:           45.4670	pg_loss:                  -0.0860	pi_max:                    0.9465	q_taken_mean:              7.2465
+return_mean:               1.5729	return_std:                0.4261	target_mean:               7.3301	td_error_abs:              1.3589
+test_ep_length_mean:      47.7040	test_return_mean:          1.3730	test_return_std:           0.4280	
+[INFO 02:01:19] my_main t_env: 955152 / 1000000
+[INFO 02:01:19] my_main Estimated time left: 1 minutes, 1 seconds. Time passed: 19 minutes, 18 seconds
+[INFO 02:01:22] my_main Saving models to results/models/mappo_seed693181546_PredatorPrey-v0_2024-09-22 01:41:57.901421/955152
+[INFO 02:02:25] my_main Finished Training
+Exiting Main
+Stopping all threads
+Thread Thread-1 is alive! Is daemon: False
+Thread joined
+Exiting script
+[DEBUG 02:02:26] my_main Finished after 0:20:28.
+[INFO 02:02:26] pymarl Completed after 0:20:28

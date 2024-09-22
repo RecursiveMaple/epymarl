@@ -1,0 +1,256 @@
+[INFO 14:23:05] pymarl Running command 'my_main'
+[INFO 14:23:05] pymarl Started run with ID "1"
+[DEBUG 14:23:05] pymarl Starting Heartbeat
+[DEBUG 14:23:05] my_main Started
+[INFO 14:23:05] my_main Experiment Parameters:
+[INFO 14:23:05] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 10,
+    'batch_size_run': 10,
+    'buffer_cpu_only': True,
+    'buffer_size': 10,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'double_q': True,
+    'env': 'posggym',
+    'env_args': {   'grid': '10x10',
+                    'key': 'PredatorPrey-v0',
+                    'num_prey': 4,
+                    'pretrained_wrapper': None,
+                    'seed': 739242664,
+                    'time_limit': 100},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'evaluation_epsilon': 0.0,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 64,
+    'hypergroup': None,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'ks_coef_end': 0.1,
+    'ks_coef_start': 10.0,
+    'ks_duration': 1000000,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'llm': 'glm',
+    'llm_args': {   'key': '885a088fad70c90d664fa7541d6392b3.Mdm3tIwpzF3KHGWF',
+                    'model': 'GLM-4-Air',
+                    'temperature': 0.7,
+                    'top_p': 0.7},
+    'llm_cache_path': 'pp_cache',
+    'llm_nretry': 10,
+    'llm_nsample': 5,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 50000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'name': 'qmix_llm',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'parallel',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 739242664,
+    'standardise_returns': False,
+    'standardise_rewards': True,
+    't_max': 1000000,
+    'target_update_interval_or_tau': 200,
+    'test_greedy': True,
+    'test_interval': 50000,
+    'test_nepisode': 100,
+    'use_cuda': True,
+    'use_rnn': False,
+    'use_tensorboard': True,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+[INFO 14:23:05] my_main *******************
+[INFO 14:23:05] my_main Tensorboard logging dir:
+[INFO 14:23:05] my_main /home/wangyida/Repos/epymarl/results/tb_logs/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340
+[INFO 14:23:05] my_main *******************
+[INFO 14:23:08] my_main Beginning training for 1000000 timesteps
+[INFO 14:23:42] my_main t_env: 500 / 1000000
+[INFO 14:23:42] my_main Estimated time left: 11 minutes, 3 seconds. Time passed: 33 seconds
+[INFO 14:23:45] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/500
+[INFO 14:37:21] my_main Recent Stats | t_env:      50000 | Episode:     1000
+ep_length_mean:           50.0000	epsilon:                   0.2400	grad_norm:                 4.6082	kickstart_coef:            9.7971
+kickstart_loss:            0.0865	q_taken_mean:              0.1456	return_mean:               0.0095	return_std:                0.0590
+target_mean:               0.1753	td_error_abs:              0.1637	td_loss:                   2.4064	test_ep_length_mean:      50.0000
+test_return_mean:          0.0000	test_return_std:           0.0000	
+[INFO 14:37:22] my_main t_env: 50500 / 1000000
+[INFO 14:37:22] my_main Estimated time left: 4 hours, 19 minutes, 35 seconds. Time passed: 14 minutes, 13 seconds
+[INFO 14:37:25] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/50500
+[INFO 14:41:06] my_main Recent Stats | t_env:     100000 | Episode:     2000
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 1.0882	kickstart_coef:            9.3020
+kickstart_loss:            0.0251	q_taken_mean:              0.1545	return_mean:               0.0090	return_std:                0.0689
+target_mean:               0.1654	td_error_abs:              0.1190	td_loss:                   1.9051	test_ep_length_mean:      50.0000
+test_return_mean:          0.0000	test_return_std:           0.0000	
+[INFO 14:41:07] my_main t_env: 100500 / 1000000
+[INFO 14:41:07] my_main Estimated time left: 1 hours, 7 minutes, 25 seconds. Time passed: 17 minutes, 58 seconds
+[INFO 14:41:10] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/100500
+[INFO 14:49:46] my_main Recent Stats | t_env:     150000 | Episode:     3000
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 7.0137	kickstart_coef:            8.8071
+kickstart_loss:            0.0866	q_taken_mean:              0.2056	return_mean:               0.0635	return_std:                0.1856
+target_mean:               0.2229	td_error_abs:              0.3338	td_loss:                   6.0993	test_ep_length_mean:      50.0000
+test_return_mean:          0.0033	test_return_std:           0.0233	
+[INFO 14:49:47] my_main t_env: 150500 / 1000000
+[INFO 14:49:47] my_main Estimated time left: 2 hours, 27 minutes, 10 seconds. Time passed: 26 minutes, 38 seconds
+[INFO 14:49:50] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/150500
+[INFO 14:57:30] my_main Recent Stats | t_env:     200000 | Episode:     4000
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 5.4586	kickstart_coef:            8.3120
+kickstart_loss:            0.0432	q_taken_mean:              0.1782	return_mean:               0.1760	return_std:                0.3661
+target_mean:               0.2102	td_error_abs:              0.3685	td_loss:                   2.4271	test_ep_length_mean:      50.0000
+test_return_mean:          0.0363	test_return_std:           0.0833	
+[INFO 14:57:43] my_main t_env: 200984 / 1000000
+[INFO 14:57:43] my_main Estimated time left: 2 hours, 5 minutes, 36 seconds. Time passed: 34 minutes, 34 seconds
+[INFO 14:57:46] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/200984
+[INFO 15:06:27] my_main Recent Stats | t_env:     250465 | Episode:     5010
+ep_length_mean:           49.9667	epsilon:                   0.0500	grad_norm:                13.9139	kickstart_coef:            7.8084
+kickstart_loss:            0.1623	q_taken_mean:              0.3836	return_mean:               0.2629	return_std:                0.4322
+target_mean:               0.3157	td_error_abs:              0.4684	td_loss:                   2.3026	test_ep_length_mean:      50.0000
+test_return_mean:          0.0780	test_return_std:           0.1566	
+[INFO 15:06:29] my_main t_env: 251465 / 1000000
+[INFO 15:06:29] my_main Estimated time left: 2 hours, 10 minutes, 2 seconds. Time passed: 43 minutes, 20 seconds
+[INFO 15:06:33] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/251465
+[INFO 15:12:06] my_main Recent Stats | t_env:     300465 | Episode:     6010
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 9.2573	kickstart_coef:            7.3125
+kickstart_loss:            0.1189	q_taken_mean:              0.3810	return_mean:               0.2820	return_std:                0.4315
+target_mean:               0.3980	td_error_abs:              0.5149	td_loss:                   1.9337	test_ep_length_mean:      49.9640
+test_return_mean:          0.1340	test_return_std:           0.2549	
+[INFO 15:12:08] my_main t_env: 301465 / 1000000
+[INFO 15:12:08] my_main Estimated time left: 1 hours, 18 minutes, 57 seconds. Time passed: 48 minutes, 59 seconds
+[INFO 15:12:11] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/301465
+[INFO 15:17:02] my_main Recent Stats | t_env:     350956 | Episode:     7020
+ep_length_mean:           49.9914	epsilon:                   0.0500	grad_norm:                13.9033	kickstart_coef:            6.8165
+kickstart_loss:            0.2513	q_taken_mean:              0.3046	return_mean:               0.2965	return_std:                0.4595
+target_mean:               0.3544	td_error_abs:              0.5102	td_loss:                   2.0031	test_ep_length_mean:      49.9640
+test_return_mean:          0.1880	test_return_std:           0.3449	
+[INFO 15:17:04] my_main t_env: 351956 / 1000000
+[INFO 15:17:04] my_main Estimated time left: 1 hours, 3 minutes, 19 seconds. Time passed: 53 minutes, 55 seconds
+[INFO 15:17:08] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/351956
+[INFO 15:21:29] my_main Recent Stats | t_env:     401393 | Episode:     8030
+ep_length_mean:           49.9762	epsilon:                   0.0500	grad_norm:                10.2468	kickstart_coef:            6.3128
+kickstart_loss:            0.2157	q_taken_mean:              0.4064	return_mean:               0.2935	return_std:                0.4610
+target_mean:               0.3880	td_error_abs:              0.4995	td_loss:                   1.4050	test_ep_length_mean:      49.9080
+test_return_mean:          0.2430	test_return_std:           0.4341	
+[INFO 15:21:32] my_main t_env: 402393 / 1000000
+[INFO 15:21:32] my_main Estimated time left: 52 minutes, 51 seconds. Time passed: 58 minutes, 23 seconds
+[INFO 15:21:35] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/402393
+[INFO 15:25:53] my_main Recent Stats | t_env:     451820 | Episode:     9040
+ep_length_mean:           49.9105	epsilon:                   0.0500	grad_norm:                11.9099	kickstart_coef:            5.8016
+kickstart_loss:            0.3136	q_taken_mean:              0.4513	return_mean:               0.3197	return_std:                0.4801
+target_mean:               0.4508	td_error_abs:              0.5688	td_loss:                   1.7841	test_ep_length_mean:      49.9080
+test_return_mean:          0.2890	test_return_std:           0.4823	
+[INFO 15:25:56] my_main t_env: 452820 / 1000000
+[INFO 15:25:56] my_main Estimated time left: 47 minutes, 43 seconds. Time passed: 1 hours, 2 minutes, 47 seconds
+[INFO 15:26:00] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/452820
+[INFO 15:31:26] my_main Recent Stats | t_env:     502297 | Episode:    10050
+ep_length_mean:           49.9619	epsilon:                   0.0500	grad_norm:                 7.7374	kickstart_coef:            5.2915
+kickstart_loss:            0.2806	q_taken_mean:              0.2578	return_mean:               0.3315	return_std:                0.4749
+target_mean:               0.2473	td_error_abs:              0.4038	td_loss:                   1.2629	test_ep_length_mean:      49.9080
+test_return_mean:          0.2930	test_return_std:           0.4844	
+[INFO 15:31:29] my_main t_env: 503297 / 1000000
+[INFO 15:31:29] my_main Estimated time left: 54 minutes, 38 seconds. Time passed: 1 hours, 8 minutes, 20 seconds
+[INFO 15:31:33] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/503297
+[INFO 15:36:00] my_main Recent Stats | t_env:     552774 | Episode:    11060
+ep_length_mean:           49.9781	epsilon:                   0.0500	grad_norm:                 9.2026	kickstart_coef:            4.7908
+kickstart_loss:            0.3390	q_taken_mean:              0.3342	return_mean:               0.3267	return_std:                0.4625
+target_mean:               0.3110	td_error_abs:              0.4219	td_loss:                   1.0558	test_ep_length_mean:      49.9440
+test_return_mean:          0.2990	test_return_std:           0.4818	
+[INFO 15:36:13] my_main t_env: 553774 / 1000000
+[INFO 15:36:13] my_main Estimated time left: 41 minutes, 53 seconds. Time passed: 1 hours, 13 minutes, 4 seconds
+[INFO 15:36:17] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/553774
+[INFO 15:40:02] my_main Recent Stats | t_env:     603216 | Episode:    12070
+ep_length_mean:           49.9448	epsilon:                   0.0500	grad_norm:                11.7740	kickstart_coef:            4.2874
+kickstart_loss:            0.3716	q_taken_mean:              0.4976	return_mean:               0.3083	return_std:                0.4539
+target_mean:               0.4407	td_error_abs:              0.5717	td_loss:                   1.5581	test_ep_length_mean:      49.9440
+test_return_mean:          0.3100	test_return_std:           0.4882	
+[INFO 15:40:04] my_main t_env: 604216 / 1000000
+[INFO 15:40:04] my_main Estimated time left: 30 minutes, 12 seconds. Time passed: 1 hours, 16 minutes, 55 seconds
+[INFO 15:40:08] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/604216
+[INFO 15:43:53] my_main Recent Stats | t_env:     653658 | Episode:    13080
+ep_length_mean:           49.9448	epsilon:                   0.0500	grad_norm:                 8.6503	kickstart_coef:            3.7850
+kickstart_loss:            0.4465	q_taken_mean:              0.3853	return_mean:               0.3813	return_std:                0.4966
+target_mean:               0.3979	td_error_abs:              0.4986	td_loss:                   1.3000	test_ep_length_mean:      50.0000
+test_return_mean:          0.3240	test_return_std:           0.4873	
+[INFO 15:44:07] my_main t_env: 654658 / 1000000
+[INFO 15:44:07] my_main Estimated time left: 27 minutes, 41 seconds. Time passed: 1 hours, 20 minutes, 58 seconds
+[INFO 15:44:10] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/654658
+[INFO 15:48:16] my_main Recent Stats | t_env:     704104 | Episode:    14090
+ep_length_mean:           49.9486	epsilon:                   0.0500	grad_norm:                12.0762	kickstart_coef:            3.2766
+kickstart_loss:            0.5428	q_taken_mean:              0.5018	return_mean:               0.3940	return_std:                0.5147
+target_mean:               0.5226	td_error_abs:              0.5140	td_loss:                   1.3235	test_ep_length_mean:      49.9520
+test_return_mean:          0.3400	test_return_std:           0.4995	
+[INFO 15:48:28] my_main t_env: 705104 / 1000000
+[INFO 15:48:28] my_main Estimated time left: 25 minutes, 29 seconds. Time passed: 1 hours, 25 minutes, 20 seconds
+[INFO 15:48:32] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/705104
+[INFO 15:52:36] my_main Recent Stats | t_env:     754104 | Episode:    15090
+ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                13.5551	kickstart_coef:            2.7720
+kickstart_loss:            0.6083	q_taken_mean:              0.6479	return_mean:               0.3870	return_std:                0.4711
+target_mean:               0.6693	td_error_abs:              0.6457	td_loss:                   1.6986	test_ep_length_mean:      49.9520
+test_return_mean:          0.3520	test_return_std:           0.5026	
+[INFO 15:52:46] my_main t_env: 755104 / 1000000
+[INFO 15:52:46] my_main Estimated time left: 21 minutes, 4 seconds. Time passed: 1 hours, 29 minutes, 38 seconds
+[INFO 15:52:50] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/755104
+[INFO 15:57:26] my_main Recent Stats | t_env:     804528 | Episode:    16100
+ep_length_mean:           49.9276	epsilon:                   0.0500	grad_norm:                 9.6161	kickstart_coef:            2.2703
+kickstart_loss:            0.6150	q_taken_mean:              0.8142	return_mean:               0.4335	return_std:                0.5013
+target_mean:               0.7956	td_error_abs:              0.6298	td_loss:                   1.5818	test_ep_length_mean:      49.9520
+test_return_mean:          0.3490	test_return_std:           0.4953	
+[INFO 15:57:29] my_main t_env: 805528 / 1000000
+[INFO 15:57:29] my_main Estimated time left: 18 minutes, 8 seconds. Time passed: 1 hours, 34 minutes, 20 seconds
+[INFO 15:57:33] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/805528
+[INFO 16:01:56] my_main Recent Stats | t_env:     854931 | Episode:    17110
+ep_length_mean:           49.9076	epsilon:                   0.0500	grad_norm:                10.4357	kickstart_coef:            1.7566
+kickstart_loss:            0.5979	q_taken_mean:              0.6991	return_mean:               0.4512	return_std:                0.5075
+target_mean:               0.7024	td_error_abs:              0.5950	td_loss:                   1.5053	test_ep_length_mean:      49.8660
+test_return_mean:          0.3560	test_return_std:           0.5049	
+[INFO 16:01:58] my_main t_env: 855931 / 1000000
+[INFO 16:01:58] my_main Estimated time left: 12 minutes, 50 seconds. Time passed: 1 hours, 38 minutes, 50 seconds
+[INFO 16:02:02] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/855931
+[INFO 16:06:22] my_main Recent Stats | t_env:     905390 | Episode:    18120
+ep_length_mean:           49.9610	epsilon:                   0.0500	grad_norm:                10.8862	kickstart_coef:            1.2494
+kickstart_loss:            0.7021	q_taken_mean:              0.9128	return_mean:               0.4289	return_std:                0.5018
+target_mean:               0.9389	td_error_abs:              0.6855	td_loss:                   1.6559	test_ep_length_mean:      49.8100
+test_return_mean:          0.3730	test_return_std:           0.5151	
+[INFO 16:06:34] my_main t_env: 906390 / 1000000
+[INFO 16:06:34] my_main Estimated time left: 8 minutes, 30 seconds. Time passed: 1 hours, 43 minutes, 25 seconds
+[INFO 16:06:38] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/906390
+[INFO 16:10:39] my_main Recent Stats | t_env:     955871 | Episode:    19130
+ep_length_mean:           49.9819	epsilon:                   0.0500	grad_norm:                13.9122	kickstart_coef:            0.7486
+kickstart_loss:            0.7480	q_taken_mean:              0.9466	return_mean:               0.4390	return_std:                0.5054
+target_mean:               0.8955	td_error_abs:              0.7088	td_loss:                   1.6452	test_ep_length_mean:      49.7200
+test_return_mean:          0.3660	test_return_std:           0.5257	
+[INFO 16:10:41] my_main t_env: 956871 / 1000000
+[INFO 16:10:41] my_main Estimated time left: 3 minutes, 31 seconds. Time passed: 1 hours, 47 minutes, 33 seconds
+[INFO 16:10:45] my_main Saving models to results/models/qmix_llm_seed739242664_PredatorPrey-v0_2024-09-22 14:23:05.794340/956871
+[INFO 16:14:27] my_main Finished Training
+Exiting Main
+Stopping all threads
+Thread Thread-1 is alive! Is daemon: False
+Thread joined
+Exiting script
+[DEBUG 16:14:28] my_main Finished after 1:51:22.
+[INFO 16:14:28] pymarl Completed after 1:51:22
