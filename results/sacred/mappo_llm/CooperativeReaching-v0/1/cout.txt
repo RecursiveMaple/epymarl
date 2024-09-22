@@ -1,0 +1,813 @@
+[INFO 15:13:12] pymarl Running command 'my_main'
+[INFO 15:13:12] pymarl Started run with ID "1"
+[DEBUG 15:13:12] pymarl Starting Heartbeat
+[DEBUG 15:13:12] my_main Started
+[INFO 15:13:12] my_main Experiment Parameters:
+[INFO 15:13:12] my_main 
+
+{   'action_selector': 'soft_policies',
+    'add_value_last_step': True,
+    'agent': 'rnn',
+    'agent_output_type': 'pi_logits',
+    'batch_size': 10,
+    'batch_size_run': 10,
+    'buffer_cpu_only': True,
+    'buffer_size': 10,
+    'checkpoint_path': '',
+    'common_reward': True,
+    'critic_type': 'cv_critic',
+    'entropy_coef': 0.001,
+    'env': 'posggym',
+    'env_args': {   'key': 'CooperativeReaching-v0',
+                    'mode': 'original',
+                    'num_goals': 4,
+                    'pretrained_wrapper': None,
+                    'seed': 613927867,
+                    'size': 10,
+                    'time_limit': 100},
+    'epochs': 4,
+    'eps_clip': 0.2,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hidden_dim': 128,
+    'hypergroup': None,
+    'ks_coef_end': 0.1,
+    'ks_coef_start': 10.0,
+    'ks_duration': 1000000,
+    'label': 'default_label',
+    'learner': 'ppo_learner',
+    'learner_log_interval': 10000,
+    'llm': 'glm',
+    'llm_args': {   'key': '885a088fad70c90d664fa7541d6392b3.Mdm3tIwpzF3KHGWF',
+                    'model': 'GLM-4-Air',
+                    'temperature': 0.7,
+                    'top_p': 0.7},
+    'llm_cache_path': 'glm4air_cache',
+    'llm_nretry': 5,
+    'llm_nsample': 10,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 50000,
+    'lr': 0.0003,
+    'mac': 'basic_mac',
+    'mask_before_softmax': True,
+    'name': 'mappo_llm',
+    'obs_agent_id': True,
+    'obs_individual_obs': False,
+    'obs_last_action': False,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'q_nstep': 5,
+    'render': False,
+    'repeat_id': 1,
+    'reward_scalarisation': 'sum',
+    'runner': 'parallel',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 50000,
+    'save_replay': False,
+    'seed': 613927867,
+    'standardise_returns': False,
+    'standardise_rewards': True,
+    't_max': 4000000,
+    'target_update_interval_or_tau': 0.01,
+    'test_greedy': True,
+    'test_interval': 50000,
+    'test_nepisode': 100,
+    'use_cuda': True,
+    'use_rnn': True,
+    'use_tensorboard': True,
+    'use_wandb': False,
+    'wandb_mode': 'offline',
+    'wandb_project': None,
+    'wandb_save_model': False,
+    'wandb_team': None}
+
+[INFO 15:13:12] my_main *******************
+[INFO 15:13:12] my_main Tensorboard logging dir:
+[INFO 15:13:12] my_main /home/wangyida/Repos/epymarl/results/tb_logs/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754
+[INFO 15:13:12] my_main *******************
+[INFO 15:13:15] my_main Beginning training for 4000000 timesteps
+[INFO 15:13:17] my_main t_env: 500 / 4000000
+[INFO 15:13:17] my_main Estimated time left: 3 minutes, 24 seconds. Time passed: 2 seconds
+[INFO 15:13:21] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/500
+[INFO 15:15:20] my_main Recent Stats | t_env:      50302 | Episode:     3160
+advantage_mean:           -0.0124	agent_grad_norm:           0.3527	critic_grad_norm:          1.1120	critic_loss:               0.6594
+ep_length_mean:           22.2603	kickstart_coef:            9.7960	kickstart_loss:           -0.2443	pg_loss:                   0.0067
+pi_max:                    0.6929	q_taken_mean:              1.7021	return_mean:               1.1334	return_std:                0.1600
+target_mean:               1.6897	td_error_abs:              0.4770	test_ep_length_mean:      50.0000	test_return_mean:          0.0000
+test_return_std:           0.0000	
+[INFO 15:15:21] my_main t_env: 50781 / 4000000
+[INFO 15:15:21] my_main Estimated time left: 2 hours, 42 minutes, 2 seconds. Time passed: 2 minutes, 6 seconds
+[INFO 15:15:25] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/50781
+[INFO 15:17:09] my_main Recent Stats | t_env:     100449 | Episode:     4600
+advantage_mean:           -0.0642	agent_grad_norm:           0.2617	critic_grad_norm:          1.3670	critic_loss:               0.4644
+ep_length_mean:           34.9883	kickstart_coef:            9.2966	kickstart_loss:           -0.3666	pg_loss:                   0.0643
+pi_max:                    0.9637	q_taken_mean:              0.5585	return_mean:               0.7258	return_std:                0.7484
+target_mean:               0.4942	td_error_abs:              0.5196	test_ep_length_mean:      46.0800	test_return_mean:          0.2400
+test_return_std:           0.3499	
+[INFO 15:17:10] my_main t_env: 100792 / 4000000
+[INFO 15:17:10] my_main Estimated time left: 2 hours, 21 minutes, 18 seconds. Time passed: 3 minutes, 55 seconds
+[INFO 15:17:14] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/100792
+[INFO 15:18:50] my_main Recent Stats | t_env:     150590 | Episode:     5920
+advantage_mean:            0.0042	agent_grad_norm:           0.2501	critic_grad_norm:          2.1000	critic_loss:               0.5248
+ep_length_mean:           36.3535	kickstart_coef:            8.7934	kickstart_loss:           -0.3476	pg_loss:                  -0.0005
+pi_max:                    0.9771	q_taken_mean:              0.7886	return_mean:               0.7333	return_std:                0.7431
+target_mean:               0.7928	td_error_abs:              0.4652	test_ep_length_mean:      41.7400	test_return_mean:          0.4200
+test_return_std:           0.4830	
+[INFO 15:18:51] my_main t_env: 151088 / 4000000
+[INFO 15:18:51] my_main Estimated time left: 2 hours, 8 minutes, 30 seconds. Time passed: 5 minutes, 35 seconds
+[INFO 15:18:54] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/151088
+[INFO 15:20:21] my_main Recent Stats | t_env:     200736 | Episode:     7090
+advantage_mean:            0.0548	agent_grad_norm:           0.2437	critic_grad_norm:          1.7815	critic_loss:               1.7824
+ep_length_mean:           43.7797	kickstart_coef:            8.2883	kickstart_loss:           -0.3571	pg_loss:                  -0.0552
+pi_max:                    0.9887	q_taken_mean:             -0.7005	return_mean:               0.5306	return_std:                0.7377
+target_mean:              -0.6457	td_error_abs:              0.7789	test_ep_length_mean:      42.8400	test_return_mean:          0.4050
+test_return_std:           0.5224	
+[INFO 15:20:22] my_main t_env: 201126 / 4000000
+[INFO 15:20:22] my_main Estimated time left: 1 hours, 55 minutes, 16 seconds. Time passed: 7 minutes, 6 seconds
+[INFO 15:20:25] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/201126
+[INFO 15:22:01] my_main Recent Stats | t_env:     251024 | Episode:     8390
+advantage_mean:           -0.2821	agent_grad_norm:           0.3157	critic_grad_norm:          6.0580	critic_loss:               1.9295
+ep_length_mean:           39.6670	kickstart_coef:            7.7819	kickstart_loss:           -0.3719	pg_loss:                   0.2718
+pi_max:                    0.9886	q_taken_mean:             -0.6311	return_mean:               0.8442	return_std:                0.9370
+target_mean:              -0.9132	td_error_abs:              0.7553	test_ep_length_mean:      42.2020	test_return_mean:          0.4800
+test_return_std:           0.5970	
+[INFO 15:22:02] my_main t_env: 251425 / 4000000
+[INFO 15:22:02] my_main Estimated time left: 2 hours, 3 minutes, 46 seconds. Time passed: 8 minutes, 46 seconds
+[INFO 15:22:05] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/251425
+[INFO 15:23:45] my_main Recent Stats | t_env:     301030 | Episode:     9770
+advantage_mean:           -0.0143	agent_grad_norm:           0.3265	critic_grad_norm:          3.6410	critic_loss:               1.3610
+ep_length_mean:           35.9613	kickstart_coef:            7.2779	kickstart_loss:           -0.3808	pg_loss:                   0.0095
+pi_max:                    0.9921	q_taken_mean:             -1.2995	return_mean:               0.9058	return_std:                0.9537
+target_mean:              -1.3139	td_error_abs:              0.5532	test_ep_length_mean:      39.5200	test_return_mean:          0.6370
+test_return_std:           0.7805	
+[INFO 15:23:46] my_main t_env: 301781 / 4000000
+[INFO 15:23:46] my_main Estimated time left: 2 hours, 7 minutes, 54 seconds. Time passed: 10 minutes, 31 seconds
+[INFO 15:23:50] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/301781
+[INFO 15:25:50] my_main Recent Stats | t_env:     351255 | Episode:    11500
+advantage_mean:           -0.0024	agent_grad_norm:           0.5796	critic_grad_norm:         10.1621	critic_loss:               4.1426
+ep_length_mean:           31.6770	kickstart_coef:            6.7730	kickstart_loss:           -0.3484	pg_loss:                  -0.0134
+pi_max:                    0.9803	q_taken_mean:              0.4768	return_mean:               1.0606	return_std:                0.9534
+target_mean:               0.4744	td_error_abs:              1.1295	test_ep_length_mean:      37.5200	test_return_mean:          0.7600
+test_return_std:           0.8327	
+[INFO 15:25:52] my_main t_env: 351834 / 4000000
+[INFO 15:25:52] my_main Estimated time left: 2 hours, 33 minutes, 14 seconds. Time passed: 12 minutes, 37 seconds
+[INFO 15:25:55] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/351834
+[INFO 15:28:23] my_main Recent Stats | t_env:     401364 | Episode:    13940
+advantage_mean:           -0.2223	agent_grad_norm:           0.8316	critic_grad_norm:         14.3515	critic_loss:               4.6950
+ep_length_mean:           20.2673	kickstart_coef:            6.2724	kickstart_loss:           -0.3125	pg_loss:                   0.2011
+pi_max:                    0.9442	q_taken_mean:              4.9712	return_mean:               1.6375	return_std:                0.6467
+target_mean:               4.7489	td_error_abs:              1.5927	test_ep_length_mean:      34.8220	test_return_mean:          0.9190
+test_return_std:           0.8301	
+[INFO 15:28:25] my_main t_env: 401938 / 4000000
+[INFO 15:28:25] my_main Estimated time left: 3 hours, 2 minutes, 36 seconds. Time passed: 15 minutes, 9 seconds
+[INFO 15:28:28] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/401938
+[INFO 15:30:27] my_main Recent Stats | t_env:     451538 | Episode:    15610
+advantage_mean:            0.0256	agent_grad_norm:           0.4130	critic_grad_norm:          3.5919	critic_loss:               0.8973
+ep_length_mean:           30.0884	kickstart_coef:            5.7678	kickstart_loss:           -0.3436	pg_loss:                  -0.0306
+pi_max:                    0.9773	q_taken_mean:              4.8449	return_mean:               1.1529	return_std:                0.9403
+target_mean:               4.8705	td_error_abs:              0.6145	test_ep_length_mean:      31.5000	test_return_mean:          1.0730
+test_return_std:           0.8925	
+[INFO 15:30:28] my_main t_env: 452244 / 4000000
+[INFO 15:30:28] my_main Estimated time left: 2 hours, 24 minutes, 50 seconds. Time passed: 17 minutes, 13 seconds
+[INFO 15:30:31] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/452244
+[INFO 15:32:25] my_main Recent Stats | t_env:     501707 | Episode:    17210
+advantage_mean:           -0.0690	agent_grad_norm:           0.2493	critic_grad_norm:          3.2214	critic_loss:               0.5426
+ep_length_mean:           31.5557	kickstart_coef:            5.2663	kickstart_loss:           -0.3692	pg_loss:                   0.0675
+pi_max:                    0.9855	q_taken_mean:              4.0996	return_mean:               1.0785	return_std:                0.9556
+target_mean:               4.0305	td_error_abs:              0.4607	test_ep_length_mean:      29.9320	test_return_mean:          1.1350
+test_return_std:           0.9050	
+[INFO 15:32:27] my_main t_env: 502336 / 4000000
+[INFO 15:32:27] my_main Estimated time left: 2 hours, 18 minutes, 18 seconds. Time passed: 19 minutes, 11 seconds
+[INFO 15:32:30] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/502336
+[INFO 15:34:22] my_main Recent Stats | t_env:     551964 | Episode:    18780
+advantage_mean:            0.0106	agent_grad_norm:           0.2084	critic_grad_norm:          3.4380	critic_loss:               0.4492
+ep_length_mean:           31.6836	kickstart_coef:            4.7629	kickstart_loss:           -0.3716	pg_loss:                  -0.0126
+pi_max:                    0.9891	q_taken_mean:              2.9839	return_mean:               1.0523	return_std:                0.9686
+target_mean:               2.9945	td_error_abs:              0.3986	test_ep_length_mean:      29.2520	test_return_mean:          1.1660
+test_return_std:           0.9119	
+[INFO 15:34:23] my_main t_env: 552359 / 4000000
+[INFO 15:34:23] my_main Estimated time left: 2 hours, 13 minutes, 36 seconds. Time passed: 21 minutes, 8 seconds
+[INFO 15:34:27] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/552359
+[INFO 15:36:24] my_main Recent Stats | t_env:     602037 | Episode:    20430
+advantage_mean:            0.0489	agent_grad_norm:           0.2716	critic_grad_norm:          3.8371	critic_loss:               0.6951
+ep_length_mean:           30.7318	kickstart_coef:            4.2594	kickstart_loss:           -0.3586	pg_loss:                  -0.0515
+pi_max:                    0.9845	q_taken_mean:              2.9444	return_mean:               1.1001	return_std:                0.9755
+target_mean:               2.9933	td_error_abs:              0.4291	test_ep_length_mean:      29.4660	test_return_mean:          1.1440
+test_return_std:           0.9144	
+[INFO 15:36:24] my_main t_env: 602392 / 4000000
+[INFO 15:36:24] my_main Estimated time left: 2 hours, 17 minutes, 5 seconds. Time passed: 23 minutes, 9 seconds
+[INFO 15:36:28] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/602392
+[INFO 15:38:21] my_main Recent Stats | t_env:     652097 | Episode:    22010
+advantage_mean:           -0.0233	agent_grad_norm:           0.2005	critic_grad_norm:          3.6880	critic_loss:               0.3373
+ep_length_mean:           31.5275	kickstart_coef:            3.7573	kickstart_loss:           -0.3697	pg_loss:                   0.0213
+pi_max:                    0.9884	q_taken_mean:              2.4620	return_mean:               1.0694	return_std:                0.9820
+target_mean:               2.4387	td_error_abs:              0.3496	test_ep_length_mean:      31.3360	test_return_mean:          1.0630
+test_return_std:           0.9596	
+[INFO 15:38:21] my_main t_env: 652423 / 4000000
+[INFO 15:38:21] my_main Estimated time left: 2 hours, 10 minutes, 28 seconds. Time passed: 25 minutes, 6 seconds
+[INFO 15:38:25] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/652423
+[INFO 15:40:17] my_main Recent Stats | t_env:     702204 | Episode:    23580
+advantage_mean:            0.0328	agent_grad_norm:           0.1996	critic_grad_norm:          5.1335	critic_loss:               0.5924
+ep_length_mean:           32.1911	kickstart_coef:            3.2532	kickstart_loss:           -0.3586	pg_loss:                  -0.0352
+pi_max:                    0.9887	q_taken_mean:              2.2580	return_mean:               1.0574	return_std:                0.9802
+target_mean:               2.2907	td_error_abs:              0.4308	test_ep_length_mean:      32.0240	test_return_mean:          1.0300
+test_return_std:           0.9636	
+[INFO 15:40:18] my_main t_env: 702444 / 4000000
+[INFO 15:40:18] my_main Estimated time left: 2 hours, 8 minutes, 29 seconds. Time passed: 27 minutes, 3 seconds
+[INFO 15:40:22] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/702444
+[INFO 15:42:48] my_main Recent Stats | t_env:     752231 | Episode:    26540
+advantage_mean:           -0.3672	agent_grad_norm:           0.2894	critic_grad_norm:         12.5549	critic_loss:               2.7564
+ep_length_mean:           17.7215	kickstart_coef:            2.7550	kickstart_loss:           -0.2889	pg_loss:                   0.3636
+pi_max:                    0.9705	q_taken_mean:              6.4402	return_mean:               1.7892	return_std:                0.4694
+target_mean:               6.0731	td_error_abs:              1.0507	test_ep_length_mean:      31.3040	test_return_mean:          1.0560
+test_return_std:           0.9641	
+[INFO 15:42:49] my_main t_env: 752564 / 4000000
+[INFO 15:42:49] my_main Estimated time left: 2 hours, 43 minutes, 7 seconds. Time passed: 29 minutes, 34 seconds
+[INFO 15:42:51] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/752564
+[INFO 15:44:54] my_main Recent Stats | t_env:     802318 | Episode:    28400
+advantage_mean:            0.0772	agent_grad_norm:           0.2413	critic_grad_norm:          3.1983	critic_loss:               0.6456
+ep_length_mean:           27.8279	kickstart_coef:            2.2560	kickstart_loss:           -0.3497	pg_loss:                  -0.0792
+pi_max:                    0.9783	q_taken_mean:              5.9179	return_mean:               1.3108	return_std:                0.8671
+target_mean:               5.9951	td_error_abs:              0.3361	test_ep_length_mean:      27.9380	test_return_mean:          1.2680
+test_return_std:           0.7737	
+[INFO 15:44:54] my_main t_env: 802598 / 4000000
+[INFO 15:44:54] my_main Estimated time left: 2 hours, 13 minutes, 20 seconds. Time passed: 31 minutes, 39 seconds
+[INFO 15:44:58] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/802598
+[INFO 15:47:08] my_main Recent Stats | t_env:     852385 | Episode:    30990
+advantage_mean:           -0.0892	agent_grad_norm:           0.2107	critic_grad_norm:          6.8011	critic_loss:               1.1742
+ep_length_mean:           25.5828	kickstart_coef:            1.8561	kickstart_loss:           -0.3345	pg_loss:                   0.0855
+pi_max:                    0.9849	q_taken_mean:              6.0136	return_mean:               1.3043	return_std:                0.8282
+target_mean:               5.9244	td_error_abs:              0.5339	test_ep_length_mean:      26.8100	test_return_mean:          1.3110
+test_return_std:           0.7750	
+[INFO 15:47:09] my_main t_env: 852700 / 4000000
+[INFO 15:47:09] my_main Estimated time left: 2 hours, 20 minutes, 29 seconds. Time passed: 33 minutes, 53 seconds
+[INFO 15:47:10] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/852700
+[INFO 15:49:11] my_main Recent Stats | t_env:     902674 | Episode:    34000
+advantage_mean:            0.0349	agent_grad_norm:           0.4387	critic_grad_norm:          3.7179	critic_loss:               3.4325
+ep_length_mean:           14.4599	kickstart_coef:            1.3566	kickstart_loss:           -0.2572	pg_loss:                  -0.0383
+pi_max:                    0.9709	q_taken_mean:              8.5938	return_mean:               1.9401	return_std:                0.2094
+target_mean:               8.6287	td_error_abs:              0.8944	test_ep_length_mean:      23.9000	test_return_mean:          1.4740
+test_return_std:           0.5996	
+[INFO 15:49:12] my_main t_env: 903131 / 4000000
+[INFO 15:49:12] my_main Estimated time left: 2 hours, 6 minutes, 10 seconds. Time passed: 35 minutes, 57 seconds
+[INFO 15:49:15] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/903131
+[INFO 15:50:36] my_main Recent Stats | t_env:     952771 | Episode:    35060
+advantage_mean:           -0.0067	agent_grad_norm:           0.1664	critic_grad_norm:          0.6413	critic_loss:               0.1711
+ep_length_mean:           46.3201	kickstart_coef:            0.8518	kickstart_loss:           -0.1726	pg_loss:                   0.0053
+pi_max:                    0.9896	q_taken_mean:              9.6930	return_mean:               0.1508	return_std:                0.4245
+target_mean:               9.6863	td_error_abs:              0.1952	test_ep_length_mean:      25.9220	test_return_mean:          1.3380
+test_return_std:           0.5227	
+[INFO 15:50:37] my_main t_env: 953271 / 4000000
+[INFO 15:50:37] my_main Estimated time left: 1 hours, 25 minutes, 43 seconds. Time passed: 37 minutes, 21 seconds
+[INFO 15:50:40] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/953271
+[INFO 15:51:59] my_main Recent Stats | t_env:    1003161 | Episode:    36090
+advantage_mean:            0.0065	agent_grad_norm:           0.0910	critic_grad_norm:          0.2970	critic_loss:               0.0615
+ep_length_mean:           48.8810	kickstart_coef:            0.3437	kickstart_loss:           -0.1726	pg_loss:                  -0.0067
+pi_max:                    0.9915	q_taken_mean:              8.4513	return_mean:               0.0529	return_std:                0.3007
+target_mean:               8.4578	td_error_abs:              0.1327	test_ep_length_mean:      30.2800	test_return_mean:          1.0940
+test_return_std:           0.3307	
+[INFO 15:52:00] my_main t_env: 1003661 / 4000000
+[INFO 15:52:00] my_main Estimated time left: 1 hours, 22 minutes, 42 seconds. Time passed: 38 minutes, 45 seconds
+[INFO 15:52:04] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1003661
+[INFO 15:53:24] my_main Recent Stats | t_env:    1053595 | Episode:    37150
+advantage_mean:            0.0029	agent_grad_norm:           0.0565	critic_grad_norm:          0.2655	critic_loss:               0.0460
+ep_length_mean:           48.1436	kickstart_coef:            0.1000	kickstart_loss:           -0.1787	pg_loss:                  -0.0031
+pi_max:                    0.9881	q_taken_mean:              7.4295	return_mean:               0.0911	return_std:                0.3913
+target_mean:               7.4324	td_error_abs:              0.1159	test_ep_length_mean:      36.6720	test_return_mean:          0.7090
+test_return_std:           0.4047	
+[INFO 15:53:24] my_main t_env: 1054054 / 4000000
+[INFO 15:53:24] my_main Estimated time left: 1 hours, 22 minutes, 10 seconds. Time passed: 40 minutes, 9 seconds
+[INFO 15:53:28] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1054054
+[INFO 15:55:50] my_main Recent Stats | t_env:    1103620 | Episode:    40230
+advantage_mean:           -0.0441	agent_grad_norm:           0.1420	critic_grad_norm:          2.4291	critic_loss:               1.2800
+ep_length_mean:           23.3009	kickstart_coef:            0.1000	kickstart_loss:           -0.2352	pg_loss:                   0.0430
+pi_max:                    0.9816	q_taken_mean:              7.5406	return_mean:               1.4046	return_std:                0.5904
+target_mean:               7.4966	td_error_abs:              0.5269	test_ep_length_mean:      39.7660	test_return_mean:          0.5400
+test_return_std:           0.3606	
+[INFO 15:55:51] my_main t_env: 1104115 / 4000000
+[INFO 15:55:51] my_main Estimated time left: 2 hours, 21 minutes, 2 seconds. Time passed: 42 minutes, 35 seconds
+[INFO 15:55:54] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1104115
+[INFO 15:57:50] my_main Recent Stats | t_env:    1153780 | Episode:    43340
+advantage_mean:            0.2079	agent_grad_norm:           0.1780	critic_grad_norm:          7.8785	critic_loss:               3.8017
+ep_length_mean:           14.9867	kickstart_coef:            0.1000	kickstart_loss:           -0.2876	pg_loss:                  -0.2077
+pi_max:                    0.9815	q_taken_mean:              8.2561	return_mean:               1.9764	return_std:                0.1806
+target_mean:               8.4640	td_error_abs:              0.8559	test_ep_length_mean:      40.0860	test_return_mean:          0.5070
+test_return_std:           0.4580	
+[INFO 15:57:52] my_main t_env: 1154346 / 4000000
+[INFO 15:57:52] my_main Estimated time left: 1 hours, 54 minutes, 29 seconds. Time passed: 44 minutes, 37 seconds
+[INFO 15:57:55] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1154346
+[INFO 15:59:57] my_main Recent Stats | t_env:    1203795 | Episode:    46170
+advantage_mean:            0.0085	agent_grad_norm:           0.0577	critic_grad_norm:          3.4395	critic_loss:               1.9681
+ep_length_mean:           21.5270	kickstart_coef:            0.1000	kickstart_loss:           -0.3127	pg_loss:                  -0.0096
+pi_max:                    0.9844	q_taken_mean:              7.6535	return_mean:               1.5931	return_std:                0.5321
+target_mean:               7.6621	td_error_abs:              0.5459	test_ep_length_mean:      38.8940	test_return_mean:          0.6020
+test_return_std:           0.5345	
+[INFO 15:59:59] my_main t_env: 1204498 / 4000000
+[INFO 15:59:59] my_main Estimated time left: 1 hours, 57 minutes, 43 seconds. Time passed: 46 minutes, 43 seconds
+[INFO 16:00:00] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1204498
+[INFO 16:01:58] my_main Recent Stats | t_env:    1253827 | Episode:    49270
+advantage_mean:           -0.1046	agent_grad_norm:           1.0093	critic_grad_norm:          4.5781	critic_loss:               3.2404
+ep_length_mean:           16.0915	kickstart_coef:            0.1000	kickstart_loss:           -0.2997	pg_loss:                   0.1065
+pi_max:                    0.9833	q_taken_mean:              7.9303	return_mean:               1.9989	return_std:                0.0178
+target_mean:               7.8257	td_error_abs:              0.8315	test_ep_length_mean:      32.0520	test_return_mean:          1.0020
+test_return_std:           0.5345	
+[INFO 16:02:00] my_main t_env: 1254645 / 4000000
+[INFO 16:02:00] my_main Estimated time left: 1 hours, 50 minutes, 45 seconds. Time passed: 48 minutes, 45 seconds
+[INFO 16:02:02] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1254645
+[INFO 16:03:58] my_main Recent Stats | t_env:    1303867 | Episode:    52120
+advantage_mean:           -0.0107	agent_grad_norm:           1.3148	critic_grad_norm:          2.4591	critic_loss:               2.8813
+ep_length_mean:           17.4209	kickstart_coef:            0.1000	kickstart_loss:           -0.3000	pg_loss:                   0.0128
+pi_max:                    0.9842	q_taken_mean:              7.4419	return_mean:               1.9953	return_std:                0.0612
+target_mean:               7.4312	td_error_abs:              0.7736	test_ep_length_mean:      25.7140	test_return_mean:          1.3870
+test_return_std:           0.4605	
+[INFO 16:04:00] my_main t_env: 1304653 / 4000000
+[INFO 16:04:00] my_main Estimated time left: 1 hours, 47 minutes, 46 seconds. Time passed: 50 minutes, 45 seconds
+[INFO 16:04:02] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1304653
+[INFO 16:05:59] my_main Recent Stats | t_env:    1354085 | Episode:    54470
+advantage_mean:            0.0503	agent_grad_norm:           0.0940	critic_grad_norm:          1.4314	critic_loss:               1.5301
+ep_length_mean:           22.4037	kickstart_coef:            0.1000	kickstart_loss:           -0.3292	pg_loss:                  -0.0503
+pi_max:                    0.9908	q_taken_mean:              6.9169	return_mean:               1.5979	return_std:                0.4567
+target_mean:               6.9672	td_error_abs:              0.4886	test_ep_length_mean:      20.6360	test_return_mean:          1.7160
+test_return_std:           0.3086	
+[INFO 16:06:01] my_main t_env: 1354726 / 4000000
+[INFO 16:06:01] my_main Estimated time left: 1 hours, 46 minutes, 28 seconds. Time passed: 52 minutes, 46 seconds
+[INFO 16:06:04] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1354726
+[INFO 16:08:02] my_main Recent Stats | t_env:    1404193 | Episode:    56090
+advantage_mean:           -0.0128	agent_grad_norm:           0.0384	critic_grad_norm:          0.5894	critic_loss:               0.0635
+ep_length_mean:           31.0912	kickstart_coef:            0.1000	kickstart_loss:           -0.3634	pg_loss:                   0.0123
+pi_max:                    0.9935	q_taken_mean:              5.6110	return_mean:               0.9624	return_std:                0.9958
+target_mean:               5.5982	td_error_abs:              0.1272	test_ep_length_mean:      23.5480	test_return_mean:          1.5520
+test_return_std:           0.3942	
+[INFO 16:08:04] my_main t_env: 1405059 / 4000000
+[INFO 16:08:04] my_main Estimated time left: 1 hours, 45 minutes, 43 seconds. Time passed: 54 minutes, 49 seconds
+[INFO 16:08:08] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1405059
+[INFO 16:10:03] my_main Recent Stats | t_env:    1454365 | Episode:    57740
+advantage_mean:           -0.0215	agent_grad_norm:           0.0495	critic_grad_norm:          1.0314	critic_loss:               0.0643
+ep_length_mean:           30.2369	kickstart_coef:            0.1000	kickstart_loss:           -0.3550	pg_loss:                   0.0206
+pi_max:                    0.9843	q_taken_mean:              4.5831	return_mean:               1.0144	return_std:                0.9973
+target_mean:               4.5616	td_error_abs:              0.1598	test_ep_length_mean:      22.0940	test_return_mean:          1.6080
+test_return_std:           0.3998	
+[INFO 16:10:06] my_main t_env: 1455356 / 4000000
+[INFO 16:10:06] my_main Estimated time left: 1 hours, 42 minutes, 41 seconds. Time passed: 56 minutes, 50 seconds
+[INFO 16:10:09] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1455356
+[INFO 16:12:12] my_main Recent Stats | t_env:    1504409 | Episode:    59580
+advantage_mean:            0.1071	agent_grad_norm:           0.0822	critic_grad_norm:          3.1205	critic_loss:               1.2442
+ep_length_mean:           29.1644	kickstart_coef:            0.1000	kickstart_loss:           -0.3329	pg_loss:                  -0.1111
+pi_max:                    0.9854	q_taken_mean:              4.2151	return_mean:               1.0783	return_std:                0.9893
+target_mean:               4.3222	td_error_abs:              0.2927	test_ep_length_mean:      25.0500	test_return_mean:          1.4080
+test_return_std:           0.5998	
+[INFO 16:12:15] my_main t_env: 1505458 / 4000000
+[INFO 16:12:15] my_main Estimated time left: 1 hours, 47 minutes, 8 seconds. Time passed: 58 minutes, 59 seconds
+[INFO 16:12:18] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1505458
+[INFO 16:14:17] my_main Recent Stats | t_env:    1554412 | Episode:    63080
+advantage_mean:           -0.2029	agent_grad_norm:           0.3481	critic_grad_norm:          6.8435	critic_loss:               5.6448
+ep_length_mean:           18.6991	kickstart_coef:            0.1000	kickstart_loss:           -0.2333	pg_loss:                   0.2005
+pi_max:                    0.9744	q_taken_mean:              7.9129	return_mean:               1.6551	return_std:                0.2275
+target_mean:               7.7100	td_error_abs:              1.2552	test_ep_length_mean:      24.5660	test_return_mean:          1.3800
+test_return_std:           0.7019	
+[INFO 16:14:20] my_main t_env: 1555613 / 4000000
+[INFO 16:14:20] my_main Estimated time left: 1 hours, 41 minutes, 30 seconds. Time passed: 1 hours, 1 minutes, 4 seconds
+[INFO 16:14:23] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1555613
+[INFO 16:15:42] my_main Recent Stats | t_env:    1604757 | Episode:    64160
+advantage_mean:           -0.0242	agent_grad_norm:           0.0645	critic_grad_norm:          0.8005	critic_loss:               0.1200
+ep_length_mean:           46.4974	kickstart_coef:            0.1000	kickstart_loss:           -0.2905	pg_loss:                   0.0237
+pi_max:                    0.9842	q_taken_mean:              7.0493	return_mean:               0.2033	return_std:                0.3987
+target_mean:               7.0251	td_error_abs:              0.1937	test_ep_length_mean:      26.3580	test_return_mean:          1.2570
+test_return_std:           0.7842	
+[INFO 16:15:43] my_main t_env: 1605757 / 4000000
+[INFO 16:15:43] my_main Estimated time left: 1 hours, 6 minutes, 17 seconds. Time passed: 1 hours, 2 minutes, 28 seconds
+[INFO 16:15:47] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1605757
+[INFO 16:17:04] my_main Recent Stats | t_env:    1654953 | Episode:    65180
+advantage_mean:            0.0011	agent_grad_norm:           0.0384	critic_grad_norm:          0.1574	critic_loss:               0.0443
+ep_length_mean:           49.1676	kickstart_coef:            0.1000	kickstart_loss:           -0.3103	pg_loss:                  -0.0014
+pi_max:                    0.9936	q_taken_mean:              6.3514	return_mean:               0.0448	return_std:                0.2844
+target_mean:               6.3525	td_error_abs:              0.1209	test_ep_length_mean:      30.2520	test_return_mean:          1.0570
+test_return_std:           0.5842	
+[INFO 16:17:05] my_main t_env: 1655830 / 4000000
+[INFO 16:17:05] my_main Estimated time left: 1 hours, 4 minutes, 5 seconds. Time passed: 1 hours, 3 minutes, 50 seconds
+[INFO 16:17:09] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1655830
+[INFO 16:18:35] my_main Recent Stats | t_env:    1705018 | Episode:    66840
+advantage_mean:            0.0004	agent_grad_norm:           0.0293	critic_grad_norm:          0.2434	critic_loss:               0.4323
+ep_length_mean:           43.4848	kickstart_coef:            0.1000	kickstart_loss:           -0.3050	pg_loss:                  -0.0006
+pi_max:                    0.9917	q_taken_mean:              5.4778	return_mean:               0.3101	return_std:                0.3164
+target_mean:               5.4781	td_error_abs:              0.2291	test_ep_length_mean:      34.1980	test_return_mean:          0.8530
+test_return_std:           0.4241	
+[INFO 16:18:37] my_main t_env: 1705924 / 4000000
+[INFO 16:18:37] my_main Estimated time left: 1 hours, 9 minutes, 58 seconds. Time passed: 1 hours, 5 minutes, 22 seconds
+[INFO 16:18:38] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1705924
+[INFO 16:20:26] my_main Recent Stats | t_env:    1755153 | Episode:    70060
+advantage_mean:            0.0188	agent_grad_norm:           0.0594	critic_grad_norm:          6.3733	critic_loss:               1.9537
+ep_length_mean:           15.7174	kickstart_coef:            0.1000	kickstart_loss:           -0.2960	pg_loss:                  -0.0196
+pi_max:                    0.9839	q_taken_mean:              5.5177	return_mean:               1.5176	return_std:                0.0907
+target_mean:               5.5365	td_error_abs:              0.6710	test_ep_length_mean:      31.2420	test_return_mean:          0.9560
+test_return_std:           0.2412	
+[INFO 16:20:28] my_main t_env: 1756068 / 4000000
+[INFO 16:20:28] my_main Estimated time left: 1 hours, 22 minutes, 59 seconds. Time passed: 1 hours, 7 minutes, 13 seconds
+[INFO 16:20:30] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1756068
+[INFO 16:22:20] my_main Recent Stats | t_env:    1805228 | Episode:    73470
+advantage_mean:           -0.1386	agent_grad_norm:           0.0824	critic_grad_norm:          3.8806	critic_loss:               1.5897
+ep_length_mean:           15.3418	kickstart_coef:            0.1000	kickstart_loss:           -0.2735	pg_loss:                   0.1377
+pi_max:                    0.9793	q_taken_mean:              5.4849	return_mean:               1.5181	return_std:                0.0831
+target_mean:               5.3463	td_error_abs:              0.6467	test_ep_length_mean:      31.5440	test_return_mean:          0.8870
+test_return_std:           0.1562	
+[INFO 16:22:22] my_main t_env: 1806129 / 4000000
+[INFO 16:22:22] my_main Estimated time left: 1 hours, 23 minutes, 24 seconds. Time passed: 1 hours, 9 minutes, 7 seconds
+[INFO 16:22:24] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1806129
+[INFO 16:24:20] my_main Recent Stats | t_env:    1855243 | Episode:    77300
+advantage_mean:           -0.0350	agent_grad_norm:           0.1038	critic_grad_norm:          5.3079	critic_loss:               2.0246
+ep_length_mean:           12.8107	kickstart_coef:            0.1000	kickstart_loss:           -0.2485	pg_loss:                   0.0333
+pi_max:                    0.9809	q_taken_mean:              5.6974	return_mean:               1.5003	return_std:                0.0072
+target_mean:               5.6625	td_error_abs:              0.7743	test_ep_length_mean:      28.6040	test_return_mean:          0.9100
+test_return_std:           0.0739	
+[INFO 16:24:22] my_main t_env: 1856209 / 4000000
+[INFO 16:24:22] my_main Estimated time left: 1 hours, 25 minutes, 38 seconds. Time passed: 1 hours, 11 minutes, 7 seconds
+[INFO 16:24:24] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1856209
+[INFO 16:26:21] my_main Recent Stats | t_env:    1905380 | Episode:    80970
+advantage_mean:            0.0212	agent_grad_norm:           0.0574	critic_grad_norm:          2.6458	critic_loss:               1.3234
+ep_length_mean:           13.7109	kickstart_coef:            0.1000	kickstart_loss:           -0.2381	pg_loss:                  -0.0218
+pi_max:                    0.9882	q_taken_mean:              5.3313	return_mean:               1.5001	return_std:                0.0037
+target_mean:               5.3525	td_error_abs:              0.5436	test_ep_length_mean:      21.4340	test_return_mean:          1.2100
+test_return_std:           0.0739	
+[INFO 16:26:23] my_main t_env: 1906275 / 4000000
+[INFO 16:26:23] my_main Estimated time left: 1 hours, 24 minutes, 1 seconds. Time passed: 1 hours, 13 minutes, 8 seconds
+[INFO 16:26:24] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1906275
+[INFO 16:28:21] my_main Recent Stats | t_env:    1955433 | Episode:    84600
+advantage_mean:            0.0082	agent_grad_norm:           0.0496	critic_grad_norm:          1.6424	critic_loss:               1.3357
+ep_length_mean:           13.7981	kickstart_coef:            0.1000	kickstart_loss:           -0.2336	pg_loss:                  -0.0088
+pi_max:                    0.9890	q_taken_mean:              5.2841	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.2923	td_error_abs:              0.5322	test_ep_length_mean:      14.3860	test_return_mean:          1.5060
+test_return_std:           0.0341	
+[INFO 16:28:23] my_main t_env: 1956299 / 4000000
+[INFO 16:28:23] my_main Estimated time left: 1 hours, 21 minutes, 22 seconds. Time passed: 1 hours, 15 minutes, 7 seconds
+[INFO 16:28:24] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/1956299
+[INFO 16:30:18] my_main Recent Stats | t_env:    2005723 | Episode:    87770
+advantage_mean:            0.0607	agent_grad_norm:           0.3527	critic_grad_norm:          2.3778	critic_loss:               1.2510
+ep_length_mean:           14.9738	kickstart_coef:            0.1000	kickstart_loss:           -0.2253	pg_loss:                  -0.0613
+pi_max:                    0.9774	q_taken_mean:              4.9336	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.9944	td_error_abs:              0.5391	test_ep_length_mean:      13.9780	test_return_mean:          1.5030
+test_return_std:           0.0171	
+[INFO 16:30:20] my_main t_env: 2006446 / 4000000
+[INFO 16:30:20] my_main Estimated time left: 1 hours, 17 minutes, 55 seconds. Time passed: 1 hours, 17 minutes, 5 seconds
+[INFO 16:30:23] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2006446
+[INFO 16:32:22] my_main Recent Stats | t_env:    2055803 | Episode:    90830
+advantage_mean:           -0.1323	agent_grad_norm:           0.4603	critic_grad_norm:          3.5853	critic_loss:               1.0708
+ep_length_mean:           18.5647	kickstart_coef:            0.1000	kickstart_loss:           -0.2145	pg_loss:                   0.1305
+pi_max:                    0.9803	q_taken_mean:              4.7343	return_mean:               1.4867	return_std:                0.0829
+target_mean:               4.6020	td_error_abs:              0.5621	test_ep_length_mean:      15.8220	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:32:24] my_main t_env: 2056525 / 4000000
+[INFO 16:32:24] my_main Estimated time left: 1 hours, 20 minutes, 4 seconds. Time passed: 1 hours, 19 minutes, 9 seconds
+[INFO 16:32:26] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2056525
+[INFO 16:34:23] my_main Recent Stats | t_env:    2105898 | Episode:    93580
+advantage_mean:            0.0888	agent_grad_norm:           1.0085	critic_grad_norm:          4.2853	critic_loss:               2.0512
+ep_length_mean:           18.4669	kickstart_coef:            0.1000	kickstart_loss:           -0.2012	pg_loss:                  -0.0820
+pi_max:                    0.9849	q_taken_mean:              4.8218	return_mean:               1.4995	return_std:                0.0124
+target_mean:               4.9106	td_error_abs:              0.8662	test_ep_length_mean:      17.2160	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:34:25] my_main t_env: 2106554 / 4000000
+[INFO 16:34:25] my_main Estimated time left: 1 hours, 16 minutes, 8 seconds. Time passed: 1 hours, 21 minutes, 9 seconds
+[INFO 16:34:26] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2106554
+[INFO 16:36:24] my_main Recent Stats | t_env:    2156013 | Episode:    96870
+advantage_mean:            0.0029	agent_grad_norm:           0.2545	critic_grad_norm:          2.6504	critic_loss:               1.6807
+ep_length_mean:           15.3228	kickstart_coef:            0.1000	kickstart_loss:           -0.2199	pg_loss:                  -0.0056
+pi_max:                    0.9768	q_taken_mean:              4.9736	return_mean:               1.4977	return_std:                0.0372
+target_mean:               4.9766	td_error_abs:              0.7388	test_ep_length_mean:      17.4240	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:36:26] my_main t_env: 2156632 / 4000000
+[INFO 16:36:26] my_main Estimated time left: 1 hours, 14 minutes, 23 seconds. Time passed: 1 hours, 23 minutes, 11 seconds
+[INFO 16:36:28] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2156632
+[INFO 16:38:24] my_main Recent Stats | t_env:    2206162 | Episode:   100580
+advantage_mean:            0.0940	agent_grad_norm:           0.3483	critic_grad_norm:          3.3208	critic_loss:               1.8580
+ep_length_mean:           13.7773	kickstart_coef:            0.1000	kickstart_loss:           -0.2258	pg_loss:                  -0.0977
+pi_max:                    0.9755	q_taken_mean:              5.1383	return_mean:               1.4982	return_std:                0.0311
+target_mean:               5.2323	td_error_abs:              0.7318	test_ep_length_mean:      17.7360	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:38:25] my_main t_env: 2206676 / 4000000
+[INFO 16:38:25] my_main Estimated time left: 1 hours, 11 minutes, 7 seconds. Time passed: 1 hours, 25 minutes, 10 seconds
+[INFO 16:38:26] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2206676
+[INFO 16:40:15] my_main Recent Stats | t_env:    2256185 | Episode:   103810
+advantage_mean:           -0.1100	agent_grad_norm:           0.3809	critic_grad_norm:          3.6735	critic_loss:               1.2029
+ep_length_mean:           15.1024	kickstart_coef:            0.1000	kickstart_loss:           -0.2190	pg_loss:                   0.1038
+pi_max:                    0.9705	q_taken_mean:              5.2160	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.1060	td_error_abs:              0.6384	test_ep_length_mean:      17.6840	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:40:16] my_main t_env: 2256687 / 4000000
+[INFO 16:40:16] my_main Estimated time left: 1 hours, 4 minutes, 28 seconds. Time passed: 1 hours, 27 minutes, 1 seconds
+[INFO 16:40:18] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2256687
+[INFO 16:42:05] my_main Recent Stats | t_env:    2306267 | Episode:   105610
+advantage_mean:            0.0044	agent_grad_norm:           0.5531	critic_grad_norm:          0.9597	critic_loss:               0.8923
+ep_length_mean:           27.7952	kickstart_coef:            0.1000	kickstart_loss:           -0.1850	pg_loss:                  -0.0060
+pi_max:                    0.9708	q_taken_mean:              4.4578	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4621	td_error_abs:              0.4936	test_ep_length_mean:      17.0060	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:42:06] my_main t_env: 2306687 / 4000000
+[INFO 16:42:06] my_main Estimated time left: 1 hours, 2 minutes, 14 seconds. Time passed: 1 hours, 28 minutes, 51 seconds
+[INFO 16:42:09] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2306687
+[INFO 16:44:27] my_main Recent Stats | t_env:    2356320 | Episode:   108340
+advantage_mean:            0.0477	agent_grad_norm:           0.7594	critic_grad_norm:          1.5343	critic_loss:               0.9875
+ep_length_mean:           21.8293	kickstart_coef:            0.1000	kickstart_loss:           -0.2024	pg_loss:                  -0.0472
+pi_max:                    0.9686	q_taken_mean:              3.7782	return_mean:               1.3175	return_std:                0.3456
+target_mean:               3.8259	td_error_abs:              0.4765	test_ep_length_mean:      18.2060	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:44:28] my_main t_env: 2356806 / 4000000
+[INFO 16:44:28] my_main Estimated time left: 1 hours, 17 minutes, 38 seconds. Time passed: 1 hours, 31 minutes, 13 seconds
+[INFO 16:44:29] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2356806
+[INFO 16:46:36] my_main Recent Stats | t_env:    2406323 | Episode:   112890
+advantage_mean:            0.1096	agent_grad_norm:           0.1183	critic_grad_norm:          5.7619	critic_loss:               2.6653
+ep_length_mean:           11.0289	kickstart_coef:            0.1000	kickstart_loss:           -0.2348	pg_loss:                  -0.1110
+pi_max:                    0.9875	q_taken_mean:              5.3782	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.4877	td_error_abs:              0.9111	test_ep_length_mean:      17.4740	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:46:38] my_main t_env: 2406884 / 4000000
+[INFO 16:46:38] my_main Estimated time left: 1 hours, 8 minutes, 39 seconds. Time passed: 1 hours, 33 minutes, 22 seconds
+[INFO 16:46:39] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2406884
+[INFO 16:48:45] my_main Recent Stats | t_env:    2456398 | Episode:   117500
+advantage_mean:            0.1317	agent_grad_norm:           0.1034	critic_grad_norm:          8.4242	critic_loss:               3.2598
+ep_length_mean:           10.8724	kickstart_coef:            0.1000	kickstart_loss:           -0.2364	pg_loss:                  -0.1325
+pi_max:                    0.9893	q_taken_mean:              5.5467	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.6784	td_error_abs:              0.9726	test_ep_length_mean:      16.4660	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:48:46] my_main t_env: 2456935 / 4000000
+[INFO 16:48:46] my_main Estimated time left: 1 hours, 6 minutes, 6 seconds. Time passed: 1 hours, 35 minutes, 31 seconds
+[INFO 16:48:48] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2456935
+[INFO 16:50:55] my_main Recent Stats | t_env:    2506405 | Episode:   122050
+advantage_mean:            0.1947	agent_grad_norm:           0.1351	critic_grad_norm:          5.5787	critic_loss:               3.0500
+ep_length_mean:           10.9569	kickstart_coef:            0.1000	kickstart_loss:           -0.2325	pg_loss:                  -0.2011
+pi_max:                    0.9875	q_taken_mean:              5.3093	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.5040	td_error_abs:              0.9059	test_ep_length_mean:      15.9780	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:50:57] my_main t_env: 2506977 / 4000000
+[INFO 16:50:57] my_main Estimated time left: 1 hours, 4 minutes, 47 seconds. Time passed: 1 hours, 37 minutes, 41 seconds
+[INFO 16:50:58] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2506977
+[INFO 16:53:05] my_main Recent Stats | t_env:    2556447 | Episode:   126640
+advantage_mean:            0.0296	agent_grad_norm:           0.1062	critic_grad_norm:          4.5126	critic_loss:               2.1190
+ep_length_mean:           10.9284	kickstart_coef:            0.1000	kickstart_loss:           -0.2345	pg_loss:                  -0.0318
+pi_max:                    0.9869	q_taken_mean:              5.2153	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.2449	td_error_abs:              0.7818	test_ep_length_mean:      13.9060	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:53:06] my_main t_env: 2557009 / 4000000
+[INFO 16:53:06] my_main Estimated time left: 1 hours, 2 minutes, 13 seconds. Time passed: 1 hours, 39 minutes, 51 seconds
+[INFO 16:53:07] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2557009
+[INFO 16:55:17] my_main Recent Stats | t_env:    2606462 | Episode:   131200
+advantage_mean:            0.2258	agent_grad_norm:           0.0826	critic_grad_norm:          6.3932	critic_loss:               3.0638
+ep_length_mean:           10.9512	kickstart_coef:            0.1000	kickstart_loss:           -0.2358	pg_loss:                  -0.2269
+pi_max:                    0.9919	q_taken_mean:              5.2261	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.4519	td_error_abs:              0.8781	test_ep_length_mean:      11.2040	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:55:18] my_main t_env: 2607046 / 4000000
+[INFO 16:55:18] my_main Estimated time left: 1 hours, 1 minutes, 16 seconds. Time passed: 1 hours, 42 minutes, 3 seconds
+[INFO 16:55:20] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2607046
+[INFO 16:57:29] my_main Recent Stats | t_env:    2656479 | Episode:   135830
+advantage_mean:            0.0685	agent_grad_norm:           0.0899	critic_grad_norm:          5.3491	critic_loss:               2.2251
+ep_length_mean:           10.8170	kickstart_coef:            0.1000	kickstart_loss:           -0.2382	pg_loss:                  -0.0699
+pi_max:                    0.9900	q_taken_mean:              5.2430	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.3115	td_error_abs:              0.7926	test_ep_length_mean:      11.0620	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:57:31] my_main t_env: 2657130 / 4000000
+[INFO 16:57:31] my_main Estimated time left: 59 minutes, 6 seconds. Time passed: 1 hours, 44 minutes, 15 seconds
+[INFO 16:57:32] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2657130
+[INFO 16:59:41] my_main Recent Stats | t_env:    2706505 | Episode:   140440
+advantage_mean:            0.1401	agent_grad_norm:           0.0494	critic_grad_norm:          4.8740	critic_loss:               2.8812
+ep_length_mean:           10.8507	kickstart_coef:            0.1000	kickstart_loss:           -0.2361	pg_loss:                  -0.1406
+pi_max:                    0.9895	q_taken_mean:              5.2420	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.3820	td_error_abs:              0.8881	test_ep_length_mean:      11.0940	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 16:59:43] my_main t_env: 2707181 / 4000000
+[INFO 16:59:43] my_main Estimated time left: 56 minutes, 53 seconds. Time passed: 1 hours, 46 minutes, 27 seconds
+[INFO 16:59:44] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2707181
+[INFO 17:01:53] my_main Recent Stats | t_env:    2756553 | Episode:   145050
+advantage_mean:            0.2593	agent_grad_norm:           0.0363	critic_grad_norm:          8.3831	critic_loss:               3.0531
+ep_length_mean:           10.8744	kickstart_coef:            0.1000	kickstart_loss:           -0.2421	pg_loss:                  -0.2597
+pi_max:                    0.9951	q_taken_mean:              5.0200	return_mean:               1.5000	return_std:                0.0000
+target_mean:               5.2793	td_error_abs:              0.8763	test_ep_length_mean:      11.1540	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:01:55] my_main t_env: 2757227 / 4000000
+[INFO 17:01:55] my_main Estimated time left: 54 minutes, 50 seconds. Time passed: 1 hours, 48 minutes, 40 seconds
+[INFO 17:01:56] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2757227
+[INFO 17:04:03] my_main Recent Stats | t_env:    2806558 | Episode:   149380
+advantage_mean:            0.1463	agent_grad_norm:           0.2012	critic_grad_norm:          5.4839	critic_loss:               2.2345
+ep_length_mean:           11.4996	kickstart_coef:            0.1000	kickstart_loss:           -0.2446	pg_loss:                  -0.1494
+pi_max:                    0.9864	q_taken_mean:              4.8819	return_mean:               1.4990	return_std:                0.0246
+target_mean:               5.0282	td_error_abs:              0.8114	test_ep_length_mean:      11.1500	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:04:05] my_main t_env: 2807328 / 4000000
+[INFO 17:04:05] my_main Estimated time left: 51 minutes, 25 seconds. Time passed: 1 hours, 50 minutes, 49 seconds
+[INFO 17:04:06] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2807328
+[INFO 17:06:02] my_main Recent Stats | t_env:    2856628 | Episode:   153030
+advantage_mean:            0.0081	agent_grad_norm:           0.4693	critic_grad_norm:          1.7021	critic_loss:               1.1736
+ep_length_mean:           13.7594	kickstart_coef:            0.1000	kickstart_loss:           -0.2368	pg_loss:                  -0.0123
+pi_max:                    0.9693	q_taken_mean:              4.5584	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.5664	td_error_abs:              0.6025	test_ep_length_mean:      11.4280	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:06:04] my_main t_env: 2857422 / 4000000
+[INFO 17:06:04] my_main Estimated time left: 45 minutes, 27 seconds. Time passed: 1 hours, 52 minutes, 49 seconds
+[INFO 17:06:06] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2857422
+[INFO 17:08:07] my_main Recent Stats | t_env:    2906715 | Episode:   157030
+advantage_mean:           -0.0590	agent_grad_norm:           0.1420	critic_grad_norm:          4.1451	critic_loss:               1.3710
+ep_length_mean:           12.5379	kickstart_coef:            0.1000	kickstart_loss:           -0.2424	pg_loss:                   0.0572
+pi_max:                    0.9797	q_taken_mean:              4.6263	return_mean:               1.4996	return_std:                0.0106
+target_mean:               4.5673	td_error_abs:              0.6415	test_ep_length_mean:      11.7960	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:08:09] my_main t_env: 2907461 / 4000000
+[INFO 17:08:09] my_main Estimated time left: 45 minutes, 12 seconds. Time passed: 1 hours, 54 minutes, 53 seconds
+[INFO 17:08:10] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2907461
+[INFO 17:10:07] my_main Recent Stats | t_env:    2956765 | Episode:   160860
+advantage_mean:           -0.0758	agent_grad_norm:           0.1278	critic_grad_norm:          2.2444	critic_loss:               1.0111
+ep_length_mean:           13.0641	kickstart_coef:            0.1000	kickstart_loss:           -0.2356	pg_loss:                   0.0738
+pi_max:                    0.9813	q_taken_mean:              4.4692	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.3934	td_error_abs:              0.5286	test_ep_length_mean:      12.2180	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:10:09] my_main t_env: 2957566 / 4000000
+[INFO 17:10:09] my_main Estimated time left: 41 minutes, 53 seconds. Time passed: 1 hours, 56 minutes, 54 seconds
+[INFO 17:10:11] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/2957566
+[INFO 17:12:10] my_main Recent Stats | t_env:    3006826 | Episode:   164650
+advantage_mean:            0.0128	agent_grad_norm:           0.1547	critic_grad_norm:          3.5312	critic_loss:               1.1424
+ep_length_mean:           13.2223	kickstart_coef:            0.1000	kickstart_loss:           -0.2375	pg_loss:                  -0.0158
+pi_max:                    0.9839	q_taken_mean:              4.4700	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4828	td_error_abs:              0.5319	test_ep_length_mean:      12.6060	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:12:12] my_main t_env: 3007699 / 4000000
+[INFO 17:12:12] my_main Estimated time left: 40 minutes, 23 seconds. Time passed: 1 hours, 58 minutes, 56 seconds
+[INFO 17:12:13] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3007699
+[INFO 17:14:07] my_main Recent Stats | t_env:    3056907 | Episode:   168200
+advantage_mean:           -0.0380	agent_grad_norm:           0.0799	critic_grad_norm:          1.5935	critic_loss:               1.1657
+ep_length_mean:           14.1286	kickstart_coef:            0.1000	kickstart_loss:           -0.2356	pg_loss:                   0.0363
+pi_max:                    0.9868	q_taken_mean:              4.3819	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.3440	td_error_abs:              0.5309	test_ep_length_mean:      13.2680	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:14:09] my_main t_env: 3057807 / 4000000
+[INFO 17:14:09] my_main Estimated time left: 36 minutes, 40 seconds. Time passed: 2 hours, 53 seconds
+[INFO 17:14:10] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3057807
+[INFO 17:16:05] my_main Recent Stats | t_env:    3106997 | Episode:   171840
+advantage_mean:            0.0257	agent_grad_norm:           0.0735	critic_grad_norm:          2.1154	critic_loss:               1.3283
+ep_length_mean:           13.7707	kickstart_coef:            0.1000	kickstart_loss:           -0.2381	pg_loss:                  -0.0269
+pi_max:                    0.9874	q_taken_mean:              4.4126	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4382	td_error_abs:              0.5799	test_ep_length_mean:      13.5900	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:16:07] my_main t_env: 3107837 / 4000000
+[INFO 17:16:07] my_main Estimated time left: 35 minutes, 4 seconds. Time passed: 2 hours, 2 minutes, 51 seconds
+[INFO 17:16:08] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3107837
+[INFO 17:18:11] my_main Recent Stats | t_env:    3157084 | Episode:   175700
+advantage_mean:            0.0882	agent_grad_norm:           0.1914	critic_grad_norm:          4.1803	critic_loss:               1.2362
+ep_length_mean:           13.0960	kickstart_coef:            0.1000	kickstart_loss:           -0.2335	pg_loss:                  -0.0925
+pi_max:                    0.9786	q_taken_mean:              4.3605	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4487	td_error_abs:              0.5748	test_ep_length_mean:      13.5380	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:18:13] my_main t_env: 3157850 / 4000000
+[INFO 17:18:13] my_main Estimated time left: 35 minutes, 20 seconds. Time passed: 2 hours, 4 minutes, 57 seconds
+[INFO 17:18:14] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3157850
+[INFO 17:20:22] my_main Recent Stats | t_env:    3207203 | Episode:   180290
+advantage_mean:           -0.1073	agent_grad_norm:           0.1655	critic_grad_norm:          2.8672	critic_loss:               1.5995
+ep_length_mean:           10.9126	kickstart_coef:            0.1000	kickstart_loss:           -0.2372	pg_loss:                   0.1045
+pi_max:                    0.9830	q_taken_mean:              4.8221	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.7148	td_error_abs:              0.7184	test_ep_length_mean:      13.0200	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:20:24] my_main t_env: 3207949 / 4000000
+[INFO 17:20:24] my_main Estimated time left: 34 minutes, 38 seconds. Time passed: 2 hours, 7 minutes, 9 seconds
+[INFO 17:20:25] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3207949
+[INFO 17:22:34] my_main Recent Stats | t_env:    3257213 | Episode:   184870
+advantage_mean:           -0.0703	agent_grad_norm:           0.1076	critic_grad_norm:          2.1717	critic_loss:               1.7330
+ep_length_mean:           10.9160	kickstart_coef:            0.1000	kickstart_loss:           -0.2404	pg_loss:                   0.0687
+pi_max:                    0.9898	q_taken_mean:              4.7926	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.7224	td_error_abs:              0.7230	test_ep_length_mean:      12.6400	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:22:36] my_main t_env: 3258003 / 4000000
+[INFO 17:22:36] my_main Estimated time left: 32 minutes, 32 seconds. Time passed: 2 hours, 9 minutes, 21 seconds
+[INFO 17:22:37] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3258003
+[INFO 17:24:43] my_main Recent Stats | t_env:    3307296 | Episode:   189200
+advantage_mean:            0.0368	agent_grad_norm:           0.0859	critic_grad_norm:          3.2098	critic_loss:               2.3903
+ep_length_mean:           11.3417	kickstart_coef:            0.1000	kickstart_loss:           -0.2431	pg_loss:                  -0.0393
+pi_max:                    0.9888	q_taken_mean:              4.8048	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.8416	td_error_abs:              0.8378	test_ep_length_mean:      12.0040	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:24:44] my_main t_env: 3308017 / 4000000
+[INFO 17:24:44] my_main Estimated time left: 29 minutes, 35 seconds. Time passed: 2 hours, 11 minutes, 29 seconds
+[INFO 17:24:45] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3308017
+[INFO 17:26:52] my_main Recent Stats | t_env:    3357357 | Episode:   193480
+advantage_mean:            0.0261	agent_grad_norm:           0.0672	critic_grad_norm:          1.9005	critic_loss:               1.1938
+ep_length_mean:           11.8239	kickstart_coef:            0.1000	kickstart_loss:           -0.2467	pg_loss:                  -0.0281
+pi_max:                    0.9914	q_taken_mean:              4.4688	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4949	td_error_abs:              0.5855	test_ep_length_mean:      11.4260	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:26:54] my_main t_env: 3358064 / 4000000
+[INFO 17:26:54] my_main Estimated time left: 27 minutes, 43 seconds. Time passed: 2 hours, 13 minutes, 39 seconds
+[INFO 17:26:55] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3358064
+[INFO 17:29:02] my_main Recent Stats | t_env:    3407448 | Episode:   197580
+advantage_mean:           -0.0665	agent_grad_norm:           0.0676	critic_grad_norm:          1.8483	critic_loss:               1.1571
+ep_length_mean:           11.8288	kickstart_coef:            0.1000	kickstart_loss:           -0.2508	pg_loss:                   0.0658
+pi_max:                    0.9927	q_taken_mean:              4.3943	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.3277	td_error_abs:              0.5711	test_ep_length_mean:      11.3000	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:29:04] my_main t_env: 3408086 / 4000000
+[INFO 17:29:04] my_main Estimated time left: 25 minutes, 35 seconds. Time passed: 2 hours, 15 minutes, 48 seconds
+[INFO 17:29:05] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3408086
+[INFO 17:31:09] my_main Recent Stats | t_env:    3457451 | Episode:   201640
+advantage_mean:            0.0944	agent_grad_norm:           0.1515	critic_grad_norm:          4.8117	critic_loss:               1.4340
+ep_length_mean:           12.5869	kickstart_coef:            0.1000	kickstart_loss:           -0.2504	pg_loss:                  -0.0966
+pi_max:                    0.9906	q_taken_mean:              4.3108	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4052	td_error_abs:              0.6061	test_ep_length_mean:      11.8340	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:31:11] my_main t_env: 3458200 / 4000000
+[INFO 17:31:11] my_main Estimated time left: 22 minutes, 50 seconds. Time passed: 2 hours, 17 minutes, 55 seconds
+[INFO 17:31:12] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3458200
+[INFO 17:33:14] my_main Recent Stats | t_env:    3507482 | Episode:   205480
+advantage_mean:           -0.0834	agent_grad_norm:           0.0884	critic_grad_norm:          2.6602	critic_loss:               1.1832
+ep_length_mean:           12.9378	kickstart_coef:            0.1000	kickstart_loss:           -0.2580	pg_loss:                   0.0827
+pi_max:                    0.9905	q_taken_mean:              4.4019	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.3185	td_error_abs:              0.5906	test_ep_length_mean:      12.1360	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:33:16] my_main t_env: 3508239 / 4000000
+[INFO 17:33:16] my_main Estimated time left: 20 minutes, 34 seconds. Time passed: 2 hours, 20 minutes, 1 seconds
+[INFO 17:33:18] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3508239
+[INFO 17:35:21] my_main Recent Stats | t_env:    3557580 | Episode:   209460
+advantage_mean:            0.1158	agent_grad_norm:           0.0331	critic_grad_norm:          3.1503	critic_loss:               1.4980
+ep_length_mean:           12.6751	kickstart_coef:            0.1000	kickstart_loss:           -0.2516	pg_loss:                  -0.1165
+pi_max:                    0.9924	q_taken_mean:              4.2888	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4047	td_error_abs:              0.6289	test_ep_length_mean:      12.4480	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:35:22] my_main t_env: 3558314 / 4000000
+[INFO 17:35:22] my_main Estimated time left: 18 minutes, 32 seconds. Time passed: 2 hours, 22 minutes, 7 seconds
+[INFO 17:35:24] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3558314
+[INFO 17:37:26] my_main Recent Stats | t_env:    3607607 | Episode:   213490
+advantage_mean:           -0.0868	agent_grad_norm:           0.1177	critic_grad_norm:          3.0528	critic_loss:               1.1646
+ep_length_mean:           12.4615	kickstart_coef:            0.1000	kickstart_loss:           -0.2459	pg_loss:                   0.0838
+pi_max:                    0.9904	q_taken_mean:              4.3520	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.2652	td_error_abs:              0.5855	test_ep_length_mean:      12.7360	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:37:28] my_main t_env: 3608324 / 4000000
+[INFO 17:37:28] my_main Estimated time left: 16 minutes, 27 seconds. Time passed: 2 hours, 24 minutes, 13 seconds
+[INFO 17:37:29] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3608324
+[INFO 17:39:34] my_main Recent Stats | t_env:    3657630 | Episode:   217560
+advantage_mean:            0.0526	agent_grad_norm:           0.1218	critic_grad_norm:          2.2051	critic_loss:               1.5141
+ep_length_mean:           12.2851	kickstart_coef:            0.1000	kickstart_loss:           -0.2387	pg_loss:                  -0.0554
+pi_max:                    0.9846	q_taken_mean:              4.4033	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.4559	td_error_abs:              0.6551	test_ep_length_mean:      12.5660	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:39:36] my_main t_env: 3658371 / 4000000
+[INFO 17:39:36] my_main Estimated time left: 14 minutes, 31 seconds. Time passed: 2 hours, 26 minutes, 21 seconds
+[INFO 17:39:37] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3658371
+[INFO 17:41:42] my_main Recent Stats | t_env:    3707706 | Episode:   221420
+advantage_mean:            0.0182	agent_grad_norm:           0.2000	critic_grad_norm:          2.5790	critic_loss:               0.9786
+ep_length_mean:           12.6605	kickstart_coef:            0.1000	kickstart_loss:           -0.2369	pg_loss:                  -0.0189
+pi_max:                    0.9889	q_taken_mean:              4.2042	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.2224	td_error_abs:              0.5513	test_ep_length_mean:      12.2400	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:41:44] my_main t_env: 3708441 / 4000000
+[INFO 17:41:44] my_main Estimated time left: 12 minutes, 24 seconds. Time passed: 2 hours, 28 minutes, 28 seconds
+[INFO 17:41:45] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3708441
+[INFO 17:43:53] my_main Recent Stats | t_env:    3757733 | Episode:   225010
+advantage_mean:            0.0333	agent_grad_norm:           0.2786	critic_grad_norm:          3.8159	critic_loss:               1.1568
+ep_length_mean:           13.8953	kickstart_coef:            0.1000	kickstart_loss:           -0.2421	pg_loss:                  -0.0346
+pi_max:                    0.9872	q_taken_mean:              4.1673	return_mean:               1.4989	return_std:                0.0183
+target_mean:               4.2006	td_error_abs:              0.6308	test_ep_length_mean:      12.4080	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:43:56] my_main t_env: 3758582 / 4000000
+[INFO 17:43:56] my_main Estimated time left: 10 minutes, 37 seconds. Time passed: 2 hours, 30 minutes, 41 seconds
+[INFO 17:43:59] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3758582
+[INFO 17:46:24] my_main Recent Stats | t_env:    3807806 | Episode:   228080
+advantage_mean:           -0.0295	agent_grad_norm:           0.1350	critic_grad_norm:          2.5272	critic_loss:               1.0774
+ep_length_mean:           16.9976	kickstart_coef:            0.1000	kickstart_loss:           -0.2367	pg_loss:                   0.0286
+pi_max:                    0.9923	q_taken_mean:              3.5215	return_mean:               1.4282	return_std:                0.2030
+target_mean:               3.4920	td_error_abs:              0.5878	test_ep_length_mean:      14.0320	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:46:26] my_main t_env: 3808649 / 4000000
+[INFO 17:46:26] my_main Estimated time left: 9 minutes, 34 seconds. Time passed: 2 hours, 33 minutes, 11 seconds
+[INFO 17:46:28] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3808649
+[INFO 17:48:38] my_main Recent Stats | t_env:    3857930 | Episode:   232170
+advantage_mean:            0.0103	agent_grad_norm:           0.1047	critic_grad_norm:          3.8228	critic_loss:               1.3373
+ep_length_mean:           12.5614	kickstart_coef:            0.1000	kickstart_loss:           -0.2409	pg_loss:                  -0.0118
+pi_max:                    0.9922	q_taken_mean:              4.0583	return_mean:               1.5000	return_std:                0.0000
+target_mean:               4.0685	td_error_abs:              0.6573	test_ep_length_mean:      14.2680	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:48:40] my_main t_env: 3858712 / 4000000
+[INFO 17:48:40] my_main Estimated time left: 6 minutes, 16 seconds. Time passed: 2 hours, 35 minutes, 24 seconds
+[INFO 17:48:41] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3858712
+[INFO 17:50:29] my_main Recent Stats | t_env:    3908217 | Episode:   233860
+advantage_mean:           -0.0479	agent_grad_norm:           0.0639	critic_grad_norm:          1.7025	critic_loss:               0.2888
+ep_length_mean:           28.8549	kickstart_coef:            0.1000	kickstart_loss:           -0.2082	pg_loss:                   0.0472
+pi_max:                    0.9922	q_taken_mean:              3.5163	return_mean:               0.8896	return_std:                0.5471
+target_mean:               3.4683	td_error_abs:              0.2961	test_ep_length_mean:      14.9300	test_return_mean:          1.5000
+test_return_std:           0.0000	
+[INFO 17:50:31] my_main t_env: 3908943 / 4000000
+[INFO 17:50:31] my_main Estimated time left: 3 minutes, 21 seconds. Time passed: 2 hours, 37 minutes, 15 seconds
+[INFO 17:50:34] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3908943
+[INFO 17:52:52] my_main Recent Stats | t_env:    3958247 | Episode:   236640
+advantage_mean:            0.0961	agent_grad_norm:           0.1052	critic_grad_norm:          3.9312	critic_loss:               1.0767
+ep_length_mean:           22.2219	kickstart_coef:            0.1000	kickstart_loss:           -0.2375	pg_loss:                  -0.0974
+pi_max:                    0.9899	q_taken_mean:              3.2256	return_mean:               1.2673	return_std:                0.4649
+target_mean:               3.3217	td_error_abs:              0.5404	test_ep_length_mean:      18.9460	test_return_mean:          1.3440
+test_return_std:           0.1499	
+[INFO 17:52:54] my_main t_env: 3958964 / 4000000
+[INFO 17:52:54] my_main Estimated time left: 1 minutes, 57 seconds. Time passed: 2 hours, 39 minutes, 39 seconds
+[INFO 17:52:56] my_main Saving models to results/models/mappo_llm_seed613927867_CooperativeReaching-v0_2024-09-17 15:13:12.752754/3958964
+[INFO 17:54:39] my_main Finished Training
+Exiting Main
+Stopping all threads
+Thread Thread-1 is alive! Is daemon: False
+Thread joined
+Exiting script
+[DEBUG 17:54:40] my_main Finished after 2:41:28.
+[INFO 17:54:40] pymarl Completed after 2:41:28
