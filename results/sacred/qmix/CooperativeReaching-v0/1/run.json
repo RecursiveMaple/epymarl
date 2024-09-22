@@ -13,17 +13,17 @@
     "name": "pymarl",
     "repositories": [
       {
-        "commit": "61009dc7509a07fa268852da956dca4f3d8ee5ad",
+        "commit": "6ecdca041ad62bdceffe477e90a7a7af201ec11c",
         "dirty": true,
         "url": "https://github.com/RecursiveMaple/epymarl.git"
       },
       {
-        "commit": "61009dc7509a07fa268852da956dca4f3d8ee5ad",
+        "commit": "6ecdca041ad62bdceffe477e90a7a7af201ec11c",
         "dirty": true,
         "url": "https://github.com/RecursiveMaple/epymarl.git"
       },
       {
-        "commit": "61009dc7509a07fa268852da956dca4f3d8ee5ad",
+        "commit": "6ecdca041ad62bdceffe477e90a7a7af201ec11c",
         "dirty": true,
         "url": "https://github.com/RecursiveMaple/epymarl.git"
       }
@@ -43,7 +43,7 @@
       ]
     ]
   },
-  "heartbeat": "2024-09-16T16:31:55.163104",
+  "heartbeat": "2024-09-17T17:59:56.469081",
   "host": {
     "ENV": {},
     "cpu": "Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz",
@@ -107,7 +107,7 @@
   },
   "resources": [],
   "result": null,
-  "start_time": "2024-09-16T11:51:46.194861",
+  "start_time": "2024-09-17T17:15:57.846299",
   "status": "COMPLETED",
-  "stop_time": "2024-09-16T16:31:55.145201"
+  "stop_time": "2024-09-17T17:59:56.450529"
 }

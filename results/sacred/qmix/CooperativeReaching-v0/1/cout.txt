@@ -1,18 +1,18 @@
-[INFO 19:51:46] pymarl Running command 'my_main'
-[INFO 19:51:46] pymarl Started run with ID "1"
-[DEBUG 19:51:46] pymarl Starting Heartbeat
-[DEBUG 19:51:46] my_main Started
-[INFO 19:51:46] my_main Experiment Parameters:
-[INFO 19:51:46] my_main 
+[INFO 01:15:57] pymarl Running command 'my_main'
+[INFO 01:15:57] pymarl Started run with ID "1"
+[DEBUG 01:15:57] pymarl Starting Heartbeat
+[DEBUG 01:15:57] my_main Started
+[INFO 01:15:57] my_main Experiment Parameters:
+[INFO 01:15:57] my_main 
 
 {   'action_selector': 'epsilon_greedy',
     'add_value_last_step': True,
     'agent': 'rnn',
     'agent_output_type': 'q',
-    'batch_size': 32,
-    'batch_size_run': 1,
+    'batch_size': 10,
+    'batch_size_run': 10,
     'buffer_cpu_only': True,
-    'buffer_size': 5000,
+    'buffer_size': 10,
     'checkpoint_path': '',
     'common_reward': True,
     'double_q': True,
@@ -21,7 +21,7 @@
                     'mode': 'original',
                     'num_goals': 4,
                     'pretrained_wrapper': None,
-                    'seed': 800530188,
+                    'seed': 689864910,
                     'size': 10,
                     'time_limit': 100},
     'epsilon_anneal_time': 50000,
@@ -57,15 +57,15 @@
     'render': False,
     'repeat_id': 1,
     'reward_scalarisation': 'sum',
-    'runner': 'episode',
+    'runner': 'parallel',
     'runner_log_interval': 10000,
     'save_model': True,
     'save_model_interval': 50000,
     'save_replay': False,
-    'seed': 800530188,
+    'seed': 689864910,
     'standardise_returns': False,
     'standardise_rewards': True,
-    't_max': 4000000,
+    't_max': 2000000,
     'target_update_interval_or_tau': 200,
     'test_greedy': True,
     'test_interval': 50000,
@@ -79,651 +79,331 @@
     'wandb_save_model': False,
     'wandb_team': None}
 
-[INFO 19:51:46] my_main *******************
-[INFO 19:51:46] my_main Tensorboard logging dir:
-[INFO 19:51:46] my_main /home/wangyida/Repos/epymarl/results/tb_logs/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041
-[INFO 19:51:46] my_main *******************
-[INFO 19:51:48] my_main Beginning training for 4000000 timesteps
-[INFO 19:51:50] my_main t_env: 50 / 4000000
-[INFO 19:51:50] my_main Estimated time left: 2 minutes, 23 seconds. Time passed: 1 seconds
-[INFO 19:51:59] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/50
-[INFO 19:54:27] my_main Recent Stats | t_env:      50000 | Episode:     1000
-ep_length_mean:           50.0000	epsilon:                   0.2400	grad_norm:                 0.1704	q_taken_mean:              0.1751
-return_mean:               0.0000	return_std:                0.0000	target_mean:               0.1990	td_error_abs:              0.0648
-td_loss:                   0.0091	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 19:54:27] my_main t_env: 50050 / 4000000
-[INFO 19:54:27] my_main Estimated time left: 3 hours, 26 minutes, 33 seconds. Time passed: 2 minutes, 38 seconds
-[INFO 19:54:35] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/50050
-[INFO 19:56:55] my_main Recent Stats | t_env:     100000 | Episode:     2000
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 0.0134	q_taken_mean:              0.2509
-return_mean:               0.0000	return_std:                0.0000	target_mean:               0.2529	td_error_abs:              0.0097
-td_loss:                   0.0002	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 19:56:55] my_main t_env: 100050 / 4000000
-[INFO 19:56:55] my_main Estimated time left: 3 hours, 12 minutes, 8 seconds. Time passed: 5 minutes, 6 seconds
-[INFO 19:57:03] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/100050
-[INFO 19:59:22] my_main Recent Stats | t_env:     150000 | Episode:     3000
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 0.0056	q_taken_mean:              0.2559
-return_mean:               0.0000	return_std:                0.0000	target_mean:               0.2552	td_error_abs:              0.0046
-td_loss:                   0.0000	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 19:59:22] my_main t_env: 150050 / 4000000
-[INFO 19:59:22] my_main Estimated time left: 3 hours, 8 minutes, 21 seconds. Time passed: 7 minutes, 33 seconds
-[INFO 19:59:30] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/150050
-[INFO 20:02:03] my_main Recent Stats | t_env:     200004 | Episode:     4229
-ep_length_mean:           43.7759	epsilon:                   0.0500	grad_norm:               300.0670	q_taken_mean:              0.8448
-return_mean:               0.3780	return_std:                0.5140	target_mean:               1.2622	td_error_abs:              0.9679
-td_loss:                  31.7880	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:02:03] my_main t_env: 200054 / 4000000
-[INFO 20:02:03] my_main Estimated time left: 3 hours, 24 minutes, 43 seconds. Time passed: 10 minutes, 14 seconds
-[INFO 20:02:13] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/200054
-[INFO 20:05:06] my_main Recent Stats | t_env:     250037 | Episode:     5247
-ep_length_mean:           47.8638	epsilon:                   0.0500	grad_norm:                44.8267	q_taken_mean:              8.1667
-return_mean:               0.1955	return_std:                0.5167	target_mean:               8.1421	td_error_abs:              1.5180
-td_loss:                   8.9762	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:05:06] my_main t_env: 250087 / 4000000
-[INFO 20:05:06] my_main Estimated time left: 3 hours, 48 minutes, 16 seconds. Time passed: 13 minutes, 17 seconds
-[INFO 20:05:18] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/250087
-[INFO 20:08:12] my_main Recent Stats | t_env:     300037 | Episode:     6247
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:               142.9953	q_taken_mean:             24.7692
-return_mean:               0.0000	return_std:                0.0000	target_mean:              24.6840	td_error_abs:              2.1772
-td_loss:                  12.3492	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:08:12] my_main t_env: 300087 / 4000000
-[INFO 20:08:12] my_main Estimated time left: 3 hours, 49 minutes, 6 seconds. Time passed: 16 minutes, 23 seconds
-[INFO 20:08:23] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/300087
-[INFO 20:11:19] my_main Recent Stats | t_env:     350037 | Episode:     7247
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:               197.9979	q_taken_mean:             38.3375
-return_mean:               0.0000	return_std:                0.0000	target_mean:              38.1309	td_error_abs:              2.2780
-td_loss:                  14.0033	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:11:19] my_main t_env: 350087 / 4000000
-[INFO 20:11:19] my_main Estimated time left: 3 hours, 48 minutes, 3 seconds. Time passed: 19 minutes, 30 seconds
-[INFO 20:11:31] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/350087
-[INFO 20:14:24] my_main Recent Stats | t_env:     400049 | Episode:     8254
-ep_length_mean:           49.7768	epsilon:                   0.0500	grad_norm:               117.0000	q_taken_mean:             47.4070
-return_mean:               0.0300	return_std:                0.1486	target_mean:              47.3950	td_error_abs:              1.6017
-td_loss:                   7.2490	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:14:25] my_main t_env: 400099 / 4000000
-[INFO 20:14:25] my_main Estimated time left: 3 hours, 42 minutes, 17 seconds. Time passed: 22 minutes, 36 seconds
-[INFO 20:14:36] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/400099
-[INFO 20:17:31] my_main Recent Stats | t_env:     450097 | Episode:     9264
-ep_length_mean:           49.4489	epsilon:                   0.0500	grad_norm:               206.9448	q_taken_mean:             55.1126
-return_mean:               0.0427	return_std:                0.2610	target_mean:              55.0021	td_error_abs:              1.4473
-td_loss:                   7.5087	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:17:32] my_main t_env: 450147 / 4000000
-[INFO 20:17:32] my_main Estimated time left: 3 hours, 41 minutes, 5 seconds. Time passed: 25 minutes, 43 seconds
-[INFO 20:17:43] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/450147
-[INFO 20:20:37] my_main Recent Stats | t_env:     500124 | Episode:    10265
-ep_length_mean:           49.9771	epsilon:                   0.0500	grad_norm:               145.4831	q_taken_mean:             57.1350
-return_mean:               0.0040	return_std:                0.0563	target_mean:              57.2798	td_error_abs:              1.0768
-td_loss:                   3.0118	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:20:37] my_main t_env: 500174 / 4000000
-[INFO 20:20:37] my_main Estimated time left: 3 hours, 36 minutes, 40 seconds. Time passed: 28 minutes, 49 seconds
-[INFO 20:20:49] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/500174
-[INFO 20:23:42] my_main Recent Stats | t_env:     550124 | Episode:    11265
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:               146.4474	q_taken_mean:             56.8636
-return_mean:               0.0000	return_std:                0.0000	target_mean:              56.9600	td_error_abs:              0.9256
-td_loss:                   1.5733	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:23:43] my_main t_env: 550174 / 4000000
-[INFO 20:23:43] my_main Estimated time left: 3 hours, 32 minutes, 57 seconds. Time passed: 31 minutes, 54 seconds
-[INFO 20:23:54] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/550174
-[INFO 20:26:45] my_main Recent Stats | t_env:     600124 | Episode:    12265
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:               173.5044	q_taken_mean:             55.8543
-return_mean:               0.0000	return_std:                0.0000	target_mean:              55.7668	td_error_abs:              0.8430
-td_loss:                   1.8069	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:26:45] my_main t_env: 600174 / 4000000
-[INFO 20:26:45] my_main Estimated time left: 3 hours, 26 minutes, 55 seconds. Time passed: 34 minutes, 56 seconds
-[INFO 20:26:57] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/600174
-[INFO 20:29:51] my_main Recent Stats | t_env:     650172 | Episode:    13266
-ep_length_mean:           49.9980	epsilon:                   0.0500	grad_norm:               107.1196	q_taken_mean:             54.3453
-return_mean:               0.0020	return_std:                0.0281	target_mean:              54.3740	td_error_abs:              0.7161
-td_loss:                   1.4828	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:29:52] my_main t_env: 650222 / 4000000
-[INFO 20:29:52] my_main Estimated time left: 3 hours, 27 minutes, 59 seconds. Time passed: 38 minutes, 3 seconds
-[INFO 20:30:03] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/650222
-[INFO 20:32:55] my_main Recent Stats | t_env:     700215 | Episode:    14269
-ep_length_mean:           49.9751	epsilon:                   0.0500	grad_norm:               139.0085	q_taken_mean:             53.0075
-return_mean:               0.0060	return_std:                0.0844	target_mean:              53.0399	td_error_abs:              0.6665
-td_loss:                   1.4023	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:32:55] my_main t_env: 700265 / 4000000
-[INFO 20:32:55] my_main Estimated time left: 3 hours, 21 minutes, 11 seconds. Time passed: 41 minutes, 6 seconds
-[INFO 20:33:06] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/700265
-[INFO 20:36:02] my_main Recent Stats | t_env:     750219 | Episode:    15291
-ep_length_mean:           49.2623	epsilon:                   0.0500	grad_norm:                76.0859	q_taken_mean:             51.3317
-return_mean:               0.0762	return_std:                0.3546	target_mean:              51.3327	td_error_abs:              0.5855
-td_loss:                   0.6565	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:36:03] my_main t_env: 750269 / 4000000
-[INFO 20:36:03] my_main Estimated time left: 3 hours, 23 minutes, 25 seconds. Time passed: 44 minutes, 14 seconds
-[INFO 20:36:14] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/750269
-[INFO 20:39:08] my_main Recent Stats | t_env:     800258 | Episode:    16298
-ep_length_mean:           49.3687	epsilon:                   0.0500	grad_norm:                84.7196	q_taken_mean:             49.1984
-return_mean:               0.0693	return_std:                0.2875	target_mean:              49.1953	td_error_abs:              0.5717
-td_loss:                   0.9598	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:39:08] my_main t_env: 800308 / 4000000
-[INFO 20:39:08] my_main Estimated time left: 3 hours, 17 minutes, 22 seconds. Time passed: 47 minutes, 19 seconds
-[INFO 20:39:19] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/800308
-[INFO 20:42:12] my_main Recent Stats | t_env:     850279 | Episode:    17299
-ep_length_mean:           49.8919	epsilon:                   0.0500	grad_norm:               121.4491	q_taken_mean:             47.6316
-return_mean:               0.0094	return_std:                0.0807	target_mean:              47.6038	td_error_abs:              0.6164
-td_loss:                   0.8132	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:42:12] my_main t_env: 850329 / 4000000
-[INFO 20:42:12] my_main Estimated time left: 3 hours, 13 minutes, 0 seconds. Time passed: 50 minutes, 23 seconds
-[INFO 20:42:23] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/850329
-[INFO 20:45:18] my_main Recent Stats | t_env:     900279 | Episode:    18299
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                69.8765	q_taken_mean:             46.0773
-return_mean:               0.0000	return_std:                0.0000	target_mean:              45.9623	td_error_abs:              0.4965
-td_loss:                   0.7405	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:45:18] my_main t_env: 900329 / 4000000
-[INFO 20:45:18] my_main Estimated time left: 3 hours, 12 minutes, 40 seconds. Time passed: 53 minutes, 29 seconds
-[INFO 20:45:30] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/900329
-[INFO 20:48:22] my_main Recent Stats | t_env:     950279 | Episode:    19299
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                37.9484	q_taken_mean:             44.3848
-return_mean:               0.0000	return_std:                0.0000	target_mean:              44.4168	td_error_abs:              0.3966
-td_loss:                   0.2871	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:48:22] my_main t_env: 950329 / 4000000
-[INFO 20:48:22] my_main Estimated time left: 3 hours, 7 minutes, 7 seconds. Time passed: 56 minutes, 33 seconds
-[INFO 20:48:34] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/950329
-[INFO 20:51:27] my_main Recent Stats | t_env:    1000279 | Episode:    20299
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                54.6312	q_taken_mean:             43.3991
-return_mean:               0.0000	return_std:                0.0000	target_mean:              43.3449	td_error_abs:              0.4209
-td_loss:                   0.2987	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:51:27] my_main t_env: 1000329 / 4000000
-[INFO 20:51:27] my_main Estimated time left: 3 hours, 4 minutes, 59 seconds. Time passed: 59 minutes, 38 seconds
-[INFO 20:51:39] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1000329
-[INFO 20:54:30] my_main Recent Stats | t_env:    1050280 | Episode:    21300
-ep_length_mean:           49.9642	epsilon:                   0.0500	grad_norm:                69.8546	q_taken_mean:             42.0514
-return_mean:               0.0040	return_std:                0.0563	target_mean:              42.0646	td_error_abs:              0.4252
-td_loss:                   0.2926	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:54:30] my_main t_env: 1050330 / 4000000
-[INFO 20:54:30] my_main Estimated time left: 3 hours, 2 seconds. Time passed: 1 hours, 2 minutes, 41 seconds
-[INFO 20:54:42] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1050330
-[INFO 20:57:34] my_main Recent Stats | t_env:    1100280 | Episode:    22300
-ep_length_mean:           49.9871	epsilon:                   0.0500	grad_norm:                39.2491	q_taken_mean:             40.3452
-return_mean:               0.0015	return_std:                0.0211	target_mean:              40.3206	td_error_abs:              0.3759
-td_loss:                   0.2696	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 20:57:34] my_main t_env: 1100330 / 4000000
-[INFO 20:57:34] my_main Estimated time left: 2 hours, 57 minutes, 54 seconds. Time passed: 1 hours, 5 minutes, 46 seconds
-[INFO 20:57:46] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1100330
-[INFO 21:00:40] my_main Recent Stats | t_env:    1150313 | Episode:    23301
-ep_length_mean:           49.9831	epsilon:                   0.0500	grad_norm:                52.2313	q_taken_mean:             38.2703
-return_mean:               0.0020	return_std:                0.0281	target_mean:              38.3679	td_error_abs:              0.3798
-td_loss:                   0.3889	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:00:40] my_main t_env: 1150363 / 4000000
-[INFO 21:00:40] my_main Estimated time left: 2 hours, 56 minutes, 36 seconds. Time passed: 1 hours, 8 minutes, 52 seconds
-[INFO 21:00:52] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1150363
-[INFO 21:03:45] my_main Recent Stats | t_env:    1200355 | Episode:    24304
-ep_length_mean:           49.9333	epsilon:                   0.0500	grad_norm:                35.0631	q_taken_mean:             36.6543
-return_mean:               0.0085	return_std:                0.0930	target_mean:              36.6753	td_error_abs:              0.3098
-td_loss:                   0.1577	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:03:45] my_main t_env: 1200405 / 4000000
-[INFO 21:03:45] my_main Estimated time left: 2 hours, 52 minutes, 12 seconds. Time passed: 1 hours, 11 minutes, 56 seconds
-[INFO 21:03:57] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1200405
-[INFO 21:06:48] my_main Recent Stats | t_env:    1250368 | Episode:    25312
-ep_length_mean:           49.5994	epsilon:                   0.0500	grad_norm:                36.0937	q_taken_mean:             35.1556
-return_mean:               0.0383	return_std:                0.2154	target_mean:              35.1930	td_error_abs:              0.3178
-td_loss:                   0.1715	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:06:48] my_main t_env: 1250418 / 4000000
-[INFO 21:06:48] my_main Estimated time left: 2 hours, 47 minutes, 48 seconds. Time passed: 1 hours, 14 minutes, 59 seconds
-[INFO 21:07:00] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1250418
-[INFO 21:09:55] my_main Recent Stats | t_env:    1300385 | Episode:    26314
-ep_length_mean:           49.9483	epsilon:                   0.0500	grad_norm:                32.3343	q_taken_mean:             33.7987
-return_mean:               0.0065	return_std:                0.0649	target_mean:              33.8315	td_error_abs:              0.3208
-td_loss:                   0.1600	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:09:55] my_main t_env: 1300435 / 4000000
-[INFO 21:09:55] my_main Estimated time left: 2 hours, 47 minutes, 42 seconds. Time passed: 1 hours, 18 minutes, 6 seconds
-[INFO 21:10:06] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1300435
-[INFO 21:13:01] my_main Recent Stats | t_env:    1350417 | Episode:    27317
-ep_length_mean:           49.8869	epsilon:                   0.0500	grad_norm:                38.9961	q_taken_mean:             32.5713
-return_mean:               0.0064	return_std:                0.0618	target_mean:              32.4993	td_error_abs:              0.3583
-td_loss:                   0.2211	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:13:01] my_main t_env: 1350467 / 4000000
-[INFO 21:13:01] my_main Estimated time left: 2 hours, 44 minutes, 23 seconds. Time passed: 1 hours, 21 minutes, 12 seconds
-[INFO 21:13:13] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1350467
-[INFO 21:16:06] my_main Recent Stats | t_env:    1400457 | Episode:    28318
-ep_length_mean:           49.9356	epsilon:                   0.0500	grad_norm:                24.4872	q_taken_mean:             31.1653
-return_mean:               0.0060	return_std:                0.0677	target_mean:              31.1296	td_error_abs:              0.2717
-td_loss:                   0.1216	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:16:06] my_main t_env: 1400507 / 4000000
-[INFO 21:16:06] my_main Estimated time left: 2 hours, 40 minutes, 17 seconds. Time passed: 1 hours, 24 minutes, 17 seconds
-[INFO 21:16:18] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1400507
-[INFO 21:19:11] my_main Recent Stats | t_env:    1450457 | Episode:    29318
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                21.3616	q_taken_mean:             29.8126
-return_mean:               0.0000	return_std:                0.0000	target_mean:              29.8656	td_error_abs:              0.2432
-td_loss:                   0.1079	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:19:11] my_main t_env: 1450507 / 4000000
-[INFO 21:19:11] my_main Estimated time left: 2 hours, 36 minutes, 59 seconds. Time passed: 1 hours, 27 minutes, 22 seconds
-[INFO 21:19:22] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1450507
-[INFO 21:22:15] my_main Recent Stats | t_env:    1500457 | Episode:    30318
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                27.2741	q_taken_mean:             28.7345
-return_mean:               0.0000	return_std:                0.0000	target_mean:              28.7168	td_error_abs:              0.2418
-td_loss:                   0.0936	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:22:15] my_main t_env: 1500507 / 4000000
-[INFO 21:22:15] my_main Estimated time left: 2 hours, 33 minutes, 37 seconds. Time passed: 1 hours, 30 minutes, 26 seconds
-[INFO 21:22:27] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1500507
-[INFO 21:25:23] my_main Recent Stats | t_env:    1550475 | Episode:    31319
-ep_length_mean:           49.9900	epsilon:                   0.0500	grad_norm:                27.7490	q_taken_mean:             27.8005
-return_mean:               0.0015	return_std:                0.0211	target_mean:              27.7494	td_error_abs:              0.2475
-td_loss:                   0.0958	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:25:23] my_main t_env: 1550525 / 4000000
-[INFO 21:25:23] my_main Estimated time left: 2 hours, 33 minutes, 18 seconds. Time passed: 1 hours, 33 minutes, 34 seconds
-[INFO 21:25:35] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1550525
-[INFO 21:28:30] my_main Recent Stats | t_env:    1600520 | Episode:    32322
-ep_length_mean:           49.8979	epsilon:                   0.0500	grad_norm:                15.3860	q_taken_mean:             26.5774
-return_mean:               0.0208	return_std:                0.1665	target_mean:              26.6077	td_error_abs:              0.1942
-td_loss:                   0.0632	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:28:30] my_main t_env: 1600570 / 4000000
-[INFO 21:28:30] my_main Estimated time left: 2 hours, 29 minutes, 16 seconds. Time passed: 1 hours, 36 minutes, 41 seconds
-[INFO 21:28:41] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1600570
-[INFO 21:31:36] my_main Recent Stats | t_env:    1650533 | Episode:    33324
-ep_length_mean:           49.8896	epsilon:                   0.0500	grad_norm:                13.4403	q_taken_mean:             25.5173
-return_mean:               0.0124	return_std:                0.1452	target_mean:              25.5397	td_error_abs:              0.1753
-td_loss:                   0.0495	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:31:36] my_main t_env: 1650583 / 4000000
-[INFO 21:31:36] my_main Estimated time left: 2 hours, 26 minutes, 3 seconds. Time passed: 1 hours, 39 minutes, 48 seconds
-[INFO 21:31:48] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1650583
-[INFO 21:34:46] my_main Recent Stats | t_env:    1700581 | Episode:    34398
-ep_length_mean:           48.1733	epsilon:                   0.0500	grad_norm:                16.2970	q_taken_mean:             24.5445
-return_mean:               0.1124	return_std:                0.3659	target_mean:              24.5017	td_error_abs:              0.1980
-td_loss:                   0.0638	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:34:47] my_main t_env: 1700588 / 4000000
-[INFO 21:34:47] my_main Estimated time left: 2 hours, 25 minutes, 42 seconds. Time passed: 1 hours, 42 minutes, 58 seconds
-[INFO 21:34:55] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1700588
-[INFO 21:38:04] my_main t_env: 1750601 / 4000000
-[INFO 21:38:04] my_main Estimated time left: 2 hours, 27 minutes, 55 seconds. Time passed: 1 hours, 46 minutes, 15 seconds
-[INFO 21:38:15] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1750601
-[INFO 21:38:15] my_main Recent Stats | t_env:    1750601 | Episode:    35672
-ep_length_mean:           39.9276	epsilon:                   0.0500	grad_norm:                11.6632	q_taken_mean:             23.4431
-return_mean:               0.6060	return_std:                0.7661	target_mean:              23.4769	td_error_abs:              0.2089
-td_loss:                   0.0933	test_ep_length_mean:      47.3840	test_return_mean:          0.1320	test_return_std:           0.1881
-
-[INFO 21:41:08] my_main t_env: 1800601 / 4000000
-[INFO 21:41:08] my_main Estimated time left: 2 hours, 14 minutes, 40 seconds. Time passed: 1 hours, 49 minutes, 19 seconds
-[INFO 21:41:19] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1800601
-[INFO 21:41:19] my_main Recent Stats | t_env:    1800601 | Episode:    36672
-ep_length_mean:           49.9327	epsilon:                   0.0500	grad_norm:                10.4101	q_taken_mean:             23.4633
-return_mean:               0.0079	return_std:                0.0557	target_mean:              23.4826	td_error_abs:              0.2164
-td_loss:                   0.0844	test_ep_length_mean:      47.3840	test_return_mean:          0.1320	test_return_std:           0.1881
-
-[INFO 21:44:13] my_main t_env: 1850601 / 4000000
-[INFO 21:44:13] my_main Estimated time left: 2 hours, 12 minutes, 29 seconds. Time passed: 1 hours, 52 minutes, 24 seconds
-[INFO 21:44:24] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1850601
-[INFO 21:44:24] my_main Recent Stats | t_env:    1850601 | Episode:    37672
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                11.7680	q_taken_mean:             23.7697
-return_mean:               0.0000	return_std:                0.0000	target_mean:              23.8096	td_error_abs:              0.2026
-td_loss:                   0.0695	test_ep_length_mean:      47.3840	test_return_mean:          0.1320	test_return_std:           0.1881
-
-[INFO 21:47:19] my_main t_env: 1900641 / 4000000
-[INFO 21:47:19] my_main Estimated time left: 2 hours, 10 minutes, 10 seconds. Time passed: 1 hours, 55 minutes, 30 seconds
-[INFO 21:47:30] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1900641
-[INFO 21:47:30] my_main Recent Stats | t_env:    1900641 | Episode:    38675
-ep_length_mean:           49.8909	epsilon:                   0.0500	grad_norm:                 8.0769	q_taken_mean:             23.1449
-return_mean:               0.0060	return_std:                0.0719	target_mean:              23.1477	td_error_abs:              0.1362
-td_loss:                   0.0327	test_ep_length_mean:      47.3840	test_return_mean:          0.1320	test_return_std:           0.1881
-
-[INFO 21:50:24] my_main t_env: 1950684 / 4000000
-[INFO 21:50:24] my_main Estimated time left: 2 hours, 6 minutes, 39 seconds. Time passed: 1 hours, 58 minutes, 35 seconds
-[INFO 21:50:36] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/1950684
-[INFO 21:50:36] my_main Recent Stats | t_env:    1950684 | Episode:    39682
-ep_length_mean:           49.8564	epsilon:                   0.0500	grad_norm:                 7.1743	q_taken_mean:             22.2377
-return_mean:               0.0124	return_std:                0.0920	target_mean:              22.2363	td_error_abs:              0.1171
-td_loss:                   0.0259	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:53:33] my_main t_env: 2000733 / 4000000
-[INFO 21:53:33] my_main Estimated time left: 2 hours, 5 minutes, 38 seconds. Time passed: 2 hours, 1 minutes, 44 seconds
-[INFO 21:53:45] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2000733
-[INFO 21:53:45] my_main Recent Stats | t_env:    2000733 | Episode:    40683
-ep_length_mean:           49.8402	epsilon:                   0.0500	grad_norm:                 6.9880	q_taken_mean:             21.2901
-return_mean:               0.0103	return_std:                0.0887	target_mean:              21.3119	td_error_abs:              0.0986
-td_loss:                   0.0159	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:56:42] my_main t_env: 2050733 / 4000000
-[INFO 21:56:42] my_main Estimated time left: 2 hours, 2 minutes, 36 seconds. Time passed: 2 hours, 4 minutes, 53 seconds
-[INFO 21:56:53] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2050733
-[INFO 21:56:53] my_main Recent Stats | t_env:    2050733 | Episode:    41683
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 5.1331	q_taken_mean:             20.4240
-return_mean:               0.0000	return_std:                0.0000	target_mean:              20.4183	td_error_abs:              0.0759
-td_loss:                   0.0097	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 21:59:49] my_main t_env: 2100755 / 4000000
-[INFO 21:59:49] my_main Estimated time left: 1 hours, 58 minutes, 37 seconds. Time passed: 2 hours, 8 minutes, 0 seconds
-[INFO 22:00:01] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2100755
-[INFO 22:00:01] my_main Recent Stats | t_env:    2100755 | Episode:    42685
-ep_length_mean:           49.9228	epsilon:                   0.0500	grad_norm:                 3.0968	q_taken_mean:             19.4877
-return_mean:               0.0059	return_std:                0.0484	target_mean:              19.4907	td_error_abs:              0.0766
-td_loss:                   0.0135	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 22:03:04] my_main t_env: 2150768 / 4000000
-[INFO 22:03:04] my_main Estimated time left: 1 hours, 59 minutes, 57 seconds. Time passed: 2 hours, 11 minutes, 15 seconds
-[INFO 22:03:14] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2150768
-[INFO 22:03:14] my_main Recent Stats | t_env:    2150768 | Episode:    43825
-ep_length_mean:           46.8089	epsilon:                   0.0500	grad_norm:                 2.7953	q_taken_mean:             18.5699
-return_mean:               0.2008	return_std:                0.4701	target_mean:              18.5684	td_error_abs:              0.0634
-td_loss:                   0.0070	test_ep_length_mean:      48.7140	test_return_mean:          0.0640	test_return_std:           0.1466
-
-[INFO 22:06:19] my_main t_env: 2200813 / 4000000
-[INFO 22:06:19] my_main Estimated time left: 1 hours, 57 minutes, 0 seconds. Time passed: 2 hours, 14 minutes, 30 seconds
-[INFO 22:06:31] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2200813
-[INFO 22:06:31] my_main Recent Stats | t_env:    2200813 | Episode:    45044
-ep_length_mean:           39.9399	epsilon:                   0.0500	grad_norm:                11.3341	q_taken_mean:             18.0660
-return_mean:               0.6060	return_std:                0.8161	target_mean:              18.0924	td_error_abs:              0.2280
-td_loss:                   0.1081	test_ep_length_mean:      48.7140	test_return_mean:          0.0640	test_return_std:           0.1466
-
-[INFO 22:09:23] my_main t_env: 2250813 / 4000000
-[INFO 22:09:23] my_main Estimated time left: 1 hours, 47 minutes, 31 seconds. Time passed: 2 hours, 17 minutes, 35 seconds
-[INFO 22:09:35] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2250813
-[INFO 22:09:35] my_main Recent Stats | t_env:    2250813 | Episode:    46044
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 4.9424	q_taken_mean:             19.3895
-return_mean:               0.0000	return_std:                0.0000	target_mean:              19.3728	td_error_abs:              0.2163
-td_loss:                   0.0915	test_ep_length_mean:      48.7140	test_return_mean:          0.0640	test_return_std:           0.1466
-
-[INFO 22:12:25] my_main t_env: 2300846 / 4000000
-[INFO 22:12:25] my_main Estimated time left: 1 hours, 42 minutes, 50 seconds. Time passed: 2 hours, 20 minutes, 36 seconds
-[INFO 22:12:37] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2300846
-[INFO 22:12:37] my_main Recent Stats | t_env:    2300846 | Episode:    47045
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 4.9303	q_taken_mean:             20.1101
-return_mean:               0.0000	return_std:                0.0000	target_mean:              20.1077	td_error_abs:              0.1696
-td_loss:                   0.0585	test_ep_length_mean:      48.7140	test_return_mean:          0.0640	test_return_std:           0.1466
-
-[INFO 22:15:30] my_main t_env: 2350866 / 4000000
-[INFO 22:15:30] my_main Estimated time left: 1 hours, 41 minutes, 47 seconds. Time passed: 2 hours, 23 minutes, 41 seconds
-[INFO 22:15:42] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2350866
-[INFO 22:15:42] my_main Recent Stats | t_env:    2350866 | Episode:    48046
-ep_length_mean:           49.9532	epsilon:                   0.0500	grad_norm:                 4.7375	q_taken_mean:             19.6701
-return_mean:               0.0040	return_std:                0.0563	target_mean:              19.6868	td_error_abs:              0.1190
-td_loss:                   0.0287	test_ep_length_mean:      48.7140	test_return_mean:          0.0640	test_return_std:           0.1466
-
-[INFO 22:18:37] my_main t_env: 2400883 / 4000000
-[INFO 22:18:37] my_main Estimated time left: 1 hours, 39 minutes, 40 seconds. Time passed: 2 hours, 26 minutes, 49 seconds
-[INFO 22:18:46] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2400883
-[INFO 22:18:46] my_main Recent Stats | t_env:    2400883 | Episode:    49058
-ep_length_mean:           49.8501	epsilon:                   0.0500	grad_norm:                 2.2787	q_taken_mean:             19.0841
-return_mean:               0.0099	return_std:                0.0837	target_mean:              19.0778	td_error_abs:              0.0782
-td_loss:                   0.0125	test_ep_length_mean:      47.0580	test_return_mean:          0.1600	test_return_std:           0.1960
-
-[INFO 22:21:59] my_main t_env: 2450888 / 4000000
-[INFO 22:21:59] my_main Estimated time left: 1 hours, 44 minutes, 6 seconds. Time passed: 2 hours, 30 minutes, 10 seconds
-[INFO 22:22:04] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2450888
-[INFO 22:22:04] my_main Recent Stats | t_env:    2450888 | Episode:    50453
-ep_length_mean:           40.9427	epsilon:                   0.0500	grad_norm:                 2.0194	q_taken_mean:             18.2092
-return_mean:               0.4960	return_std:                0.7931	target_mean:              18.2051	td_error_abs:              0.0720
-td_loss:                   0.0098	test_ep_length_mean:      41.5160	test_return_mean:          0.4400	test_return_std:           0.3793
-
-[INFO 22:25:35] my_main t_env: 2500905 / 4000000
-[INFO 22:25:35] my_main Estimated time left: 1 hours, 47 minutes, 43 seconds. Time passed: 2 hours, 33 minutes, 46 seconds
-[INFO 22:25:46] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2500905
-[INFO 22:25:46] my_main Recent Stats | t_env:    2500905 | Episode:    52112
-ep_length_mean:           30.4178	epsilon:                   0.0500	grad_norm:                 1.6227	q_taken_mean:             17.3200
-return_mean:               1.0941	return_std:                0.8368	target_mean:              17.3184	td_error_abs:              0.0723
-td_loss:                   0.0095	test_ep_length_mean:      41.5160	test_return_mean:          0.4400	test_return_std:           0.3793
-
-[INFO 22:28:39] my_main t_env: 2550905 / 4000000
-[INFO 22:28:39] my_main Estimated time left: 1 hours, 29 minutes, 10 seconds. Time passed: 2 hours, 36 minutes, 50 seconds
-[INFO 22:28:51] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2550905
-[INFO 22:28:51] my_main Recent Stats | t_env:    2550905 | Episode:    53112
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 1.9479	q_taken_mean:             17.2056
-return_mean:               0.0000	return_std:                0.0000	target_mean:              17.2166	td_error_abs:              0.0663
-td_loss:                   0.0082	test_ep_length_mean:      41.5160	test_return_mean:          0.4400	test_return_std:           0.3793
-
-[INFO 22:31:47] my_main t_env: 2600939 / 4000000
-[INFO 22:31:47] my_main Estimated time left: 1 hours, 27 minutes, 19 seconds. Time passed: 2 hours, 39 minutes, 58 seconds
-[INFO 22:31:58] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2600939
-[INFO 22:31:58] my_main Recent Stats | t_env:    2600939 | Episode:    54113
-ep_length_mean:           49.9841	epsilon:                   0.0500	grad_norm:                 1.7617	q_taken_mean:             16.6205
-return_mean:               0.0015	return_std:                0.0211	target_mean:              16.6306	td_error_abs:              0.0561
-td_loss:                   0.0061	test_ep_length_mean:      41.5160	test_return_mean:          0.4400	test_return_std:           0.3793
-
-[INFO 22:34:52] my_main t_env: 2650952 / 4000000
-[INFO 22:34:52] my_main Estimated time left: 1 hours, 23 minutes, 26 seconds. Time passed: 2 hours, 43 minutes, 3 seconds
-[INFO 22:35:04] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2650952
-[INFO 22:35:04] my_main Recent Stats | t_env:    2650952 | Episode:    55114
-ep_length_mean:           50.0000	epsilon:                   0.0500	grad_norm:                 0.6225	q_taken_mean:             15.9240
-return_mean:               0.0000	return_std:                0.0000	target_mean:              15.9236	td_error_abs:              0.0430
-td_loss:                   0.0038	test_ep_length_mean:      44.4580	test_return_mean:          0.2800	test_return_std:           0.1833
-
-[INFO 22:37:54] my_main t_env: 2701001 / 4000000
-[INFO 22:37:54] my_main Estimated time left: 1 hours, 18 minutes, 28 seconds. Time passed: 2 hours, 46 minutes, 5 seconds
-[INFO 22:38:05] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2701001
-[INFO 22:38:05] my_main Recent Stats | t_env:    2701001 | Episode:    56124
-ep_length_mean:           49.8213	epsilon:                   0.0500	grad_norm:                 0.3232	q_taken_mean:             15.1840
-return_mean:               0.0134	return_std:                0.1539	target_mean:              15.1847	td_error_abs:              0.0310
-td_loss:                   0.0022	test_ep_length_mean:      50.0000	test_return_mean:          0.0000	test_return_std:           0.0000
-
-[INFO 22:41:58] my_main t_env: 2751006 / 4000000
-[INFO 22:41:58] my_main Estimated time left: 1 hours, 41 minutes, 35 seconds. Time passed: 2 hours, 50 minutes, 9 seconds
-[INFO 22:42:01] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2751006
-[INFO 22:42:01] my_main Recent Stats | t_env:    2751006 | Episode:    58190
-ep_length_mean:           35.4101	epsilon:                   0.0500	grad_norm:                 0.4137	q_taken_mean:             14.3281
-return_mean:               0.8644	return_std:                0.7348	target_mean:              14.3279	td_error_abs:              0.0342
-td_loss:                   0.0029	test_ep_length_mean:      42.2440	test_return_mean:          0.3960	test_return_std:           0.0398
-
-[INFO 22:45:37] my_main t_env: 2801033 / 4000000
-[INFO 22:45:37] my_main Estimated time left: 1 hours, 27 minutes, 27 seconds. Time passed: 2 hours, 53 minutes, 48 seconds
-[INFO 22:45:48] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2801033
-[INFO 22:45:48] my_main Recent Stats | t_env:    2801033 | Episode:    59963
-ep_length_mean:           27.0856	epsilon:                   0.0500	grad_norm:                 0.5658	q_taken_mean:             13.5443
-return_mean:               1.3516	return_std:                0.7434	target_mean:              13.5424	td_error_abs:              0.0576
-td_loss:                   0.0065	test_ep_length_mean:      42.1660	test_return_mean:          0.4000	test_return_std:           0.0796
-
-[INFO 22:48:47] my_main t_env: 2851064 / 4000000
-[INFO 22:48:47] my_main Estimated time left: 1 hours, 12 minutes, 47 seconds. Time passed: 2 hours, 56 minutes, 58 seconds
-[INFO 22:48:58] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2851064
-[INFO 22:48:58] my_main Recent Stats | t_env:    2851064 | Episode:    61025
-ep_length_mean:           46.4552	epsilon:                   0.0500	grad_norm:                 0.7252	q_taken_mean:             12.9149
-return_mean:               0.2446	return_std:                0.5703	target_mean:              12.9171	td_error_abs:              0.0511
-td_loss:                   0.0051	test_ep_length_mean:      42.1660	test_return_mean:          0.4000	test_return_std:           0.0796
-
-[INFO 22:51:57] my_main t_env: 2901066 / 4000000
-[INFO 22:51:57] my_main Estimated time left: 1 hours, 9 minutes, 31 seconds. Time passed: 3 hours, 8 seconds
-[INFO 22:52:07] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2901066
-[INFO 22:52:07] my_main Recent Stats | t_env:    2901066 | Episode:    62087
-ep_length_mean:           48.0007	epsilon:                   0.0500	grad_norm:                 0.3052	q_taken_mean:             12.2478
-return_mean:               0.1422	return_std:                0.4608	target_mean:              12.2469	td_error_abs:              0.0258
-td_loss:                   0.0013	test_ep_length_mean:      41.0480	test_return_mean:          0.4520	test_return_std:           0.2141
-
-[INFO 22:55:21] my_main t_env: 2951086 / 4000000
-[INFO 22:55:21] my_main Estimated time left: 1 hours, 11 minutes, 17 seconds. Time passed: 3 hours, 3 minutes, 32 seconds
-[INFO 22:55:27] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/2951086
-[INFO 22:55:27] my_main Recent Stats | t_env:    2951086 | Episode:    63451
-ep_length_mean:           38.9219	epsilon:                   0.0500	grad_norm:                 0.2348	q_taken_mean:             11.5341
-return_mean:               0.6529	return_std:                0.8889	target_mean:              11.5332	td_error_abs:              0.0263
-td_loss:                   0.0013	test_ep_length_mean:      36.0020	test_return_mean:          0.7120	test_return_std:           0.4049
-
-[INFO 23:01:03] my_main t_env: 3001091 / 4000000
-[INFO 23:01:03] my_main Estimated time left: 1 hours, 53 minutes, 57 seconds. Time passed: 3 hours, 9 minutes, 14 seconds
-[INFO 23:01:06] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3001091
-[INFO 23:01:06] my_main Recent Stats | t_env:    3001091 | Episode:    67399
-ep_length_mean:           16.3161	epsilon:                   0.0500	grad_norm:                 0.1786	q_taken_mean:             10.5416
-return_mean:               1.7788	return_std:                0.3322	target_mean:              10.5431	td_error_abs:              0.0266
-td_loss:                   0.0013	test_ep_length_mean:      35.9420	test_return_mean:          0.7160	test_return_std:           0.3651
-
-[INFO 23:05:55] my_main t_env: 3051100 / 4000000
-[INFO 23:05:55] my_main Estimated time left: 1 hours, 32 minutes, 26 seconds. Time passed: 3 hours, 14 minutes, 6 seconds
-[INFO 23:05:58] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3051100
-[INFO 23:05:58] my_main Recent Stats | t_env:    3051100 | Episode:    71668
-ep_length_mean:           11.7150	epsilon:                   0.0500	grad_norm:                 0.6596	q_taken_mean:              9.0953
-return_mean:               1.9906	return_std:                0.1149	target_mean:               9.1096	td_error_abs:              0.0397
-td_loss:                   0.0049	test_ep_length_mean:      28.1380	test_return_mean:          1.1120	test_return_std:           0.3253
-
-[INFO 23:10:31] my_main t_env: 3101107 / 4000000
-[INFO 23:10:31] my_main Estimated time left: 1 hours, 22 minutes, 34 seconds. Time passed: 3 hours, 18 minutes, 42 seconds
-[INFO 23:10:34] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3101107
-[INFO 23:10:34] my_main Recent Stats | t_env:    3101107 | Episode:    75993
-ep_length_mean:           11.5445	epsilon:                   0.0500	grad_norm:                 0.1023	q_taken_mean:              7.5644
-return_mean:               2.0000	return_std:                0.0000	target_mean:               7.5624	td_error_abs:              0.0123
-td_loss:                   0.0003	test_ep_length_mean:      20.2160	test_return_mean:          1.5120	test_return_std:           0.3253
-
-[INFO 23:15:09] my_main t_env: 3151107 / 4000000
-[INFO 23:15:09] my_main Estimated time left: 1 hours, 18 minutes, 46 seconds. Time passed: 3 hours, 23 minutes, 20 seconds
-[INFO 23:15:12] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3151107
-[INFO 23:15:12] my_main Recent Stats | t_env:    3151107 | Episode:    80305
-ep_length_mean:           11.5831	epsilon:                   0.0500	grad_norm:                 0.1988	q_taken_mean:              6.5890
-return_mean:               2.0000	return_std:                0.0000	target_mean:               6.5948	td_error_abs:              0.0152
-td_loss:                   0.0005	test_ep_length_mean:      13.4760	test_return_mean:          1.8600	test_return_std:           0.1908
-
-[INFO 23:19:39] my_main t_env: 3201112 / 4000000
-[INFO 23:19:39] my_main Estimated time left: 1 hours, 11 minutes, 44 seconds. Time passed: 3 hours, 27 minutes, 50 seconds
-[INFO 23:19:41] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3201112
-[INFO 23:19:41] my_main Recent Stats | t_env:    3201112 | Episode:    84636
-ep_length_mean:           11.5887	epsilon:                   0.0500	grad_norm:                 0.1337	q_taken_mean:              5.9343
-return_mean:               2.0000	return_std:                0.0000	target_mean:               5.9303	td_error_abs:              0.0113
-td_loss:                   0.0004	test_ep_length_mean:      10.7800	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:24:03] my_main t_env: 3251114 / 4000000
-[INFO 23:24:03] my_main Estimated time left: 1 hours, 5 minutes, 57 seconds. Time passed: 3 hours, 32 minutes, 14 seconds
-[INFO 23:24:06] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3251114
-[INFO 23:24:06] my_main Recent Stats | t_env:    3251114 | Episode:    88959
-ep_length_mean:           11.5256	epsilon:                   0.0500	grad_norm:                 0.1083	q_taken_mean:              5.4263
-return_mean:               2.0000	return_std:                0.0000	target_mean:               5.4292	td_error_abs:              0.0103
-td_loss:                   0.0003	test_ep_length_mean:      10.8560	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:28:31] my_main t_env: 3301128 / 4000000
-[INFO 23:28:31] my_main Estimated time left: 1 hours, 2 minutes, 26 seconds. Time passed: 3 hours, 36 minutes, 42 seconds
-[INFO 23:28:34] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3301128
-[INFO 23:28:34] my_main Recent Stats | t_env:    3301128 | Episode:    93267
-ep_length_mean:           11.5931	epsilon:                   0.0500	grad_norm:                 0.0200	q_taken_mean:              5.0588
-return_mean:               2.0000	return_std:                0.0000	target_mean:               5.0591	td_error_abs:              0.0045
-td_loss:                   0.0001	test_ep_length_mean:      10.9160	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:33:06] my_main t_env: 3351133 / 4000000
-[INFO 23:33:06] my_main Estimated time left: 59 minutes, 22 seconds. Time passed: 3 hours, 41 minutes, 17 seconds
-[INFO 23:33:08] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3351133
-[INFO 23:33:08] my_main Recent Stats | t_env:    3351133 | Episode:    97547
-ep_length_mean:           11.7073	epsilon:                   0.0500	grad_norm:                 0.0349	q_taken_mean:              4.7622
-return_mean:               2.0000	return_std:                0.0000	target_mean:               4.7628	td_error_abs:              0.0061
-td_loss:                   0.0001	test_ep_length_mean:      11.0040	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:37:32] my_main t_env: 3401142 / 4000000
-[INFO 23:37:32] my_main Estimated time left: 53 minutes, 4 seconds. Time passed: 3 hours, 45 minutes, 43 seconds
-[INFO 23:37:34] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3401142
-[INFO 23:37:34] my_main Recent Stats | t_env:    3401142 | Episode:   101847
-ep_length_mean:           11.6275	epsilon:                   0.0500	grad_norm:                 0.0149	q_taken_mean:              4.5058
-return_mean:               2.0000	return_std:                0.0000	target_mean:               4.5059	td_error_abs:              0.0036
-td_loss:                   0.0000	test_ep_length_mean:      10.9900	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:42:03] my_main t_env: 3451145 / 4000000
-[INFO 23:42:03] my_main Estimated time left: 49 minutes, 33 seconds. Time passed: 3 hours, 50 minutes, 14 seconds
-[INFO 23:42:05] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3451145
-[INFO 23:42:05] my_main Recent Stats | t_env:    3451145 | Episode:   106123
-ep_length_mean:           11.7021	epsilon:                   0.0500	grad_norm:                 0.0197	q_taken_mean:              4.2880
-return_mean:               2.0000	return_std:                0.0000	target_mean:               4.2874	td_error_abs:              0.0045
-td_loss:                   0.0000	test_ep_length_mean:      10.7980	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:46:35] my_main t_env: 3501149 / 4000000
-[INFO 23:46:35] my_main Estimated time left: 45 minutes, 15 seconds. Time passed: 3 hours, 54 minutes, 46 seconds
-[INFO 23:46:38] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3501149
-[INFO 23:46:38] my_main Recent Stats | t_env:    3501149 | Episode:   110391
-ep_length_mean:           11.6936	epsilon:                   0.0500	grad_norm:                 0.0180	q_taken_mean:              4.1106
-return_mean:               2.0000	return_std:                0.0000	target_mean:               4.1103	td_error_abs:              0.0036
-td_loss:                   0.0000	test_ep_length_mean:      10.7320	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:51:12] my_main t_env: 3551153 / 4000000
-[INFO 23:51:12] my_main Estimated time left: 41 minutes, 28 seconds. Time passed: 3 hours, 59 minutes, 23 seconds
-[INFO 23:51:15] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3551153
-[INFO 23:51:15] my_main Recent Stats | t_env:    3551153 | Episode:   114636
-ep_length_mean:           11.7917	epsilon:                   0.0500	grad_norm:                 0.0266	q_taken_mean:              3.9465
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.9472	td_error_abs:              0.0041
-td_loss:                   0.0000	test_ep_length_mean:      10.7600	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 23:55:46] my_main t_env: 3601159 / 4000000
-[INFO 23:55:46] my_main Estimated time left: 36 minutes, 27 seconds. Time passed: 4 hours, 3 minutes, 57 seconds
-[INFO 23:55:49] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3601159
-[INFO 23:55:49] my_main Recent Stats | t_env:    3601159 | Episode:   118891
-ep_length_mean:           11.7395	epsilon:                   0.0500	grad_norm:                 0.0473	q_taken_mean:              3.8079
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.8096	td_error_abs:              0.0054
-td_loss:                   0.0001	test_ep_length_mean:      10.7880	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:00:13] my_main t_env: 3651162 / 4000000
-[INFO 00:00:13] my_main Estimated time left: 31 minutes, 3 seconds. Time passed: 4 hours, 8 minutes, 24 seconds
-[INFO 00:00:16] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3651162
-[INFO 00:00:16] my_main Recent Stats | t_env:    3651162 | Episode:   123138
-ep_length_mean:           11.7885	epsilon:                   0.0500	grad_norm:                 0.0169	q_taken_mean:              3.6949
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.6948	td_error_abs:              0.0033
-td_loss:                   0.0000	test_ep_length_mean:      10.8520	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:04:42] my_main t_env: 3701164 / 4000000
-[INFO 00:04:42] my_main Estimated time left: 26 minutes, 45 seconds. Time passed: 4 hours, 12 minutes, 53 seconds
-[INFO 00:04:45] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3701164
-[INFO 00:04:45] my_main Recent Stats | t_env:    3701164 | Episode:   127352
-ep_length_mean:           11.9037	epsilon:                   0.0500	grad_norm:                 0.0242	q_taken_mean:              3.5976
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.5980	td_error_abs:              0.0038
-td_loss:                   0.0000	test_ep_length_mean:      10.9100	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:09:11] my_main t_env: 3751169 / 4000000
-[INFO 00:09:11] my_main Estimated time left: 22 minutes, 16 seconds. Time passed: 4 hours, 17 minutes, 22 seconds
-[INFO 00:09:13] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3751169
-[INFO 00:09:13] my_main Recent Stats | t_env:    3751169 | Episode:   131596
-ep_length_mean:           11.7223	epsilon:                   0.0500	grad_norm:                 0.0230	q_taken_mean:              3.5103
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.5108	td_error_abs:              0.0034
-td_loss:                   0.0000	test_ep_length_mean:      10.9440	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:13:33] my_main t_env: 3801176 / 4000000
-[INFO 00:13:33] my_main Estimated time left: 17 minutes, 22 seconds. Time passed: 4 hours, 21 minutes, 44 seconds
-[INFO 00:13:36] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3801176
-[INFO 00:13:36] my_main Recent Stats | t_env:    3801176 | Episode:   135802
-ep_length_mean:           11.8914	epsilon:                   0.0500	grad_norm:                 0.0133	q_taken_mean:              3.4063
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.4060	td_error_abs:              0.0029
-td_loss:                   0.0000	test_ep_length_mean:      10.8680	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:18:05] my_main t_env: 3851182 / 4000000
-[INFO 00:18:05] my_main Estimated time left: 13 minutes, 30 seconds. Time passed: 4 hours, 26 minutes, 16 seconds
-[INFO 00:18:08] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3851182
-[INFO 00:18:08] my_main Recent Stats | t_env:    3851182 | Episode:   140051
-ep_length_mean:           11.7722	epsilon:                   0.0500	grad_norm:                 0.0101	q_taken_mean:              3.3228
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.3224	td_error_abs:              0.0028
-td_loss:                   0.0000	test_ep_length_mean:      10.8280	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:22:33] my_main t_env: 3901190 / 4000000
-[INFO 00:22:33] my_main Estimated time left: 8 minutes, 49 seconds. Time passed: 4 hours, 30 minutes, 44 seconds
-[INFO 00:22:36] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3901190
-[INFO 00:22:36] my_main Recent Stats | t_env:    3901190 | Episode:   144270
-ep_length_mean:           11.8816	epsilon:                   0.0500	grad_norm:                 0.0180	q_taken_mean:              3.2471
-return_mean:               2.0000	return_std:                0.0000	target_mean:               3.2469	td_error_abs:              0.0035
-td_loss:                   0.0000	test_ep_length_mean:      10.8120	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:27:18] my_main t_env: 3951198 / 4000000
-[INFO 00:27:18] my_main Estimated time left: 4 minutes, 38 seconds. Time passed: 4 hours, 35 minutes, 29 seconds
-[INFO 00:27:21] my_main Saving models to results/models/qmix_seed800530188_CooperativeReaching-v0_2024-09-16 19:51:46.200041/3951198
-[INFO 00:27:21] my_main Recent Stats | t_env:    3951198 | Episode:   148497
-ep_length_mean:           11.8362	epsilon:                   0.0500	grad_norm:                 0.0183	q_taken_mean:              3.1684
-return_mean:               1.9999	return_std:                0.0034	target_mean:               3.1678	td_error_abs:              0.0033
-td_loss:                   0.0000	test_ep_length_mean:      10.9540	test_return_mean:          2.0000	test_return_std:           0.0000
-
-[INFO 00:31:54] my_main Finished Training
+[INFO 01:15:57] my_main *******************
+[INFO 01:15:57] my_main Tensorboard logging dir:
+[INFO 01:15:57] my_main /home/wangyida/Repos/epymarl/results/tb_logs/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975
+[INFO 01:15:57] my_main *******************
+[INFO 01:16:00] my_main Beginning training for 2000000 timesteps
+[INFO 01:16:03] my_main t_env: 500 / 2000000
+[INFO 01:16:03] my_main Estimated time left: 1 minutes, 39 seconds. Time passed: 2 seconds
+[INFO 01:16:06] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/500
+[INFO 01:16:59] my_main Recent Stats | t_env:      50126 | Episode:     1250
+ep_length_mean:           44.1939	epsilon:                   0.2229	grad_norm:                 0.6600	q_taken_mean:              0.1025
+return_mean:               0.4913	return_std:                0.4662	target_mean:               0.0936	td_error_abs:              0.2634
+td_loss:                   1.2867	test_ep_length_mean:      49.6100	test_return_mean:          0.0150	test_return_std:           0.1492
+
+[INFO 01:17:00] my_main t_env: 50545 / 2000000
+[INFO 01:17:00] my_main Estimated time left: 37 minutes, 3 seconds. Time passed: 59 seconds
+[INFO 01:17:04] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/50545
+[INFO 01:17:54] my_main Recent Stats | t_env:     100196 | Episode:     2410
+ep_length_mean:           42.5934	epsilon:                   0.0500	grad_norm:                 0.3394	q_taken_mean:              0.0617
+return_mean:               0.4787	return_std:                0.8206	target_mean:               0.0625	td_error_abs:              0.0766
+td_loss:                   0.1391	test_ep_length_mean:      48.0950	test_return_mean:          0.0875	test_return_std:           0.3459
+
+[INFO 01:17:55] my_main t_env: 100567 / 2000000
+[INFO 01:17:55] my_main Estimated time left: 34 minutes, 38 seconds. Time passed: 1 minutes, 54 seconds
+[INFO 01:17:58] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/100567
+[INFO 01:18:55] my_main Recent Stats | t_env:     150264 | Episode:     3720
+ep_length_mean:           37.8922	epsilon:                   0.0500	grad_norm:                 1.6137	q_taken_mean:              0.0972
+return_mean:               0.7549	return_std:                0.9653	target_mean:               0.1064	td_error_abs:              0.1039
+td_loss:                   0.1609	test_ep_length_mean:      46.0300	test_return_mean:          0.1917	test_return_std:           0.4973
+
+[INFO 01:18:56] my_main t_env: 150692 / 2000000
+[INFO 01:18:56] my_main Estimated time left: 37 minutes, 30 seconds. Time passed: 2 minutes, 55 seconds
+[INFO 01:18:59] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/150692
+[INFO 01:19:55] my_main Recent Stats | t_env:     200330 | Episode:     5010
+ep_length_mean:           39.4016	epsilon:                   0.0500	grad_norm:                 0.9764	q_taken_mean:              0.0208
+return_mean:               0.6222	return_std:                0.8968	target_mean:               0.0285	td_error_abs:              0.1317
+td_loss:                   0.2191	test_ep_length_mean:      45.4925	test_return_mean:          0.2188	test_return_std:           0.5515
+
+[INFO 01:19:55] my_main t_env: 200752 / 2000000
+[INFO 01:19:55] my_main Estimated time left: 35 minutes, 53 seconds. Time passed: 3 minutes, 55 seconds
+[INFO 01:19:59] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/200752
+[INFO 01:20:52] my_main Recent Stats | t_env:     250459 | Episode:     6210
+ep_length_mean:           42.3026	epsilon:                   0.0500	grad_norm:                 0.5565	q_taken_mean:              0.0019
+return_mean:               0.4173	return_std:                0.8028	target_mean:               0.0001	td_error_abs:              0.0711
+td_loss:                   0.0380	test_ep_length_mean:      45.6540	test_return_mean:          0.2110	test_return_std:           0.5557
+
+[INFO 01:20:52] my_main t_env: 250879 / 2000000
+[INFO 01:20:52] my_main Estimated time left: 33 minutes, 6 seconds. Time passed: 4 minutes, 52 seconds
+[INFO 01:20:56] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/250879
+[INFO 01:21:56] my_main Recent Stats | t_env:     300822 | Episode:     7590
+ep_length_mean:           36.4861	epsilon:                   0.0500	grad_norm:                 3.4256	q_taken_mean:              0.3134
+return_mean:               0.7445	return_std:                0.9568	target_mean:               0.3023	td_error_abs:              0.3180
+td_loss:                   0.6070	test_ep_length_mean:      42.3640	test_return_mean:          0.3760	test_return_std:           0.7232
+
+[INFO 01:21:56] my_main t_env: 301182 / 2000000
+[INFO 01:21:56] my_main Estimated time left: 36 minutes, 0 seconds. Time passed: 5 minutes, 56 seconds
+[INFO 01:22:00] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/301182
+[INFO 01:23:07] my_main Recent Stats | t_env:     351112 | Episode:     9140
+ep_length_mean:           33.5170	epsilon:                   0.0500	grad_norm:                 3.1021	q_taken_mean:              0.7381
+return_mean:               0.8782	return_std:                0.9715	target_mean:               0.7088	td_error_abs:              0.3668
+td_loss:                   0.6501	test_ep_length_mean:      41.0160	test_return_mean:          0.4390	test_return_std:           0.7841
+
+[INFO 01:23:07] my_main t_env: 351434 / 2000000
+[INFO 01:23:07] my_main Estimated time left: 38 minutes, 47 seconds. Time passed: 7 minutes, 7 seconds
+[INFO 01:23:11] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/351434
+[INFO 01:24:14] my_main Recent Stats | t_env:     401307 | Episode:    10590
+ep_length_mean:           36.1233	epsilon:                   0.0500	grad_norm:                10.2656	q_taken_mean:              1.0024
+return_mean:               0.7287	return_std:                0.7571	target_mean:               0.9838	td_error_abs:              0.5297
+td_loss:                   1.1645	test_ep_length_mean:      37.7440	test_return_mean:          0.6030	test_return_std:           0.8192
+
+[INFO 01:24:14] my_main t_env: 401807 / 2000000
+[INFO 01:24:14] my_main Estimated time left: 35 minutes, 21 seconds. Time passed: 8 minutes, 13 seconds
+[INFO 01:24:18] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/401807
+[INFO 01:25:06] my_main Recent Stats | t_env:     451705 | Episode:    11660
+ep_length_mean:           47.0140	epsilon:                   0.0500	grad_norm:                 1.2019	q_taken_mean:             -0.0477
+return_mean:               0.1685	return_std:                0.5457	target_mean:              -0.0693	td_error_abs:              0.1685
+td_loss:                   0.0909	test_ep_length_mean:      38.0480	test_return_mean:          0.5870	test_return_std:           0.8015
+
+[INFO 01:25:06] my_main t_env: 452205 / 2000000
+[INFO 01:25:06] my_main Estimated time left: 26 minutes, 31 seconds. Time passed: 9 minutes, 5 seconds
+[INFO 01:25:10] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/452205
+[INFO 01:25:56] my_main Recent Stats | t_env:     502042 | Episode:    12700
+ep_length_mean:           48.4288	epsilon:                   0.0500	grad_norm:                 0.6950	q_taken_mean:              0.2862
+return_mean:               0.0817	return_std:                0.3900	target_mean:               0.2802	td_error_abs:              0.1500
+td_loss:                   0.1622	test_ep_length_mean:      38.7040	test_return_mean:          0.5550	test_return_std:           0.7268
+
+[INFO 01:25:57] my_main t_env: 502497 / 2000000
+[INFO 01:25:57] my_main Estimated time left: 25 minutes, 13 seconds. Time passed: 9 minutes, 56 seconds
+[INFO 01:26:01] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/502497
+[INFO 01:26:55] my_main Recent Stats | t_env:     552161 | Episode:    13910
+ep_length_mean:           46.2602	epsilon:                   0.0500	grad_norm:                 6.5001	q_taken_mean:              1.6728
+return_mean:               0.2266	return_std:                0.4119	target_mean:               1.6413	td_error_abs:              0.4259
+td_loss:                   1.0821	test_ep_length_mean:      41.8920	test_return_mean:          0.3950	test_return_std:           0.5854
+
+[INFO 01:26:56] my_main t_env: 552733 / 2000000
+[INFO 01:26:56] my_main Estimated time left: 28 minutes, 16 seconds. Time passed: 10 minutes, 55 seconds
+[INFO 01:26:59] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/552733
+[INFO 01:28:41] my_main Recent Stats | t_env:     602234 | Episode:    16810
+ep_length_mean:           20.6622	epsilon:                   0.0500	grad_norm:                 4.3600	q_taken_mean:              1.5345
+return_mean:               1.5279	return_std:                0.8015	target_mean:               1.4897	td_error_abs:              0.4411
+td_loss:                   0.4299	test_ep_length_mean:      40.0120	test_return_mean:          0.4900	test_return_std:           0.6143
+
+[INFO 01:28:42] my_main t_env: 602837 / 2000000
+[INFO 01:28:42] my_main Estimated time left: 49 minutes, 18 seconds. Time passed: 12 minutes, 41 seconds
+[INFO 01:28:45] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/602837
+[INFO 01:30:05] my_main Recent Stats | t_env:     652676 | Episode:    19010
+ep_length_mean:           23.5403	epsilon:                   0.0500	grad_norm:                 5.1551	q_taken_mean:              3.0778
+return_mean:               1.4018	return_std:                0.5999	target_mean:               3.0774	td_error_abs:              0.4394
+td_loss:                   1.0802	test_ep_length_mean:      37.9200	test_return_mean:          0.5970	test_return_std:           0.5492
+
+[INFO 01:30:05] my_main t_env: 653134 / 2000000
+[INFO 01:30:05] my_main Estimated time left: 37 minutes, 17 seconds. Time passed: 14 minutes, 5 seconds
+[INFO 01:30:09] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/653134
+[INFO 01:30:59] my_main Recent Stats | t_env:     702751 | Episode:    20120
+ep_length_mean:           45.1251	epsilon:                   0.0500	grad_norm:                 3.7979	q_taken_mean:              1.4575
+return_mean:               0.2197	return_std:                0.5343	target_mean:               1.4743	td_error_abs:              0.4718
+td_loss:                   0.7307	test_ep_length_mean:      37.9340	test_return_mean:          0.5870	test_return_std:           0.5212
+
+[INFO 01:31:00] my_main t_env: 703208 / 2000000
+[INFO 01:31:00] my_main Estimated time left: 23 minutes, 29 seconds. Time passed: 14 minutes, 59 seconds
+[INFO 01:31:04] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/703208
+[INFO 01:31:50] my_main Recent Stats | t_env:     752993 | Episode:    21140
+ep_length_mean:           49.1105	epsilon:                   0.0500	grad_norm:                 2.3376	q_taken_mean:              2.8186
+return_mean:               0.0481	return_std:                0.2547	target_mean:               2.8347	td_error_abs:              0.3965
+td_loss:                   1.0585	test_ep_length_mean:      37.8500	test_return_mean:          0.5890	test_return_std:           0.5234
+
+[INFO 01:31:50] my_main t_env: 753493 / 2000000
+[INFO 01:31:50] my_main Estimated time left: 20 minutes, 50 seconds. Time passed: 15 minutes, 50 seconds
+[INFO 01:31:54] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/753493
+[INFO 01:32:44] my_main Recent Stats | t_env:     803131 | Episode:    22270
+ep_length_mean:           47.8662	epsilon:                   0.0500	grad_norm:                 3.2234	q_taken_mean:              3.0690
+return_mean:               0.1428	return_std:                0.4672	target_mean:               3.0820	td_error_abs:              0.4016
+td_loss:                   1.1572	test_ep_length_mean:      38.0300	test_return_mean:          0.5810	test_return_std:           0.4674
+
+[INFO 01:32:45] my_main t_env: 803607 / 2000000
+[INFO 01:32:45] my_main Estimated time left: 21 minutes, 51 seconds. Time passed: 16 minutes, 44 seconds
+[INFO 01:32:48] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/803607
+[INFO 01:33:35] my_main Recent Stats | t_env:     853485 | Episode:    23380
+ep_length_mean:           44.2828	epsilon:                   0.0500	grad_norm:                 7.4038	q_taken_mean:              2.8362
+return_mean:               0.3198	return_std:                0.4571	target_mean:               2.8650	td_error_abs:              0.5220
+td_loss:                   1.0923	test_ep_length_mean:      34.5400	test_return_mean:          0.7700	test_return_std:           0.3567
+
+[INFO 01:33:36] my_main t_env: 853985 / 2000000
+[INFO 01:33:36] my_main Estimated time left: 19 minutes, 7 seconds. Time passed: 17 minutes, 35 seconds
+[INFO 01:33:39] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/853985
+[INFO 01:34:34] my_main Recent Stats | t_env:     903564 | Episode:    25150
+ep_length_mean:           41.0280	epsilon:                   0.0500	grad_norm:                 1.3866	q_taken_mean:              2.8244
+return_mean:               0.4951	return_std:                0.4288	target_mean:               2.8261	td_error_abs:              0.3370
+td_loss:                   0.7914	test_ep_length_mean:      41.3480	test_return_mean:          0.4260	test_return_std:           0.2762
+
+[INFO 01:34:35] my_main t_env: 904110 / 2000000
+[INFO 01:34:35] my_main Estimated time left: 21 minutes, 26 seconds. Time passed: 18 minutes, 34 seconds
+[INFO 01:34:36] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/904110
+[INFO 01:35:47] my_main Recent Stats | t_env:     953876 | Episode:    27580
+ep_length_mean:           24.6112	epsilon:                   0.0500	grad_norm:                 2.8899	q_taken_mean:              3.1096
+return_mean:               1.3914	return_std:                0.4499	target_mean:               3.1028	td_error_abs:              0.3883
+td_loss:                   0.6413	test_ep_length_mean:      34.6820	test_return_mean:          0.7920	test_return_std:           0.1790
+
+[INFO 01:35:47] my_main t_env: 954376 / 2000000
+[INFO 01:35:47] my_main Estimated time left: 25 minutes, 11 seconds. Time passed: 19 minutes, 46 seconds
+[INFO 01:35:51] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/954376
+[INFO 01:36:53] my_main Recent Stats | t_env:    1003908 | Episode:    29270
+ep_length_mean:           37.5583	epsilon:                   0.0500	grad_norm:                 1.5761	q_taken_mean:              2.9210
+return_mean:               0.7151	return_std:                0.6038	target_mean:               2.9306	td_error_abs:              0.3465
+td_loss:                   0.6066	test_ep_length_mean:      34.8500	test_return_mean:          0.7860	test_return_std:           0.1370
+
+[INFO 01:36:54] my_main t_env: 1004385 / 2000000
+[INFO 01:36:54] my_main Estimated time left: 22 minutes, 10 seconds. Time passed: 20 minutes, 53 seconds
+[INFO 01:36:55] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1004385
+[INFO 01:38:03] my_main Recent Stats | t_env:    1054313 | Episode:    33060
+ep_length_mean:           13.4410	epsilon:                   0.0500	grad_norm:                 1.5091	q_taken_mean:              3.4790
+return_mean:               1.9364	return_std:                0.1999	target_mean:               3.4743	td_error_abs:              0.2203
+td_loss:                   0.3432	test_ep_length_mean:      27.0680	test_return_mean:          1.1860	test_return_std:           0.1370
+
+[INFO 01:38:04] my_main t_env: 1054727 / 2000000
+[INFO 01:38:04] my_main Estimated time left: 21 minutes, 49 seconds. Time passed: 22 minutes, 3 seconds
+[INFO 01:38:08] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1054727
+[INFO 01:39:14] my_main Recent Stats | t_env:    1104363 | Episode:    35950
+ep_length_mean:           20.4752	epsilon:                   0.0500	grad_norm:                 8.1113	q_taken_mean:              3.6313
+return_mean:               1.6700	return_std:                0.5788	target_mean:               3.5371	td_error_abs:              0.3772
+td_loss:                   0.5447	test_ep_length_mean:      33.0220	test_return_mean:          0.8870	test_return_std:           0.2095
+
+[INFO 01:39:14] my_main t_env: 1104843 / 2000000
+[INFO 01:39:14] my_main Estimated time left: 20 minutes, 57 seconds. Time passed: 23 minutes, 13 seconds
+[INFO 01:39:15] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1104843
+[INFO 01:40:12] my_main Recent Stats | t_env:    1154558 | Episode:    37500
+ep_length_mean:           36.3264	epsilon:                   0.0500	grad_norm:                 2.6323	q_taken_mean:              3.7148
+return_mean:               0.9807	return_std:                0.6451	target_mean:               3.6934	td_error_abs:              0.3475
+td_loss:                   1.1003	test_ep_length_mean:      25.4360	test_return_mean:          1.2800	test_return_std:           0.1600
+
+[INFO 01:40:12] my_main t_env: 1155058 / 2000000
+[INFO 01:40:12] my_main Estimated time left: 16 minutes, 17 seconds. Time passed: 24 minutes, 12 seconds
+[INFO 01:40:16] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1155058
+[INFO 01:41:02] my_main Recent Stats | t_env:    1204853 | Episode:    38510
+ep_length_mean:           49.7714	epsilon:                   0.0500	grad_norm:                 3.3055	q_taken_mean:              2.9566
+return_mean:               0.0100	return_std:                0.0999	target_mean:               2.9735	td_error_abs:              0.4012
+td_loss:                   0.9481	test_ep_length_mean:      32.9320	test_return_mean:          0.8830	test_return_std:           0.1898
+
+[INFO 01:41:02] my_main t_env: 1205353 / 2000000
+[INFO 01:41:02] my_main Estimated time left: 13 minutes, 8 seconds. Time passed: 25 minutes, 1 seconds
+[INFO 01:41:06] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1205353
+[INFO 01:41:52] my_main Recent Stats | t_env:    1255037 | Episode:    39520
+ep_length_mean:           49.7381	epsilon:                   0.0500	grad_norm:                 1.7680	q_taken_mean:              3.6185
+return_mean:               0.0495	return_std:                0.2960	target_mean:               3.6151	td_error_abs:              0.3813
+td_loss:                   1.2417	test_ep_length_mean:      32.9320	test_return_mean:          0.8830	test_return_std:           0.1898
+
+[INFO 01:41:52] my_main t_env: 1255537 / 2000000
+[INFO 01:41:52] my_main Estimated time left: 12 minutes, 20 seconds. Time passed: 25 minutes, 51 seconds
+[INFO 01:41:56] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1255537
+[INFO 01:42:52] my_main Recent Stats | t_env:    1305081 | Episode:    41710
+ep_length_mean:           38.1135	epsilon:                   0.0500	grad_norm:                 1.4118	q_taken_mean:              3.4574
+return_mean:               0.6661	return_std:                0.4150	target_mean:               3.4519	td_error_abs:              0.3201
+td_loss:                   0.7777	test_ep_length_mean:      40.7140	test_return_mean:          0.4830	test_return_std:           0.1898
+
+[INFO 01:42:53] my_main t_env: 1305569 / 2000000
+[INFO 01:42:53] my_main Estimated time left: 14 minutes, 3 seconds. Time passed: 26 minutes, 52 seconds
+[INFO 01:42:54] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1305569
+[INFO 01:44:02] my_main Recent Stats | t_env:    1355148 | Episode:    43960
+ep_length_mean:           22.9145	epsilon:                   0.0500	grad_norm:                 1.1985	q_taken_mean:              3.4453
+return_mean:               1.5762	return_std:                0.5405	target_mean:               3.4544	td_error_abs:              0.2176
+td_loss:                   0.3327	test_ep_length_mean:      34.3720	test_return_mean:          0.8030	test_return_std:           0.0298
+
+[INFO 01:44:02] my_main t_env: 1355648 / 2000000
+[INFO 01:44:02] my_main Estimated time left: 14 minutes, 52 seconds. Time passed: 28 minutes, 2 seconds
+[INFO 01:44:06] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1355648
+[INFO 01:45:11] my_main Recent Stats | t_env:    1405236 | Episode:    45520
+ep_length_mean:           37.4852	epsilon:                   0.0500	grad_norm:                 1.4352	q_taken_mean:              3.4131
+return_mean:               0.8656	return_std:                0.7450	target_mean:               3.4206	td_error_abs:              0.2846
+td_loss:                   0.6418	test_ep_length_mean:      42.0420	test_return_mean:          0.4070	test_return_std:           0.0696
+
+[INFO 01:45:12] my_main t_env: 1405891 / 2000000
+[INFO 01:45:12] my_main Estimated time left: 13 minutes, 40 seconds. Time passed: 29 minutes, 11 seconds
+[INFO 01:45:15] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1405891
+[INFO 01:46:28] my_main Recent Stats | t_env:    1455349 | Episode:    48730
+ep_length_mean:           19.7015	epsilon:                   0.0500	grad_norm:                 1.0468	q_taken_mean:              3.4802
+return_mean:               1.7249	return_std:                0.5284	target_mean:               3.4701	td_error_abs:              0.1765
+td_loss:                   0.3538	test_ep_length_mean:      40.3540	test_return_mean:          0.4920	test_return_std:           0.2055
+
+[INFO 01:46:29] my_main t_env: 1455971 / 2000000
+[INFO 01:46:29] my_main Estimated time left: 13 minutes, 58 seconds. Time passed: 30 minutes, 28 seconds
+[INFO 01:46:30] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1455971
+[INFO 01:47:34] my_main Recent Stats | t_env:    1505561 | Episode:    51470
+ep_length_mean:           21.7448	epsilon:                   0.0500	grad_norm:                 0.9296	q_taken_mean:              3.5984
+return_mean:               1.5802	return_std:                0.4210	target_mean:               3.5950	td_error_abs:              0.2171
+td_loss:                   0.5507	test_ep_length_mean:      32.5480	test_return_mean:          0.8920	test_return_std:           0.2055
+
+[INFO 01:47:35] my_main t_env: 1506061 / 2000000
+[INFO 01:47:35] my_main Estimated time left: 10 minutes, 48 seconds. Time passed: 31 minutes, 34 seconds
+[INFO 01:47:38] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1506061
+[INFO 01:48:47] my_main Recent Stats | t_env:    1555635 | Episode:    54620
+ep_length_mean:           23.9039	epsilon:                   0.0500	grad_norm:                 0.7660	q_taken_mean:              3.6865
+return_mean:               1.5118	return_std:                0.4615	target_mean:               3.6875	td_error_abs:              0.1517
+td_loss:                   0.3655	test_ep_length_mean:      32.5480	test_return_mean:          0.8920	test_return_std:           0.2055
+
+[INFO 01:48:48] my_main t_env: 1556155 / 2000000
+[INFO 01:48:48] my_main Estimated time left: 10 minutes, 51 seconds. Time passed: 32 minutes, 47 seconds
+[INFO 01:48:49] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1556155
+[INFO 01:50:00] my_main Recent Stats | t_env:    1605651 | Episode:    58440
+ep_length_mean:           13.2340	epsilon:                   0.0500	grad_norm:                 2.7891	q_taken_mean:              3.4958
+return_mean:               1.9941	return_std:                0.1029	target_mean:               3.4791	td_error_abs:              0.1088
+td_loss:                   0.0611	test_ep_length_mean:      32.6580	test_return_mean:          0.8920	test_return_std:           0.2055
+
+[INFO 01:50:01] my_main t_env: 1606172 / 2000000
+[INFO 01:50:01] my_main Estimated time left: 9 minutes, 35 seconds. Time passed: 34 minutes, 0 seconds
+[INFO 01:50:02] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1606172
+[INFO 01:51:14] my_main Recent Stats | t_env:    1655753 | Episode:    62610
+ep_length_mean:           12.0266	epsilon:                   0.0500	grad_norm:                 0.3921	q_taken_mean:              3.3908
+return_mean:               1.9981	return_std:                0.0471	target_mean:               3.3857	td_error_abs:              0.0631
+td_loss:                   0.0188	test_ep_length_mean:      25.0200	test_return_mean:          1.2880	test_return_std:           0.1657
+
+[INFO 01:51:14] my_main t_env: 1656209 / 2000000
+[INFO 01:51:14] my_main Estimated time left: 8 minutes, 21 seconds. Time passed: 35 minutes, 13 seconds
+[INFO 01:51:15] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1656209
+[INFO 01:52:26] my_main Recent Stats | t_env:    1705818 | Episode:    66880
+ep_length_mean:           11.7751	epsilon:                   0.0500	grad_norm:                 1.6555	q_taken_mean:              3.3084
+return_mean:               1.9971	return_std:                0.0445	target_mean:               3.2824	td_error_abs:              0.0855
+td_loss:                   0.0831	test_ep_length_mean:      18.8820	test_return_mean:          1.6000	test_return_std:           0.0000
+
+[INFO 01:52:26] my_main t_env: 1706303 / 2000000
+[INFO 01:52:26] my_main Estimated time left: 7 minutes, 3 seconds. Time passed: 36 minutes, 26 seconds
+[INFO 01:52:28] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1706303
+[INFO 01:53:42] my_main Recent Stats | t_env:    1755828 | Episode:    71070
+ep_length_mean:           11.8355	epsilon:                   0.0500	grad_norm:                 0.2791	q_taken_mean:              3.2028
+return_mean:               1.9943	return_std:                0.0812	target_mean:               3.1992	td_error_abs:              0.0442
+td_loss:                   0.0094	test_ep_length_mean:      18.9020	test_return_mean:          1.5960	test_return_std:           0.0398
+
+[INFO 01:53:43] my_main t_env: 1756344 / 2000000
+[INFO 01:53:43] my_main Estimated time left: 6 minutes, 12 seconds. Time passed: 37 minutes, 42 seconds
+[INFO 01:53:44] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1756344
+[INFO 01:54:58] my_main Recent Stats | t_env:    1805878 | Episode:    75310
+ep_length_mean:           11.9214	epsilon:                   0.0500	grad_norm:                 0.2253	q_taken_mean:              3.0990
+return_mean:               1.9881	return_std:                0.1504	target_mean:               3.0935	td_error_abs:              0.0317
+td_loss:                   0.0020	test_ep_length_mean:      11.2100	test_return_mean:          1.9920	test_return_std:           0.0796
+
+[INFO 01:54:59] my_main t_env: 1806372 / 2000000
+[INFO 01:54:59] my_main Estimated time left: 4 minutes, 52 seconds. Time passed: 38 minutes, 58 seconds
+[INFO 01:55:00] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1806372
+[INFO 01:56:12] my_main Recent Stats | t_env:    1855947 | Episode:    79560
+ep_length_mean:           11.7514	epsilon:                   0.0500	grad_norm:                 3.8962	q_taken_mean:              3.1265
+return_mean:               1.9930	return_std:                0.1164	target_mean:               3.1064	td_error_abs:              0.1061
+td_loss:                   0.2949	test_ep_length_mean:      11.1980	test_return_mean:          1.9920	test_return_std:           0.0796
+
+[INFO 01:56:13] my_main t_env: 1856428 / 2000000
+[INFO 01:56:13] my_main Estimated time left: 3 minutes, 33 seconds. Time passed: 40 minutes, 12 seconds
+[INFO 01:56:14] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1856428
+[INFO 01:57:28] my_main Recent Stats | t_env:    1905989 | Episode:    83810
+ep_length_mean:           11.7334	epsilon:                   0.0500	grad_norm:                 0.3189	q_taken_mean:              2.8915
+return_mean:               1.9920	return_std:                0.1213	target_mean:               2.8849	td_error_abs:              0.0362
+td_loss:                   0.0067	test_ep_length_mean:      11.1380	test_return_mean:          1.9880	test_return_std:           0.1194
+
+[INFO 01:57:28] my_main t_env: 1906446 / 2000000
+[INFO 01:57:28] my_main Estimated time left: 2 minutes, 21 seconds. Time passed: 41 minutes, 28 seconds
+[INFO 01:57:30] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1906446
+[INFO 01:58:44] my_main Recent Stats | t_env:    1955995 | Episode:    88030
+ep_length_mean:           11.8547	epsilon:                   0.0500	grad_norm:                 0.2121	q_taken_mean:              2.7843
+return_mean:               1.9925	return_std:                0.1211	target_mean:               2.7803	td_error_abs:              0.0298
+td_loss:                   0.0021	test_ep_length_mean:      11.2240	test_return_mean:          1.9880	test_return_std:           0.1194
+
+[INFO 01:58:45] my_main t_env: 1956466 / 2000000
+[INFO 01:58:45] my_main Estimated time left: 1 minutes, 6 seconds. Time passed: 42 minutes, 44 seconds
+[INFO 01:58:47] my_main Saving models to results/models/qmix_seed689864910_CooperativeReaching-v0_2024-09-18 01:15:57.851975/1956466
+[INFO 01:59:55] my_main Finished Training
 Exiting Main
 Stopping all threads
 Thread Thread-1 is alive! Is daemon: False
 Thread joined
 Exiting script
-[DEBUG 00:31:55] my_main Finished after 4:40:09.
-[INFO 00:31:55] pymarl Completed after 4:40:09
+[DEBUG 01:59:56] my_main Finished after 0:43:59.
+[INFO 01:59:56] pymarl Completed after 0:43:59
